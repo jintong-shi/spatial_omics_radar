@@ -27,3 +27,4 @@ ENV/
 *.log
 .cache/
 .pytest_cache/
+CLAUDE.local.md
