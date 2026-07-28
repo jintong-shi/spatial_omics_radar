@@ -178,10 +178,20 @@ llm:
   #         no extra cost. Requires `claude login` and ANTHROPIC_API_KEY unset.
   #         Best for local backfills; not recommended inside CI.
   backend: api
-  # Classification + extraction is Haiku's sweet spot and ~3x cheaper than
-  # Sonnet. Switch to claude-sonnet-5 only if precision disappoints on a
-  # --limit 20 trial run.
-  model: "claude-haiku-4-5-20251001"
+  # A 2026-07-28 Haiku-vs-Sonnet probe picked Sonnet: via `claude -p` Haiku
+  # rambled (~2600 output tok/call -> ~22s) and misjudged (kept a hackathon),
+  # while Sonnet stayed terse (~206 tok, ~4s) and read more accurately.
+  # Override per run with --model.
+  model: "claude-sonnet-5"
+  # Records per LLM call. Batching amortises the large fixed per-call overhead
+  # (Claude Code's system prompt, re-cached on every `claude -p` spawn) across
+  # the batch. Any record a batch mis-returns is retried on its own.
+  batch_size: 10
+  # Extra flags for `claude -p` (CLI backend only; ignored by the API backend).
+  # --strict-mcp-config drops MCP tool schemas from the context, measured to cut
+  # per-call overhead ~61% (18.8k -> 7.4k tokens).
+  cli_extra_args:
+    - "--strict-mcp-config"
   # Skip the LLM entirely and keep everything the prefilter passed, flagged
   # for manual review. Useful for a dry run with no API key.
   fallback_keep_all: false

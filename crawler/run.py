@@ -82,33 +82,21 @@ def main():
     t = time.perf_counter()
     kept = n_calls = tok_in = tok_out = 0
     cost = 0.0
-    for i, rec in enumerate(passed, 1):
-        if not cfg["llm"]["enabled"]:
-            verdict = {"keep": cfg["llm"]["fallback_keep_all"], "confidence": 0.0,
-                       "reason": "llm disabled", "kind": [], "modality": [],
-                       "platforms": []}
-        else:
-            classifier = triage.classify_via_cli if backend == "cli" else triage.classify
-            verdict, usage = classifier(rec, cfg["vocab"], model,
-                                        cfg.get("learned_rules") or [])
-            n_calls += 1
-            # `input_tokens` alone is only the un-cached delta. With prompt
-            # caching (always on in the CLI backend) the bulk of the real
-            # input lands in the cache_* fields, so summing just input_tokens
-            # under-reports input by ~100x. `total_cost_usd` (cost) is computed
-            # by Claude Code from the full usage and is the trustworthy figure.
-            tok_in += (usage.get("input_tokens", 0)
-                       + usage.get("cache_creation_input_tokens", 0)
-                       + usage.get("cache_read_input_tokens", 0))
-            tok_out += usage.get("output_tokens", 0)
-            cost += usage.get("cost_usd") or 0
-            if verdict is None:
-                continue
-            verdict = triage.sanitise(verdict, cfg["vocab"])
 
-        if not verdict.get("keep"):
-            continue
+    def accumulate(usage):
+        # `input_tokens` alone is the un-cached delta. With prompt caching (always
+        # on in the CLI backend) the bulk of the real input lands in the cache_*
+        # fields, so summing input_tokens alone under-reports input ~100x.
+        # `cost_usd` is Claude Code's own figure computed from the full usage.
+        nonlocal tok_in, tok_out, cost
+        tok_in += (usage.get("input_tokens", 0)
+                   + usage.get("cache_creation_input_tokens", 0)
+                   + usage.get("cache_read_input_tokens", 0))
+        tok_out += usage.get("output_tokens", 0)
+        cost += usage.get("cost_usd") or 0
 
+    def store_entry(rec, verdict):
+        nonlocal kept
         known[rec["source_id"]] = {
             "id": rec["source_id"],
             "name": verdict.get("name") or rec["title"],
@@ -129,7 +117,55 @@ def main():
             "curated": False,
         }
         kept += 1
-        print(f'  [{i}/{len(passed)}] + {known[rec["source_id"]]["name"]}')
+
+    if not cfg["llm"]["enabled"]:
+        for rec in passed:
+            if cfg["llm"]["fallback_keep_all"]:
+                store_entry(rec, {"confidence": 0.0, "one_liner": "",
+                                  "kind": [], "modality": [], "platforms": []})
+    else:
+        learned = cfg.get("learned_rules") or []
+        extra_args = cfg["llm"].get("cli_extra_args") or []
+        batch_size = max(1, int(cfg["llm"].get("batch_size", 1)))
+
+        def classify_one(rec):
+            if backend == "cli":
+                return triage.classify_via_cli(rec, cfg["vocab"], model, learned, extra_args)
+            return triage.classify(rec, cfg["vocab"], model, learned)
+
+        def classify_many(recs):
+            if backend == "cli":
+                return triage.classify_batch_via_cli(recs, cfg["vocab"], model, learned, extra_args)
+            return triage.classify_batch(recs, cfg["vocab"], model, learned)
+
+        done = 0
+        for start in range(0, len(passed), batch_size):
+            chunk = passed[start:start + batch_size]
+            if batch_size == 1:
+                verdict, usage = classify_one(chunk[0])
+                accumulate(usage)
+                n_calls += 1
+                verdicts = [verdict]
+            else:
+                verdicts, usage = classify_many(chunk)
+                accumulate(usage)
+                n_calls += 1
+                for j, (rec, v) in enumerate(zip(chunk, verdicts)):
+                    if v is None:              # batch dropped it -> retry alone
+                        v, u = classify_one(rec)
+                        accumulate(u)
+                        n_calls += 1
+                        verdicts[j] = v
+
+            for rec, verdict in zip(chunk, verdicts):
+                done += 1
+                if verdict is None:
+                    continue
+                verdict = triage.sanitise(verdict, cfg["vocab"])
+                if not verdict.get("keep"):
+                    continue
+                store_entry(rec, verdict)
+                print(f'  [{done}/{len(passed)}] + {known[rec["source_id"]]["name"]}')
     t_llm = time.perf_counter() - t
 
     store.save_auto(known)
