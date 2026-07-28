@@ -159,6 +159,16 @@ vocab:
     - platform-agnostic
 
 # ---------------------------------------------------------------------------
+# Rules distilled from past manual corrections (see docs/correction-log.md).
+# Each string is injected verbatim into the classifier prompt, so every future
+# crawl respects it — this is the only channel by which your accumulated review
+# experience reaches the LLM. Add entries via the /review-crawl skill; keep them
+# short and imperative. Empty is fine.
+learned_rules: []
+  # - "MERFISH cell-typing papers whose contribution is a biological finding → keep:false"
+  # - "web-only tools with no installable package → not a bioinformatics tool"
+
+# ---------------------------------------------------------------------------
 llm:
   enabled: true
   # Where stage-2 classification runs. Overridable per-run with --backend.

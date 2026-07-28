@@ -28,7 +28,7 @@ used spatial data heavily
 - reviews, perspectives, commentaries
 - databases, web portals, data repositories and atlases (out of scope)
 
-Controlled vocabulary — you MUST choose from these exact strings.
+{rules_block}Controlled vocabulary — you MUST choose from these exact strings.
 
 kind (1-2 values; these are NOT mutually exclusive): {kind}
   technology          = wet-lab assay, platform or protocol
@@ -84,8 +84,15 @@ def prefilter(rec, rules):
     return any(t in blob for t in rules["artifacts"])
 
 
-def _build_prompt(rec, vocab):
+def _build_prompt(rec, vocab, learned=()):
+    # Rules distilled from past corrections ride along in every classification;
+    # this is the only channel by which accumulated experience reaches the LLM.
+    rules_block = ""
+    if learned:
+        rules_block = ("ADDITIONAL RULES (learned from past corrections — follow strictly):\n"
+                       + "\n".join(f"- {r}" for r in learned) + "\n\n")
     return PROMPT.format(
+        rules_block=rules_block,
         kind=", ".join(vocab["kind"]),
         modality=", ".join(vocab["modality"]),
         platform=", ".join(vocab["platform"]),
@@ -106,14 +113,15 @@ def _parse_verdict(raw, rec):
         return None
 
 
-def classify(rec, vocab, model):
+def classify(rec, vocab, model, learned=()):
     """API backend. Calls the raw Messages API, billed per-token against
-    ANTHROPIC_API_KEY. Returns dict or None."""
+    ANTHROPIC_API_KEY. Returns (verdict|None, usage) where usage carries
+    input_tokens / output_tokens."""
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         raise RuntimeError("ANTHROPIC_API_KEY is not set")
 
-    prompt = _build_prompt(rec, vocab)
+    prompt = _build_prompt(rec, vocab, learned)
 
     r = requests.post(
         API,
@@ -125,11 +133,12 @@ def classify(rec, vocab, model):
     )
     r.raise_for_status()
 
-    raw = "".join(b["text"] for b in r.json()["content"] if b["type"] == "text")
-    return _parse_verdict(raw, rec)
+    body = r.json()
+    raw = "".join(b["text"] for b in body["content"] if b["type"] == "text")
+    return _parse_verdict(raw, rec), body.get("usage", {})
 
 
-def classify_via_cli(rec, vocab, model):
+def classify_via_cli(rec, vocab, model, learned=()):
     """CLI backend. Shells out to `claude -p`, which authenticates with your
     Pro/Max subscription and draws on its usage limits instead of an API bill.
 
@@ -139,7 +148,8 @@ def classify_via_cli(rec, vocab, model):
 
     NOTE (2026-07): the subscription path for `claude -p` is officially in flux
     and may change with notice. Confirm it still works with a small `--limit`
-    run before a large backfill. Returns dict or None.
+    run before a large backfill. Returns (verdict|None, usage) where usage
+    carries input_tokens / output_tokens and, if reported, cost_usd.
     """
     exe = shutil.which("claude")
     if not exe:
@@ -147,7 +157,7 @@ def classify_via_cli(rec, vocab, model):
             "`claude` CLI not found on PATH. Install Claude Code and run "
             "`claude login`, or use --backend api.")
 
-    prompt = _build_prompt(rec, vocab)
+    prompt = _build_prompt(rec, vocab, learned)
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
 
     proc = subprocess.run(
@@ -162,13 +172,16 @@ def classify_via_cli(rec, vocab, model):
         envelope = json.loads(proc.stdout)
     except json.JSONDecodeError:
         print(f'  ! unparseable CLI envelope for {rec["source_id"]}')
-        return None
+        return None, {}
     if envelope.get("is_error"):
         print(f'  ! claude reported an error for {rec["source_id"]}')
-        return None
+        return None, {}
     # `--output-format json` wraps the assistant text in a result envelope; the
-    # actual JSON we asked for lives in the "result" field.
-    return _parse_verdict(envelope.get("result", ""), rec)
+    # JSON we asked for is in "result", token counts in "usage", $ in top-level.
+    usage = dict(envelope.get("usage", {}))
+    if envelope.get("total_cost_usd") is not None:
+        usage["cost_usd"] = envelope["total_cost_usd"]
+    return _parse_verdict(envelope.get("result", ""), rec), usage
 
 
 def sanitise(verdict, vocab):

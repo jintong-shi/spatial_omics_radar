@@ -11,6 +11,7 @@ import argparse
 import datetime as dt
 import pathlib
 import sys
+import time
 
 import yaml
 
@@ -42,6 +43,7 @@ def main():
           f"(llm backend: {backend})")
 
     # ---- fetch -------------------------------------------------------------
+    t = time.perf_counter()
     raw = {}
     for q in cfg["europepmc_queries"]:
         hits = sources.fetch_europepmc(q, since)
@@ -55,10 +57,14 @@ def main():
             raw.setdefault(h["source_id"], h)
 
     fresh = {k: v for k, v in raw.items() if k not in known}
+    t_fetch = time.perf_counter() - t
     print(f"{len(raw)} unique records, {len(fresh)} not seen before")
 
     # ---- stage 1 -----------------------------------------------------------
+    t = time.perf_counter()
     passed = [r for r in fresh.values() if triage.prefilter(r, cfg["prefilter"])]
+    t_prefilter = time.perf_counter() - t
+    n_prefilter = len(passed)
     print(f"prefilter kept {len(passed)}/{len(fresh)}")
 
     if args.dry_run:
@@ -70,7 +76,9 @@ def main():
         passed = passed[: args.limit]
 
     # ---- stage 2 -----------------------------------------------------------
-    kept = 0
+    t = time.perf_counter()
+    kept = n_calls = tok_in = tok_out = 0
+    cost = 0.0
     for i, rec in enumerate(passed, 1):
         if not cfg["llm"]["enabled"]:
             verdict = {"keep": cfg["llm"]["fallback_keep_all"], "confidence": 0.0,
@@ -78,7 +86,12 @@ def main():
                        "platforms": []}
         else:
             classifier = triage.classify_via_cli if backend == "cli" else triage.classify
-            verdict = classifier(rec, cfg["vocab"], cfg["llm"]["model"])
+            verdict, usage = classifier(rec, cfg["vocab"], cfg["llm"]["model"],
+                                        cfg.get("learned_rules") or [])
+            n_calls += 1
+            tok_in += usage.get("input_tokens", 0)
+            tok_out += usage.get("output_tokens", 0)
+            cost += usage.get("cost_usd") or 0
             if verdict is None:
                 continue
             verdict = triage.sanitise(verdict, cfg["vocab"])
@@ -107,6 +120,7 @@ def main():
         }
         kept += 1
         print(f'  [{i}/{len(passed)}] + {known[rec["source_id"]]["name"]}')
+    t_llm = time.perf_counter() - t
 
     store.save_auto(known)
     total = store.publish(known, {
@@ -115,6 +129,15 @@ def main():
         "vocab": cfg["vocab"],
     })
     print(f"added {kept}; published {total} entries")
+
+    # ---- metrics report ----------------------------------------------------
+    print("\n── crawl metrics ──────────────────────────────────")
+    print(f"  fetch      {len(raw):5d} records ({len(fresh)} new)      {t_fetch:7.1f}s")
+    print(f"  prefilter  {n_prefilter:5d} kept                       {t_prefilter:7.1f}s")
+    print(f"  LLM [{backend}] {n_calls:5d} calls ({kept} kept)         {t_llm:7.1f}s")
+    print(f"             tokens: in {tok_in:,}  out {tok_out:,}  total {tok_in + tok_out:,}")
+    if cost:
+        print(f"             api-equivalent cost: ${cost:.4f}")
 
 
 if __name__ == "__main__":
