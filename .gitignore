@@ -27,4 +27,11 @@ ENV/
 *.log
 .cache/
 .pytest_cache/
+
+# Internal planning docs — kept local only, never tracked (repo is public)
 CLAUDE.local.md
+PLAN.md
+DECISIONS.md
+docs/work-plan.md
+docs/rollout-plan.md
+docs/correction-log.md
