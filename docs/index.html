@@ -50,10 +50,13 @@ h1 em{font-style:normal;color:var(--eosin)}
 .controls{position:sticky;top:0;z-index:5;background:var(--slide);
   border-bottom:1px solid var(--rule);padding:14px 0;margin-top:30px;
   display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-input[type=search],select{font-family:var(--mono);font-size:.82rem;color:var(--hema);
-  background:#fff;border:1px solid var(--rule);border-radius:3px;padding:8px 10px}
+input[type=search],input[type=month],select{font-family:var(--mono);font-size:.82rem;
+  color:var(--hema);background:#fff;border:1px solid var(--rule);border-radius:3px;padding:8px 10px}
 input[type=search]{flex:1 1 220px;min-width:0}
 select{max-width:200px}
+.range{display:flex;align-items:center;gap:6px;font-family:var(--mono);
+  font-size:.72rem;letter-spacing:.04em;color:var(--stroma)}
+.range input[type=month]{padding:6px 8px}
 .reset{font-family:var(--mono);font-size:.75rem;background:none;border:0;
   color:var(--eosin);cursor:pointer;text-decoration:underline;padding:6px}
 
@@ -113,8 +116,9 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
   <input type="search" id="q" placeholder="search name, description, venue…" aria-label="Search entries">
   <select id="fKind" aria-label="Filter by kind"><option value="">any kind</option></select>
   <select id="fMod" aria-label="Filter by modality"><option value="">any modality</option></select>
-  <select id="fFrom" aria-label="From month"><option value="">from month</option></select>
-  <select id="fTo" aria-label="To month"><option value="">to month</option></select>
+  <select id="fPlat" aria-label="Filter by platform"><option value="">any platform</option></select>
+  <label class="range">from <input type="month" id="fFrom" aria-label="From month"></label>
+  <label class="range">to <input type="month" id="fTo" aria-label="To month"></label>
   <button class="reset" id="reset" hidden>clear filters</button>
 </div>
 
@@ -128,7 +132,7 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
 </div>
 
 <script>
-const state = {all:[], q:"", kind:"", mod:"", from:"", to:""};
+const state = {all:[], q:"", kind:"", mod:"", plat:"", from:"", to:""};
 const el = id => document.getElementById(id);
 
 fetch("entries.json").then(r => r.json()).then(init).catch(() => {
@@ -143,13 +147,15 @@ function init(data){
 
   fillSelect("fKind", uniq(e => e.kind || []));
   fillSelect("fMod", uniq(e => e.modality || []));
+  fillSelect("fPlat", uniq(e => e.platforms || []));
   buildStrip();
 
-  ["q","fKind","fMod"].forEach(id =>
+  ["q","fKind","fMod","fPlat"].forEach(id =>
     el(id).addEventListener("input", () => {
       state.q = el("q").value.toLowerCase();
       state.kind = el("fKind").value;
       state.mod = el("fMod").value;
+      state.plat = el("fPlat").value;
       render();
     }));
   ["fFrom","fTo"].forEach(id =>
@@ -161,8 +167,8 @@ function init(data){
       render();
     }));
   el("reset").addEventListener("click", () => {
-    Object.assign(state, {q:"",kind:"",mod:"",from:"",to:""});
-    el("q").value = ""; ["fKind","fMod","fFrom","fTo"].forEach(i => el(i).value = "");
+    Object.assign(state, {q:"",kind:"",mod:"",plat:"",from:"",to:""});
+    el("q").value = ""; ["fKind","fMod","fPlat","fFrom","fTo"].forEach(i => el(i).value = "");
     paintStrip();
     render();
   });
@@ -193,7 +199,7 @@ function buildStrip(){
   const max = Math.max(...Object.values(counts));
   el("stripFrom").textContent = span[0];
   el("stripTo").textContent = span.at(-1);
-  fillTimeSelects(span);
+  setTimeBounds(span);
   el("strip").append(...span.map(mo => {
     const n = counts[mo] || 0, b = document.createElement("button");
     b.style.height = n ? (14 + 86 * n / max) + "%" : "3px";
@@ -215,10 +221,9 @@ function buildStrip(){
 
 /* The strip, the two date selects and state.from/to are one source of truth:
    whichever the user touches, the other two are brought back into sync. */
-function fillTimeSelects(months){
-  const opt = m => Object.assign(document.createElement("option"), {value:m, textContent:m});
-  el("fFrom").append(...months.map(opt));
-  el("fTo").append(...months.map(opt));
+function setTimeBounds(months){                   // month inputs get real min/max
+  const lo = months[0], hi = months.at(-1);
+  [el("fFrom"), el("fTo")].forEach(i => { i.min = lo; i.max = hi; });
 }
 function syncTimeInputs(){ el("fFrom").value = state.from; el("fTo").value = state.to; }
 function clampRange(){                            // tolerate from/to picked out of order
@@ -239,6 +244,7 @@ function paintStrip(){
 function match(e){
   if (state.kind && !(e.kind || []).includes(state.kind)) return false;
   if (state.mod && !(e.modality || []).includes(state.mod)) return false;
+  if (state.plat && !(e.platforms || []).includes(state.plat)) return false;
   if (state.from && ym(e) < state.from) return false;
   if (state.to && ym(e) > state.to) return false;
   if (state.q){
@@ -250,7 +256,7 @@ function match(e){
 
 function render(){
   const rows = state.all.filter(match);
-  const filtered = state.q || state.kind || state.mod || state.from || state.to;
+  const filtered = state.q || state.kind || state.mod || state.plat || state.from || state.to;
   el("reset").hidden = !filtered;
   el("counter").textContent = filtered
     ? `${rows.length} of ${state.all.length} entries`

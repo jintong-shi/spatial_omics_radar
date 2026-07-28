@@ -33,14 +33,17 @@ def main():
                     help="api = Messages API billed to ANTHROPIC_API_KEY; "
                          "cli = `claude -p` billed to your Pro/Max subscription. "
                          "Default comes from config.yml (llm.backend).")
+    ap.add_argument("--model", help="override llm.model from config.yml "
+                                    "(e.g. claude-sonnet-5 for an accuracy A/B)")
     args = ap.parse_args()
 
     cfg = yaml.safe_load(CONFIG.read_text())
     backend = args.backend or cfg["llm"].get("backend", "api")
+    model = args.model or cfg["llm"]["model"]
     since = args.since or (dt.date.today() - dt.timedelta(days=45)).isoformat()
     known = store.load_auto()
     print(f"crawling since {since}; {len(known)} entries already known "
-          f"(llm backend: {backend})")
+          f"(llm backend: {backend}, model: {model})")
 
     # ---- fetch -------------------------------------------------------------
     t = time.perf_counter()
@@ -86,10 +89,17 @@ def main():
                        "platforms": []}
         else:
             classifier = triage.classify_via_cli if backend == "cli" else triage.classify
-            verdict, usage = classifier(rec, cfg["vocab"], cfg["llm"]["model"],
+            verdict, usage = classifier(rec, cfg["vocab"], model,
                                         cfg.get("learned_rules") or [])
             n_calls += 1
-            tok_in += usage.get("input_tokens", 0)
+            # `input_tokens` alone is only the un-cached delta. With prompt
+            # caching (always on in the CLI backend) the bulk of the real
+            # input lands in the cache_* fields, so summing just input_tokens
+            # under-reports input by ~100x. `total_cost_usd` (cost) is computed
+            # by Claude Code from the full usage and is the trustworthy figure.
+            tok_in += (usage.get("input_tokens", 0)
+                       + usage.get("cache_creation_input_tokens", 0)
+                       + usage.get("cache_read_input_tokens", 0))
             tok_out += usage.get("output_tokens", 0)
             cost += usage.get("cost_usd") or 0
             if verdict is None:
@@ -101,7 +111,7 @@ def main():
 
         known[rec["source_id"]] = {
             "id": rec["source_id"],
-            "name": verdict.get("name") or rec["title"][:60],
+            "name": verdict.get("name") or rec["title"],
             "title": rec["title"],
             "one_liner": verdict.get("one_liner", ""),
             "kind": verdict.get("kind", []),
@@ -135,7 +145,7 @@ def main():
     print(f"  fetch      {len(raw):5d} records ({len(fresh)} new)      {t_fetch:7.1f}s")
     print(f"  prefilter  {n_prefilter:5d} kept                       {t_prefilter:7.1f}s")
     print(f"  LLM [{backend}] {n_calls:5d} calls ({kept} kept)         {t_llm:7.1f}s")
-    print(f"             tokens: in {tok_in:,}  out {tok_out:,}  total {tok_in + tok_out:,}")
+    print(f"             tokens: in {tok_in:,} (incl. cached)  out {tok_out:,}")
     if cost:
         print(f"             api-equivalent cost: ${cost:.4f}")
 

@@ -60,7 +60,11 @@ def fetch_europepmc(query, since, page_size=100, max_pages=30):
                     "url": f"https://doi.org/{doi}" if doi else
                            f'https://europepmc.org/article/{item.get("source")}/{item.get("id")}',
                     "code_url": None,
-                    "venue": item.get("journalTitle") or item.get("source") or "",
+                    # Journal name is nested; the flat `journalTitle` key is
+                    # almost always empty, which used to leave every paper
+                    # tagged with the EPMC source code (MED/PPR) as its venue.
+                    "venue": ((((item.get("journalInfo") or {}).get("journal") or {}).get("title"))
+                              or item.get("journalTitle") or item.get("source") or ""),
                     "date": item.get("firstPublicationDate") or "",
                     "is_preprint": item.get("source") == "PPR",
                 }
