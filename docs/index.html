@@ -106,13 +106,15 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
   <p class="counter" id="counter">loading</p>
 
   <div class="strip" id="strip" role="group" aria-label="Filter by month of publication"></div>
-  <div class="strip-legend"><span id="stripFrom"></span><span>entries per month · click to filter</span><span id="stripTo"></span></div>
+  <div class="strip-legend"><span id="stripFrom"></span><span>entries per month · click a bar or set a range below</span><span id="stripTo"></span></div>
 </header>
 
 <div class="controls">
   <input type="search" id="q" placeholder="search name, description, venue…" aria-label="Search entries">
   <select id="fKind" aria-label="Filter by kind"><option value="">any kind</option></select>
   <select id="fMod" aria-label="Filter by modality"><option value="">any modality</option></select>
+  <select id="fFrom" aria-label="From month"><option value="">from month</option></select>
+  <select id="fTo" aria-label="To month"><option value="">to month</option></select>
   <button class="reset" id="reset" hidden>clear filters</button>
 </div>
 
@@ -126,7 +128,7 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
 </div>
 
 <script>
-const state = {all:[], q:"", kind:"", mod:"", month:""};
+const state = {all:[], q:"", kind:"", mod:"", from:"", to:""};
 const el = id => document.getElementById(id);
 
 fetch("entries.json").then(r => r.json()).then(init).catch(() => {
@@ -150,10 +152,18 @@ function init(data){
       state.mod = el("fMod").value;
       render();
     }));
+  ["fFrom","fTo"].forEach(id =>
+    el(id).addEventListener("change", () => {
+      state.from = el("fFrom").value;
+      state.to = el("fTo").value;
+      clampRange();
+      paintStrip();
+      render();
+    }));
   el("reset").addEventListener("click", () => {
-    Object.assign(state, {q:"",kind:"",mod:"",month:""});
-    el("q").value = ""; ["fKind","fMod"].forEach(i => el(i).value = "");
-    document.querySelectorAll("#strip button").forEach(b => b.setAttribute("aria-pressed","false"));
+    Object.assign(state, {q:"",kind:"",mod:"",from:"",to:""});
+    el("q").value = ""; ["fKind","fMod","fFrom","fTo"].forEach(i => el(i).value = "");
+    paintStrip();
     render();
   });
   render();
@@ -183,6 +193,7 @@ function buildStrip(){
   const max = Math.max(...Object.values(counts));
   el("stripFrom").textContent = span[0];
   el("stripTo").textContent = span.at(-1);
+  fillTimeSelects(span);
   el("strip").append(...span.map(mo => {
     const n = counts[mo] || 0, b = document.createElement("button");
     b.style.height = n ? (14 + 86 * n / max) + "%" : "3px";
@@ -190,20 +201,46 @@ function buildStrip(){
     b.setAttribute("aria-label", b.title);
     b.setAttribute("aria-pressed","false");
     if (!n){ b.disabled = true; b.className = "gap"; return b; }
-    b.onclick = () => {
-      state.month = state.month === mo ? "" : mo;
-      document.querySelectorAll("#strip button").forEach(x =>
-        x.setAttribute("aria-pressed", String(x === b && state.month === mo)));
+    b.dataset.month = mo;
+    b.onclick = () => {                          // a bar picks a single month
+      const single = state.from === mo && state.to === mo;
+      state.from = state.to = single ? "" : mo;  // click the same one again to clear
+      syncTimeInputs();
+      paintStrip();
       render();
     };
     return b;
   }));
 }
 
+/* The strip, the two date selects and state.from/to are one source of truth:
+   whichever the user touches, the other two are brought back into sync. */
+function fillTimeSelects(months){
+  const opt = m => Object.assign(document.createElement("option"), {value:m, textContent:m});
+  el("fFrom").append(...months.map(opt));
+  el("fTo").append(...months.map(opt));
+}
+function syncTimeInputs(){ el("fFrom").value = state.from; el("fTo").value = state.to; }
+function clampRange(){                            // tolerate from/to picked out of order
+  if (state.from && state.to && state.from > state.to){
+    [state.from, state.to] = [state.to, state.from];
+    syncTimeInputs();
+  }
+}
+function paintStrip(){
+  const active = state.from || state.to;
+  document.querySelectorAll("#strip button:not(.gap)").forEach(b => {
+    const m = b.dataset.month;
+    b.setAttribute("aria-pressed",
+      String(!!active && (!state.from || m >= state.from) && (!state.to || m <= state.to)));
+  });
+}
+
 function match(e){
   if (state.kind && !(e.kind || []).includes(state.kind)) return false;
   if (state.mod && !(e.modality || []).includes(state.mod)) return false;
-  if (state.month && ym(e) !== state.month) return false;
+  if (state.from && ym(e) < state.from) return false;
+  if (state.to && ym(e) > state.to) return false;
   if (state.q){
     const hay = [e.name, e.one_liner, e.title, e.venue].join(" ").toLowerCase();
     if (!hay.includes(state.q)) return false;
@@ -213,7 +250,7 @@ function match(e){
 
 function render(){
   const rows = state.all.filter(match);
-  const filtered = state.q || state.kind || state.mod || state.month;
+  const filtered = state.q || state.kind || state.mod || state.from || state.to;
   el("reset").hidden = !filtered;
   el("counter").textContent = filtered
     ? `${rows.length} of ${state.all.length} entries`

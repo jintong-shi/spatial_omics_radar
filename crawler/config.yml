@@ -161,6 +161,13 @@ vocab:
 # ---------------------------------------------------------------------------
 llm:
   enabled: true
+  # Where stage-2 classification runs. Overridable per-run with --backend.
+  #   api = raw Messages API, billed per-token to ANTHROPIC_API_KEY. Use this
+  #         for the unattended GitHub Action (predictable pay-as-you-go).
+  #   cli = shells out to `claude -p`, drawing on your Pro/Max subscription at
+  #         no extra cost. Requires `claude login` and ANTHROPIC_API_KEY unset.
+  #         Best for local backfills; not recommended inside CI.
+  backend: api
   # Classification + extraction is Haiku's sweet spot and ~3x cheaper than
   # Sonnet. Switch to claude-sonnet-5 only if precision disappoints on a
   # --limit 20 trial run.

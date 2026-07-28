@@ -10,6 +10,8 @@ Roughly 90% of raw hits die in stage 1, which is what keeps the API bill flat.
 
 import json
 import os
+import shutil
+import subprocess
 
 import requests
 
@@ -82,13 +84,8 @@ def prefilter(rec, rules):
     return any(t in blob for t in rules["artifacts"])
 
 
-def classify(rec, vocab, model):
-    """Ask the LLM to judge and structure one record. Returns dict or None."""
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key:
-        raise RuntimeError("ANTHROPIC_API_KEY is not set")
-
-    prompt = PROMPT.format(
+def _build_prompt(rec, vocab):
+    return PROMPT.format(
         kind=", ".join(vocab["kind"]),
         modality=", ".join(vocab["modality"]),
         platform=", ".join(vocab["platform"]),
@@ -96,6 +93,27 @@ def classify(rec, vocab, model):
         venue=rec["venue"],
         text=rec["text"][:4000],
     )
+
+
+def _parse_verdict(raw, rec):
+    """Parse the model's JSON reply. Both backends funnel through here so the
+    two paths cannot drift apart. Returns dict or None."""
+    raw = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```")
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        print(f'  ! unparseable LLM reply for {rec["source_id"]}')
+        return None
+
+
+def classify(rec, vocab, model):
+    """API backend. Calls the raw Messages API, billed per-token against
+    ANTHROPIC_API_KEY. Returns dict or None."""
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        raise RuntimeError("ANTHROPIC_API_KEY is not set")
+
+    prompt = _build_prompt(rec, vocab)
 
     r = requests.post(
         API,
@@ -108,12 +126,49 @@ def classify(rec, vocab, model):
     r.raise_for_status()
 
     raw = "".join(b["text"] for b in r.json()["content"] if b["type"] == "text")
-    raw = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```")
+    return _parse_verdict(raw, rec)
+
+
+def classify_via_cli(rec, vocab, model):
+    """CLI backend. Shells out to `claude -p`, which authenticates with your
+    Pro/Max subscription and draws on its usage limits instead of an API bill.
+
+    Requires `claude login` first. ANTHROPIC_API_KEY is stripped from the child
+    environment on purpose: if it is present, Claude Code authenticates with the
+    key and you are silently billed for API usage rather than the subscription.
+
+    NOTE (2026-07): the subscription path for `claude -p` is officially in flux
+    and may change with notice. Confirm it still works with a small `--limit`
+    run before a large backfill. Returns dict or None.
+    """
+    exe = shutil.which("claude")
+    if not exe:
+        raise RuntimeError(
+            "`claude` CLI not found on PATH. Install Claude Code and run "
+            "`claude login`, or use --backend api.")
+
+    prompt = _build_prompt(rec, vocab)
+    env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
+
+    proc = subprocess.run(
+        [exe, "-p", prompt, "--output-format", "json", "--model", model],
+        capture_output=True, text=True, env=env, timeout=180,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError(
+            f"claude CLI exited {proc.returncode}: {proc.stderr.strip()[:300]}")
+
     try:
-        return json.loads(raw)
+        envelope = json.loads(proc.stdout)
     except json.JSONDecodeError:
-        print(f'  ! unparseable LLM reply for {rec["source_id"]}')
+        print(f'  ! unparseable CLI envelope for {rec["source_id"]}')
         return None
+    if envelope.get("is_error"):
+        print(f'  ! claude reported an error for {rec["source_id"]}')
+        return None
+    # `--output-format json` wraps the assistant text in a result envelope; the
+    # actual JSON we asked for lives in the "result" field.
+    return _parse_verdict(envelope.get("result", ""), rec)
 
 
 def sanitise(verdict, vocab):

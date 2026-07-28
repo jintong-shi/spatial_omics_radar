@@ -45,16 +45,46 @@ pip install -r requirements.txt
 python crawler/run.py --since 2024-01-01 --dry-run
 
 # Once the dry-run list looks sane, classify a small batch and inspect it.
-export ANTHROPIC_API_KEY=sk-...
-python crawler/run.py --since 2024-01-01 --limit 10
+python crawler/run.py --since 2024-01-01 --limit 10 --backend cli   # subscription
 python -m http.server -d docs 8000     # open localhost:8000
 
 # Happy? Do the full backfill.
-python crawler/run.py --since 2023-01-01
+python crawler/run.py --since 2023-01-01 --backend cli
 git add data docs && git commit -m "backfill" && git push
 ```
 
 The Action then runs every Monday and pushes incrementally (last 45 days).
+
+### Which LLM backend
+
+Stage-2 classification runs one of two ways, chosen with `--backend` (default
+`llm.backend` in `config.yml`):
+
+| backend | how it authenticates | who pays |
+|---------|----------------------|----------|
+| `cli` *(recommended for local backfills)* | `claude -p`, your logged-in Claude Code session | drawn from your **Pro/Max subscription** limits, no extra charge |
+| `api` *(default; used by the Action)* | raw Messages API with `ANTHROPIC_API_KEY` | **per-token API billing** |
+
+To use your subscription, do **not** set `ANTHROPIC_API_KEY`. Instead:
+
+```bash
+claude login              # pick your Pro/Max account, NOT Console
+unset ANTHROPIC_API_KEY   # required — if set, Claude Code bills the key, not the subscription
+claude auth status        # confirm you are logged in
+python crawler/run.py --since 2024-01-01 --limit 5 --backend cli   # verify the path works first
+```
+
+`ANTHROPIC_API_KEY` takes priority over the subscription whenever it is set, so
+leaving it in your environment silently routes you back to per-token billing.
+`classify_via_cli()` also strips it from the subprocess as a safeguard.
+
+> The subscription path for `claude -p` is officially **in flux** (Anthropic
+> announced, then paused, splitting it into a separate credit pool). Re-check it
+> with a small `--limit` run before any large backfill. Because of this, the
+> weekly Action stays on `api` — do not put an OAuth token into CI.
+
+For the unattended Action, keep `api` and add `ANTHROPIC_API_KEY` as a repo
+secret (step 3 above).
 
 ## Tuning
 
@@ -105,7 +135,10 @@ every future crawl. Keys are the `id` field shown in `docs/entries.json`.
 
 Steady state is roughly 45–90 records reaching the LLM per week, at ~1,800
 input and ~150 output tokens each. On Haiku 4.5 that is order **$0.50–1.00 per
-month**; a two-year backfill is a one-off **$5–12**. `--limit` caps calls per run so a runaway query cannot surprise you.
+month** on the `api` backend; a two-year backfill is a one-off **$5–12**.
+Running that backfill locally with `--backend cli` puts it on your Pro/Max
+subscription instead, at **no extra cost**. `--limit` caps calls per run so a
+runaway query cannot surprise you.
 Europe PMC and GitHub search are free; set `GITHUB_TOKEN` to lift GitHub's
 search rate limit from 10 to 30 requests/minute.
 

@@ -4,6 +4,7 @@
     python crawler/run.py --since 2024-01-01     # first backfill
     python crawler/run.py                        # incremental (last 45 days)
     python crawler/run.py --dry-run              # fetch + prefilter only, no LLM
+    python crawler/run.py --backend cli          # bill the LLM to your subscription
 """
 
 import argparse
@@ -27,12 +28,18 @@ def main():
     ap.add_argument("--dry-run", action="store_true",
                     help="skip the LLM; report what the prefilter caught")
     ap.add_argument("--limit", type=int, help="cap LLM calls (cost guard)")
+    ap.add_argument("--backend", choices=["api", "cli"],
+                    help="api = Messages API billed to ANTHROPIC_API_KEY; "
+                         "cli = `claude -p` billed to your Pro/Max subscription. "
+                         "Default comes from config.yml (llm.backend).")
     args = ap.parse_args()
 
     cfg = yaml.safe_load(CONFIG.read_text())
+    backend = args.backend or cfg["llm"].get("backend", "api")
     since = args.since or (dt.date.today() - dt.timedelta(days=45)).isoformat()
     known = store.load_auto()
-    print(f"crawling since {since}; {len(known)} entries already known")
+    print(f"crawling since {since}; {len(known)} entries already known "
+          f"(llm backend: {backend})")
 
     # ---- fetch -------------------------------------------------------------
     raw = {}
@@ -70,7 +77,8 @@ def main():
                        "reason": "llm disabled", "kind": [], "modality": [],
                        "platforms": []}
         else:
-            verdict = triage.classify(rec, cfg["vocab"], cfg["llm"]["model"])
+            classifier = triage.classify_via_cli if backend == "cli" else triage.classify
+            verdict = classifier(rec, cfg["vocab"], cfg["llm"]["model"])
             if verdict is None:
                 continue
             verdict = triage.sanitise(verdict, cfg["vocab"])
