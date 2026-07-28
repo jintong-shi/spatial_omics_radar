@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial Omics Radar</title>
+<meta name="description" content="Automatically updated index of tools, technologies and benchmarks in spatially resolved omics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Source+Serif+4:opsz,wght@8..60,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Palette taken from H&E histology: hematoxylin ink on eosin-washed slide. */
+:root{
+  --slide:#FAF5F7; --wash:#F1E5EB; --hema:#2B2340; --eosin:#C33B72;
+  --nuclei:#6B58A6; --stroma:#A2909A; --rule:#E2D3DA;
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--slide);color:var(--hema);
+  font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--eosin);outline-offset:3px}
+
+/* ---- masthead --------------------------------------------------------- */
+header{padding:56px 0 28px}
+h1{font-family:var(--display);font-variation-settings:'wdth' 122;font-weight:800;
+  font-size:clamp(2.1rem,6vw,3.5rem);line-height:.98;letter-spacing:-.02em;margin:0}
+h1 em{font-style:normal;color:var(--eosin)}
+.tagline{font-size:1.05rem;color:#5A4C68;max-width:46ch;margin:14px 0 0}
+.counter{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--stroma);margin-top:22px}
+
+/* ---- signature: monthly intake strip ---------------------------------- */
+.strip{display:flex;align-items:flex-end;gap:2px;height:56px;margin-top:14px;
+  border-bottom:1px solid var(--rule);padding-bottom:0}
+.strip button{flex:1 1 0;min-width:3px;padding:0;border:0;cursor:pointer;
+  background:var(--nuclei);opacity:.34;border-radius:1px 1px 0 0;
+  transition:opacity .16s,background .16s}
+.strip button:hover,.strip button:focus-visible{opacity:.85}
+.strip button.gap{background:var(--rule);opacity:1;cursor:default}
+.strip button[aria-pressed="true"]{background:var(--eosin);opacity:1}
+.strip-legend{display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:.68rem;color:var(--stroma);margin-top:6px}
+
+/* ---- controls --------------------------------------------------------- */
+.controls{position:sticky;top:0;z-index:5;background:var(--slide);
+  border-bottom:1px solid var(--rule);padding:14px 0;margin-top:30px;
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+input[type=search],select{font-family:var(--mono);font-size:.82rem;color:var(--hema);
+  background:#fff;border:1px solid var(--rule);border-radius:3px;padding:8px 10px}
+input[type=search]{flex:1 1 220px;min-width:0}
+select{max-width:200px}
+.reset{font-family:var(--mono);font-size:.75rem;background:none;border:0;
+  color:var(--eosin);cursor:pointer;text-decoration:underline;padding:6px}
+
+/* ---- entries ---------------------------------------------------------- */
+.month{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--stroma);
+  padding:30px 0 8px;border-bottom:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:1fr auto;gap:6px 24px;
+  padding:16px 0 16px 14px;border-bottom:1px solid var(--rule);
+  border-left:2px solid transparent;transition:border-color .14s,background .14s}
+.row:hover{border-left-color:var(--eosin);background:#fff}
+.name{font-family:var(--display);font-variation-settings:'wdth' 112;
+  font-weight:700;font-size:1.06rem;letter-spacing:-.005em}
+.name a{text-decoration:none;border-bottom:1.5px solid var(--wash)}
+.name a:hover{border-bottom-color:var(--eosin)}
+.desc{font-size:.94rem;color:#4C4060;max-width:62ch;margin:3px 0 0}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.tag{font-family:var(--mono);font-size:.68rem;padding:2px 7px;border-radius:2px;
+  background:var(--wash);color:#6A4A5C}
+.tag.kind{background:var(--nuclei);color:#fff}
+.tag.mod{background:var(--wash);color:#8A3560;box-shadow:inset 0 0 0 1px #E0C4D2}
+.tag.plat{background:none;color:var(--stroma);box-shadow:inset 0 0 0 1px var(--rule)}
+.tag.review{background:none;border:1px dashed var(--stroma);color:var(--stroma)}
+.side{font-family:var(--mono);font-size:.72rem;color:var(--stroma);
+  text-align:right;white-space:nowrap;line-height:1.7}
+.side .pp{color:var(--eosin)}
+.side a{display:block;text-decoration:none;border-bottom:1px solid var(--rule)}
+.side a:hover{color:var(--eosin)}
+.empty{padding:64px 0;text-align:center;color:var(--stroma);font-family:var(--mono);
+  font-size:.85rem}
+footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
+  color:var(--stroma);border-top:1px solid var(--rule);margin-top:40px}
+
+@media (max-width:640px){
+  header{padding:36px 0 20px}
+  .row{grid-template-columns:1fr}
+  .side{text-align:left}
+  select{flex:1 1 45%;max-width:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Spatial Omics <em>Radar</em></h1>
+  <p class="tagline">Every new tool, assay and benchmark in spatially resolved
+     omics, pulled from the literature each week. No curation backlog.</p>
+  <p class="counter" id="counter">loading</p>
+
+  <div class="strip" id="strip" role="group" aria-label="Filter by month of publication"></div>
+  <div class="strip-legend"><span id="stripFrom"></span><span>entries per month · click to filter</span><span id="stripTo"></span></div>
+</header>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="search name, description, venue…" aria-label="Search entries">
+  <select id="fKind" aria-label="Filter by kind"><option value="">any kind</option></select>
+  <select id="fMod" aria-label="Filter by modality"><option value="">any modality</option></select>
+  <button class="reset" id="reset" hidden>clear filters</button>
+</div>
+
+<main id="list"><p class="empty">loading entries…</p></main>
+
+<footer>
+  <span id="updated"></span> ·
+  <a href="#" id="repo">source &amp; corrections</a> ·
+  entries are machine-triaged; dashed tags mark low-confidence records awaiting review
+</footer>
+</div>
+
+<script>
+const state = {all:[], q:"", kind:"", mod:"", month:""};
+const el = id => document.getElementById(id);
+
+fetch("entries.json").then(r => r.json()).then(init).catch(() => {
+  el("list").innerHTML = '<p class="empty">entries.json not found — run the crawler first.</p>';
+});
+
+function init(data){
+  state.all = data.entries || [];
+  const meta = data.meta || {};
+  el("updated").textContent = "last crawl " + (meta.updated || "unknown").slice(0,16).replace("T"," ");
+  if (meta.site && meta.site.repo_url) el("repo").href = meta.site.repo_url;
+
+  fillSelect("fKind", uniq(e => e.kind || []));
+  fillSelect("fMod", uniq(e => e.modality || []));
+  buildStrip();
+
+  ["q","fKind","fMod"].forEach(id =>
+    el(id).addEventListener("input", () => {
+      state.q = el("q").value.toLowerCase();
+      state.kind = el("fKind").value;
+      state.mod = el("fMod").value;
+      render();
+    }));
+  el("reset").addEventListener("click", () => {
+    Object.assign(state, {q:"",kind:"",mod:"",month:""});
+    el("q").value = ""; ["fKind","fMod"].forEach(i => el(i).value = "");
+    document.querySelectorAll("#strip button").forEach(b => b.setAttribute("aria-pressed","false"));
+    render();
+  });
+  render();
+}
+
+const uniq = f => [...new Set(state.all.flatMap(f))].filter(Boolean).sort();
+function fillSelect(id, vals){
+  el(id).append(...vals.map(v => Object.assign(document.createElement("option"),
+    {value:v, textContent:v})));
+}
+const ym = e => (e.date || "").slice(0,7);
+
+/* Signature element: one bar per month, height = intake that month.
+   It is the only place on the page that spends visual weight. */
+function buildStrip(){
+  const counts = {};
+  state.all.forEach(e => { if (ym(e)) counts[ym(e)] = (counts[ym(e)] || 0) + 1; });
+  const months = Object.keys(counts).sort();
+  if (!months.length) return;
+
+  // fill calendar gaps so the x-axis is real time, not just months with hits
+  const span = [], [y0,m0] = months[0].split("-").map(Number);
+  const [y1,m1] = months.at(-1).split("-").map(Number);
+  for (let y=y0, m=m0; y*12+m <= y1*12+m1; m===12 ? (y++, m=1) : m++)
+    span.push(`${y}-${String(m).padStart(2,"0")}`);
+
+  const max = Math.max(...Object.values(counts));
+  el("stripFrom").textContent = span[0];
+  el("stripTo").textContent = span.at(-1);
+  el("strip").append(...span.map(mo => {
+    const n = counts[mo] || 0, b = document.createElement("button");
+    b.style.height = n ? (14 + 86 * n / max) + "%" : "3px";
+    b.title = `${mo} — ${n} ${n === 1 ? "entry" : "entries"}`;
+    b.setAttribute("aria-label", b.title);
+    b.setAttribute("aria-pressed","false");
+    if (!n){ b.disabled = true; b.className = "gap"; return b; }
+    b.onclick = () => {
+      state.month = state.month === mo ? "" : mo;
+      document.querySelectorAll("#strip button").forEach(x =>
+        x.setAttribute("aria-pressed", String(x === b && state.month === mo)));
+      render();
+    };
+    return b;
+  }));
+}
+
+function match(e){
+  if (state.kind && !(e.kind || []).includes(state.kind)) return false;
+  if (state.mod && !(e.modality || []).includes(state.mod)) return false;
+  if (state.month && ym(e) !== state.month) return false;
+  if (state.q){
+    const hay = [e.name, e.one_liner, e.title, e.venue].join(" ").toLowerCase();
+    if (!hay.includes(state.q)) return false;
+  }
+  return true;
+}
+
+function render(){
+  const rows = state.all.filter(match);
+  const filtered = state.q || state.kind || state.mod || state.month;
+  el("reset").hidden = !filtered;
+  el("counter").textContent = filtered
+    ? `${rows.length} of ${state.all.length} entries`
+    : `${state.all.length} entries indexed`;
+
+  if (!rows.length){
+    el("list").innerHTML = '<p class="empty">Nothing matches. Widen the filters.</p>';
+    return;
+  }
+
+  let html = "", current = null;
+  for (const e of rows){
+    if (ym(e) !== current){ current = ym(e); html += `<div class="month">${current || "undated"}</div>`; }
+    html += row(e);
+  }
+  el("list").innerHTML = html;
+}
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function row(e){
+  const tags = [
+    ...(e.kind || []).map(k => `<span class="tag kind">${esc(k)}</span>`),
+    ...(e.modality || []).map(m => `<span class="tag mod">${esc(m)}</span>`),
+    ...(e.platforms || []).map(p => `<span class="tag plat">${esc(p)}</span>`),
+    e.needs_review ? `<span class="tag review">unreviewed</span>` : "",
+  ].join("");
+  return `<article class="row">
+    <div>
+      <div class="name"><a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a></div>
+      <p class="desc">${esc(e.one_liner || e.title)}</p>
+      <div class="tags">${tags}</div>
+    </div>
+    <div class="side">
+      <span>${esc(e.date)}</span>
+      <span class="${e.is_preprint ? "pp" : ""}">${esc(e.is_preprint ? "preprint" : e.venue)}</span>
+      ${e.code_url ? `<a href="${esc(e.code_url)}" target="_blank" rel="noopener">code${e.stars ? " ★" + e.stars : ""}</a>` : ""}
+    </div>
+  </article>`;
+}
+</script>
+</body>
+</html>

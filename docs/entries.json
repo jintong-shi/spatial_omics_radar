@@ -1,0 +1,579 @@
+{
+  "meta": {
+    "updated": "2026-07-28T12:22:05+00:00",
+    "count": 22,
+    "site": {
+      "repo_url": "https://github.com/YOURNAME/spatial-omics-radar"
+    },
+    "note": "DEMO SEED - replaced by the first real crawl"
+  },
+  "entries": [
+    {
+      "id": "seed:svg-detection-benchmark",
+      "name": "SVG detection benchmark",
+      "title": "SVG detection benchmark",
+      "one_liner": "Evaluates spatially variable gene methods on ranking, calibration and scalability.",
+      "kind": [
+        "benchmark"
+      ],
+      "modality": [
+        "transcriptomics",
+        "epigenomics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://europepmc.org/search?query=SVG%20detection%20benchmark",
+      "code_url": null,
+      "venue": "Genome Biology",
+      "date": "2025-11-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:nicheformer",
+      "name": "Nicheformer",
+      "title": "Nicheformer",
+      "one_liner": "Transformer pretrained on single-cell and spatial corpora for niche-level transfer tasks.",
+      "kind": [
+        "AI model",
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "transcriptomics",
+        "multi-omics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://europepmc.org/search?query=Nicheformer",
+      "code_url": null,
+      "venue": "Nature Methods",
+      "date": "2025-09-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:kronos",
+      "name": "KRONOS",
+      "title": "KRONOS",
+      "one_liner": "Foundation model for multiplexed spatial proteomics trained on marker-level image patches.",
+      "kind": [
+        "AI model"
+      ],
+      "modality": [
+        "proteomics"
+      ],
+      "platforms": [
+        "CODEX / PhenoCycler"
+      ],
+      "url": "https://europepmc.org/search?query=KRONOS",
+      "code_url": null,
+      "venue": "arXiv",
+      "date": "2025-07-01",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:scgpt-spatial",
+      "name": "scGPT-spatial",
+      "title": "scGPT-spatial",
+      "one_liner": "Continual pretraining of a single-cell foundation model on spatial corpora.",
+      "kind": [
+        "AI model"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://europepmc.org/search?query=scGPT-spatial",
+      "code_url": null,
+      "venue": "bioRxiv",
+      "date": "2025-06-01",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:spatialdata",
+      "name": "SpatialData",
+      "title": "SpatialData",
+      "one_liner": "Unified on-disk format and Python framework aligning images, points and tables.",
+      "kind": [
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "multi-omics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://europepmc.org/search?query=SpatialData",
+      "code_url": null,
+      "venue": "Nature Methods",
+      "date": "2025-03-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:sopa",
+      "name": "Sopa",
+      "title": "Sopa",
+      "one_liner": "Technology-agnostic pipeline for segmentation and annotation of imaging-based spatial data.",
+      "kind": [
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "transcriptomics",
+        "proteomics"
+      ],
+      "platforms": [
+        "Xenium",
+        "MERFISH",
+        "CosMx"
+      ],
+      "url": "https://europepmc.org/search?query=Sopa",
+      "code_url": null,
+      "venue": "Nature Communications",
+      "date": "2024-10-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:open-st",
+      "name": "Open-ST",
+      "title": "Open-ST",
+      "one_liner": "Open-source sequencing method reaching sub-cellular capture resolution in 3D.",
+      "kind": [
+        "technology"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Open-ST"
+      ],
+      "url": "https://europepmc.org/search?query=Open-ST",
+      "code_url": null,
+      "venue": "Cell",
+      "date": "2024-06-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:slide-tags",
+      "name": "Slide-tags",
+      "title": "Slide-tags",
+      "one_liner": "Tags nuclei with spatial barcodes so any single-nucleus assay becomes spatial.",
+      "kind": [
+        "technology"
+      ],
+      "modality": [
+        "multi-omics"
+      ],
+      "platforms": [
+        "Slide-tags"
+      ],
+      "url": "https://europepmc.org/search?query=Slide-tags",
+      "code_url": null,
+      "venue": "Nature",
+      "date": "2024-01-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:xenium",
+      "name": "Xenium",
+      "title": "Xenium",
+      "one_liner": "In situ imaging platform profiling hundreds of targeted genes at subcellular resolution.",
+      "kind": [
+        "technology"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Xenium"
+      ],
+      "url": "https://europepmc.org/search?query=Xenium",
+      "code_url": null,
+      "venue": "Nature Communications",
+      "date": "2023-11-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:deconvolution-benchmark",
+      "name": "Deconvolution benchmark",
+      "title": "Deconvolution benchmark",
+      "one_liner": "Systematic comparison of cellular deconvolution methods with practical selection guidelines.",
+      "kind": [
+        "benchmark"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Visium"
+      ],
+      "url": "https://europepmc.org/search?query=Deconvolution%20benchmark",
+      "code_url": null,
+      "venue": "Nature Communications",
+      "date": "2023-04-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:spatial-atac-seq",
+      "name": "spatial ATAC-seq",
+      "title": "spatial ATAC-seq",
+      "one_liner": "Deterministic barcoding assay mapping chromatin accessibility across tissue sections.",
+      "kind": [
+        "technology"
+      ],
+      "modality": [
+        "epigenomics"
+      ],
+      "platforms": [
+        "spatial ATAC"
+      ],
+      "url": "https://europepmc.org/search?query=spatial%20ATAC-seq",
+      "code_url": null,
+      "venue": "Nature",
+      "date": "2022-07-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:stdeconvolve",
+      "name": "STdeconvolve",
+      "title": "STdeconvolve",
+      "one_liner": "Reference-free topic model recovering cell-type proportions in multi-cellular spots.",
+      "kind": [
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Visium"
+      ],
+      "url": "https://europepmc.org/search?query=STdeconvolve",
+      "code_url": null,
+      "venue": "Nature Communications",
+      "date": "2022-04-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:stagate",
+      "name": "STAGATE",
+      "title": "STAGATE",
+      "one_liner": "Graph attention autoencoder identifying spatial domains with adaptive neighbour weighting.",
+      "kind": [
+        "bioinformatics tool",
+        "AI model"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Visium",
+        "Stereo-seq"
+      ],
+      "url": "https://europepmc.org/search?query=STAGATE",
+      "code_url": null,
+      "venue": "Nature Communications",
+      "date": "2022-04-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:mcmicro",
+      "name": "MCMICRO",
+      "title": "MCMICRO",
+      "one_liner": "End-to-end pipeline for stitching, registering and quantifying multiplexed tissue images.",
+      "kind": [
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "proteomics",
+        "histology / imaging-only"
+      ],
+      "platforms": [
+        "CODEX / PhenoCycler",
+        "imaging mass cytometry"
+      ],
+      "url": "https://europepmc.org/search?query=MCMICRO",
+      "code_url": null,
+      "venue": "Nature Methods",
+      "date": "2022-03-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:squidpy",
+      "name": "Squidpy",
+      "title": "Squidpy",
+      "one_liner": "Scanpy-compatible toolkit for spatial neighbourhood and image-feature analysis.",
+      "kind": [
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "transcriptomics",
+        "proteomics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://europepmc.org/search?query=Squidpy",
+      "code_url": null,
+      "venue": "Nature Methods",
+      "date": "2022-02-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:cell2location",
+      "name": "cell2location",
+      "title": "cell2location",
+      "one_liner": "Bayesian model mapping reference cell types to spots with calibrated uncertainty.",
+      "kind": [
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Visium"
+      ],
+      "url": "https://europepmc.org/search?query=cell2location",
+      "code_url": null,
+      "venue": "Nature Biotechnology",
+      "date": "2022-01-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:baysor",
+      "name": "Baysor",
+      "title": "Baysor",
+      "one_liner": "Probabilistic cell segmentation from transcript positions without relying on nuclear stains.",
+      "kind": [
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "MERFISH",
+        "seqFISH"
+      ],
+      "url": "https://europepmc.org/search?query=Baysor",
+      "code_url": null,
+      "venue": "Nature Biotechnology",
+      "date": "2021-12-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:spagcn",
+      "name": "SpaGCN",
+      "title": "SpaGCN",
+      "one_liner": "Graph convolutional network integrating expression, position and histology to call spatial domains.",
+      "kind": [
+        "bioinformatics tool",
+        "AI model"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Visium",
+        "MERFISH"
+      ],
+      "url": "https://europepmc.org/search?query=SpaGCN",
+      "code_url": null,
+      "venue": "Nature Methods",
+      "date": "2021-10-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:tangram",
+      "name": "Tangram",
+      "title": "Tangram",
+      "one_liner": "Maps single-cell profiles onto spatial coordinates by optimising a similarity objective.",
+      "kind": [
+        "bioinformatics tool",
+        "AI model"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Visium",
+        "MERFISH"
+      ],
+      "url": "https://europepmc.org/search?query=Tangram",
+      "code_url": null,
+      "venue": "Nature Methods",
+      "date": "2021-10-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:spacem",
+      "name": "SpaceM",
+      "title": "SpaceM",
+      "one_liner": "Combines microscopy with mass spectrometry imaging for single-cell metabolite profiling.",
+      "kind": [
+        "technology",
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "metabolomics"
+      ],
+      "platforms": [
+        "MALDI-MSI"
+      ],
+      "url": "https://europepmc.org/search?query=SpaceM",
+      "code_url": null,
+      "venue": "Nature Methods",
+      "date": "2021-08-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:bayesspace",
+      "name": "BayesSpace",
+      "title": "BayesSpace",
+      "one_liner": "Bayesian model clustering spots and enhancing resolution to subspot level.",
+      "kind": [
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Visium"
+      ],
+      "url": "https://europepmc.org/search?query=BayesSpace",
+      "code_url": null,
+      "venue": "Nature Biotechnology",
+      "date": "2021-06-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    },
+    {
+      "id": "seed:spark-x",
+      "name": "SPARK-X",
+      "title": "SPARK-X",
+      "one_liner": "Non-parametric test for spatially variable genes that scales to millions of cells.",
+      "kind": [
+        "bioinformatics tool"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://europepmc.org/search?query=SPARK-X",
+      "code_url": null,
+      "venue": "Genome Biology",
+      "date": "2021-06-01",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 1.0,
+      "needs_review": false,
+      "added": "2026-07-28",
+      "curated": true
+    }
+  ]
+}

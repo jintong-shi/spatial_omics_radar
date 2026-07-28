@@ -1,0 +1,170 @@
+# ---------------------------------------------------------------------------
+# The only file you normally need to edit.
+# ---------------------------------------------------------------------------
+
+site:
+  title: "Spatial Omics Radar"
+  subtitle: "New technologies, tools, AI models and benchmarks across spatial omics"
+  maintainer: "Jintong"
+  repo_url: "https://github.com/YOURNAME/spatial-omics-radar"
+
+# Europe PMC query syntax: https://europepmc.org/searchsyntax
+# Each query runs separately; results are pooled and de-duplicated.
+# Keep queries broad — precision comes from the triage stage, not from here.
+europepmc_queries:
+  # 1. Methods and software, transcriptomics-led but modality-neutral wording
+  - '(TITLE_ABS:"spatial transcriptomics" OR TITLE_ABS:"spatially resolved transcriptomics" OR TITLE_ABS:"spatial omics" OR TITLE_ABS:"spatially resolved omics") AND (TITLE_ABS:tool OR TITLE_ABS:method OR TITLE_ABS:framework OR TITLE_ABS:algorithm OR TITLE_ABS:software OR TITLE_ABS:pipeline OR TITLE_ABS:package)'
+
+  # 2. Non-transcriptomic modalities, which query 1 largely misses
+  - '(TITLE_ABS:"spatial proteomics" OR TITLE_ABS:"spatial metabolomics" OR TITLE_ABS:"spatial epigenomics" OR TITLE_ABS:"spatial multi-omics" OR TITLE_ABS:"highly multiplexed imaging" OR TITLE_ABS:"mass spectrometry imaging") AND (TITLE_ABS:tool OR TITLE_ABS:method OR TITLE_ABS:framework OR TITLE_ABS:pipeline OR TITLE_ABS:software OR TITLE_ABS:platform)'
+
+  # 3. Benchmarks across any spatial modality
+  - '(TITLE_ABS:"spatial transcriptomics" OR TITLE_ABS:"spatial omics" OR TITLE_ABS:"spatial proteomics" OR TITLE_ABS:"multiplexed imaging") AND (TITLE:benchmark* OR TITLE_ABS:"comparative evaluation" OR TITLE_ABS:"systematic comparison" OR TITLE_ABS:"systematic evaluation")'
+
+  # 4. Named platforms — catches technology papers that never say "spatial omics"
+  - 'TITLE_ABS:(Visium OR Xenium OR MERFISH OR seqFISH OR CosMx OR "Stereo-seq" OR "Slide-seq" OR "Slide-tags" OR GeoMx OR "Open-ST" OR "Curio Seeker" OR PhenoCycler OR CODEX OR "imaging mass cytometry" OR MIBI OR MALDI OR "spatial ATAC" OR "CUT&Tag")'
+
+  # 5. AI / foundation models for spatial data
+  - '(TITLE_ABS:spatial AND TITLE_ABS:(transcriptom* OR proteom* OR metabolom* OR omics)) AND TITLE_ABS:("foundation model" OR "deep learning" OR transformer OR "graph neural network" OR "self-supervised" OR "pretrained")'
+
+# GitHub repo search. Sorted by recent push; only repos with a real README survive triage.
+github_queries:
+  - 'spatial transcriptomics in:name,description,readme stars:>15'
+  - 'spatial omics tool in:name,description stars:>10'
+  - 'spatial proteomics OR multiplexed imaging in:name,description stars:>10'
+
+# ---------------------------------------------------------------------------
+# Stage 1 — cheap rule-based prefilter (high recall, low precision).
+# An item must match >=1 anchor AND >=1 artifact term to reach the LLM.
+# ---------------------------------------------------------------------------
+prefilter:
+  anchors:
+    # transcriptomics
+    - spatial transcriptom
+    - spatially resolved
+    - spatial omics
+    - visium
+    - xenium
+    - merfish
+    - seqfish
+    - cosmx
+    - stereo-seq
+    - slide-seq
+    - slide-tags
+    - geomx
+    - open-st
+    # proteomics / multiplexed imaging
+    - spatial proteom
+    - multiplexed imaging
+    - multiplexed immunofluorescence
+    - imaging mass cytometry
+    - phenocycler
+    - codex
+    - mibi
+    # metabolomics
+    - spatial metabolom
+    - mass spectrometry imaging
+    - maldi imaging
+    # epigenomics / multi-omics
+    - spatial epigenom
+    - spatial atac
+    - spatial cut&tag
+    - spatial multi-omic
+    # concepts
+    - spatial domain
+    - spatial niche
+  artifacts:
+    - we present
+    - we develop
+    - we introduce
+    - we propose
+    - here we describe
+    - here we report
+    - benchmark
+    - available at
+    - github.com
+    - open-source
+    - python package
+    - r package
+    - toolkit
+    - framework
+  # Hard drops: application papers that merely *used* spatial data.
+  reject:
+    - reveals
+    - atlas of
+    - landscape of
+    - single-cell atlas
+    - case report
+  # Title-only drops. Checked against the title alone, because these words
+  # appear incidentally in almost every abstract but are decisive in a title.
+  # Databases and portals are out of scope by decision.
+  reject_title:
+    - database
+    - web server
+    - webserver
+    - web portal
+    - data portal
+    - data repository
+    - a review
+    - review of
+    - perspective on
+
+# ---------------------------------------------------------------------------
+# Controlled vocabulary. The LLM must pick from these — otherwise your facets
+# degrade into 200 near-synonymous tags within a month.
+#
+# Two orthogonal axes, both multi-valued:
+#   kind      what sort of resource it is
+#   modality  which molecular layer it measures or operates on
+#
+# `platform` is still populated but is deliberately NOT a site facet: most
+# tools work across platforms, so it makes a poor filter. It is kept in the
+# data so the facet can be switched on later without re-crawling.
+# ---------------------------------------------------------------------------
+vocab:
+  kind:
+    - technology          # wet-lab assay, platform or protocol
+    - bioinformatics tool # installable software, pipeline or statistical method
+    - AI model            # the contribution is a machine-learned model
+    - benchmark           # comparative evaluation of existing methods
+  modality:
+    - transcriptomics
+    - proteomics
+    - metabolomics
+    - epigenomics
+    - genomics
+    - multi-omics
+    - histology / imaging-only
+  platform:
+    - Visium
+    - Visium HD
+    - Xenium
+    - MERFISH
+    - seqFISH
+    - CosMx
+    - Stereo-seq
+    - Slide-seq
+    - Slide-tags
+    - GeoMx
+    - Open-ST
+    - Curio Seeker
+    - CODEX / PhenoCycler
+    - imaging mass cytometry
+    - MIBI
+    - MALDI-MSI
+    - DESI-MSI
+    - spatial ATAC
+    - spatial CUT&Tag
+    - H&E / histology
+    - platform-agnostic
+
+# ---------------------------------------------------------------------------
+llm:
+  enabled: true
+  # Classification + extraction is Haiku's sweet spot and ~3x cheaper than
+  # Sonnet. Switch to claude-sonnet-5 only if precision disappoints on a
+  # --limit 20 trial run.
+  model: "claude-haiku-4-5-20251001"
+  # Skip the LLM entirely and keep everything the prefilter passed, flagged
+  # for manual review. Useful for a dry run with no API key.
+  fallback_keep_all: false

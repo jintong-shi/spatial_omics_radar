@@ -1,0 +1,27 @@
+{
+  "_comment": "Human-owned. A crawl never writes here. Keys are the 'id' field from docs/entries.json.",
+
+  "patch": {
+    "10.1038/s41592-021-01255-8": {
+      "kind": ["bioinformatics tool", "AI model"]
+    }
+  },
+
+  "hide": [],
+
+  "add": {
+    "manual:xenium-5k": {
+      "id": "manual:xenium-5k",
+      "name": "Xenium Prime 5K",
+      "one_liner": "Expanded in situ panel profiling ~5,000 genes at subcellular resolution.",
+      "kind": ["technology"],
+      "modality": ["transcriptomics"],
+      "platforms": ["Xenium"],
+      "url": "https://www.10xgenomics.com/platforms/xenium",
+      "code_url": null,
+      "venue": "vendor release",
+      "date": "2024-10-01",
+      "is_preprint": false
+    }
+  }
+}
