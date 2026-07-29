@@ -49,10 +49,15 @@ approach (return EXACTLY 1 value when kind includes "method", otherwise []): {ap
   - foundation model        = pretrained on a large corpus AND explicitly claims
     transfer or zero-shot to downstream tasks. Judge by pretraining + transfer,
     NOT by parameter count.
-  - generative              = explicitly models the data distribution and can
-    sample new data (diffusion, VAE, GAN, flow, autoregressive). Typical uses:
-    imputation, super-resolution, generating spatial expression from scRNA,
-    in-silico perturbation.
+  - generative              = the method's DELIVERABLE is generated or sampled
+    data — it models the data distribution and outputs new samples (diffusion,
+    VAE, GAN, flow, autoregressive). Typical uses: imputation, super-resolution,
+    generating spatial expression from scRNA, in-silico perturbation.
+    Do NOT pick "generative" just because the model contains a GAN/adversarial
+    or VAE component: if that component is only a training device for a
+    discriminative task (clustering, domain detection, classification, trajectory
+    inference), the approach is "deep learning". Classify by what the method
+    produces, not its architecture.
   - LLM / agent             = puts an LLM in the pipeline: agentic pipeline,
     natural-language interface, or an LLM doing annotation or reasoning.
   - deep learning           = a neural network trained from scratch for a single
