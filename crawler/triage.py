@@ -31,14 +31,37 @@ used spatial data heavily
 {rules_block}Controlled vocabulary — you MUST choose from these exact strings.
 
 kind (1-2 values; these are NOT mutually exclusive): {kind}
-  technology          = wet-lab assay, platform or protocol
-  bioinformatics tool = installable software, pipeline or statistical method
-  AI model            = the core contribution is a machine-learned model
-  benchmark           = comparative evaluation of existing methods
-  A task-specific deep-learning method that ships as a package is BOTH
-  "bioinformatics tool" and "AI model". Plain software with no learned
-  component is only "bioinformatics tool". A pretrained foundation model is
-  "AI model", plus "bioinformatics tool" if it ships usable software.
+  assay     = a new wet-lab technique or library-prep chemistry
+  method    = a new computational method: software, pipeline, statistical
+              method or learned model. If its contribution is something that
+              runs on a computer, it is a method.
+  benchmark = an evaluation, comparison or assessment of existing methods
+  A record can be several: a new assay shipping analysis code is
+  [assay, method]; a method paper that also benchmarks rivals is
+  [method, benchmark].
+
+approach (return EXACTLY 1 value when kind includes "method", otherwise []): {approach}
+  The single most dominant paradigm of the method. Definitions:
+  - foundation model        = pretrained on a large corpus AND explicitly claims
+    transfer or zero-shot to downstream tasks. Judge by pretraining + transfer,
+    NOT by parameter count.
+  - generative              = explicitly models the data distribution and can
+    sample new data (diffusion, VAE, GAN, flow, autoregressive). Typical uses:
+    imputation, super-resolution, generating spatial expression from scRNA,
+    in-silico perturbation.
+  - LLM / agent             = puts an LLM in the pipeline: agentic pipeline,
+    natural-language interface, or an LLM doing annotation or reasoning.
+  - deep learning           = a neural network trained from scratch for a single
+    task (GNN, CNN, transformer with no pretraining).
+  - classical / statistical = no learned neural component: GLM, Gaussian process
+    (SpatialDE, SPARK), optimal transport, HMM, graph algorithms.
+  Precedence: "generative" and "foundation model" outrank "deep learning" (a
+  diffusion model is generative, not deep learning; a pretrained transferable
+  network is a foundation model, not deep learning). Use "deep learning" only for
+  a from-scratch, single-task, non-generative net, and "classical / statistical"
+  only when there is no neural component at all. If two of {{foundation model,
+  generative, LLM / agent}} genuinely apply, pick the one that is the paper's
+  core contribution.
 
 modality (1-3 values): {modality}
 platform (0-3 values, only if genuinely platform-specific): {platform}"""
@@ -49,6 +72,7 @@ _VERDICT_SHAPE = '''{"keep": true|false,
   "reason": "<=15 words",
   "name": "resource name, e.g. Squidpy (null if none is named)",
   "kind": ["1-2 values"],
+  "approach": ["1 value if kind includes method, else empty"],
   "modality": ["1-3 values"],
   "platforms": ["0-3 values"],
   "one_liner": "<=25 words, plain, what it does — not why it matters",
@@ -93,6 +117,7 @@ def _instructions(vocab, learned):
     return _INSTRUCTIONS.format(
         rules_block=_rules_block(learned),
         kind=", ".join(vocab["kind"]),
+        approach=", ".join(vocab["approach"]),
         modality=", ".join(vocab["modality"]),
         platform=", ".join(vocab["platform"]),
     )
@@ -299,6 +324,12 @@ def classify_batch_via_cli(recs, vocab, model, learned=(), extra_args=()):
 def sanitise(verdict, vocab):
     """Drop any value the LLM invented outside the controlled vocabulary."""
     verdict["kind"] = [k for k in verdict.get("kind") or [] if k in vocab["kind"]]
+    # approach is a single-valued axis that only applies to methods; keep at most
+    # the first valid value, and drop it entirely for non-method entries.
+    verdict["approach"] = [a for a in verdict.get("approach") or []
+                           if a in vocab["approach"]][:1]
+    if "method" not in verdict["kind"]:
+        verdict["approach"] = []
     verdict["modality"] = [m for m in verdict.get("modality") or []
                            if m in vocab["modality"]]
     verdict["platforms"] = [p for p in verdict.get("platforms") or []

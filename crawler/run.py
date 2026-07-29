@@ -103,6 +103,7 @@ def main():
             "title": rec["title"],
             "one_liner": verdict.get("one_liner", ""),
             "kind": verdict.get("kind", []),
+            "approach": verdict.get("approach", []),
             "modality": verdict.get("modality", []),
             "platforms": verdict.get("platforms", []),
             "url": rec["url"],

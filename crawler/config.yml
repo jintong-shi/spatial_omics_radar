@@ -123,10 +123,17 @@ prefilter:
 # ---------------------------------------------------------------------------
 vocab:
   kind:
-    - technology          # wet-lab assay, platform or protocol
-    - bioinformatics tool # installable software, pipeline or statistical method
-    - AI model            # the contribution is a machine-learned model
-    - benchmark           # comparative evaluation of existing methods
+    - assay               # a new wet-lab technique or library-prep chemistry
+    - method              # a new computational method (any approach; see below)
+    - benchmark           # an evaluation / comparison / assessment study
+  # Only meaningful when kind includes `method`. Single most-dominant paradigm
+  # (see the priority in triage.py); empty for assay- or benchmark-only entries.
+  approach:
+    - foundation model         # pretrained on a large corpus, claims transfer / zero-shot
+    - generative               # models the data distribution and samples new data
+    - LLM / agent              # an LLM in the loop: agentic pipeline, NL interface, reasoning
+    - deep learning            # a network trained from scratch for a single task
+    - classical / statistical  # non-learning or classical statistics
   modality:
     - transcriptomics
     - proteomics
