@@ -35,10 +35,14 @@ kind (1-2 values; these are NOT mutually exclusive): {kind}
   method    = a new computational method: software, pipeline, statistical
               method or learned model. If its contribution is something that
               runs on a computer, it is a method.
-  benchmark = an evaluation, comparison or assessment of existing methods
-  A record can be several: a new assay shipping analysis code is
-  [assay, method]; a method paper that also benchmarks rivals is
-  [method, benchmark].
+  benchmark = a STANDALONE study whose OWN contribution is a systematic,
+              third-party comparison or evaluation of existing methods, and
+              which introduces no substantial new method of its own.
+              Do NOT add "benchmark" to a method or assay paper just because
+              it compares itself against baselines — every method paper does
+              that, and it does NOT make the paper a benchmark.
+  A record can still be several: a new assay shipping analysis code is
+  [assay, method].
 
 approach (return EXACTLY 1 value when kind includes "method", otherwise []): {approach}
   The single most dominant paradigm of the method. Definitions:

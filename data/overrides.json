@@ -3,7 +3,7 @@
 
   "patch": {
     "10.1038/s41592-021-01255-8": {
-      "kind": ["bioinformatics tool", "AI model"]
+      "kind": ["method"]
     }
   },
 
@@ -14,7 +14,7 @@
       "id": "manual:xenium-5k",
       "name": "Xenium Prime 5K",
       "one_liner": "Expanded in situ panel profiling ~5,000 genes at subcellular resolution.",
-      "kind": ["technology"],
+      "kind": ["assay"],
       "modality": ["transcriptomics"],
       "platforms": ["Xenium"],
       "url": "https://www.10xgenomics.com/platforms/xenium",
