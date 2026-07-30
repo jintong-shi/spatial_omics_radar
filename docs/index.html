@@ -85,6 +85,7 @@ select{max-width:200px}
   text-align:right;white-space:nowrap;line-height:1.7}
 .side>span{display:block}
 .side .pp{color:var(--eosin)}
+.side .if{color:var(--nuclei);font-weight:500}
 .side a{display:block;text-decoration:none;border-bottom:1px solid var(--rule)}
 .side a:hover{color:var(--eosin)}
 .empty{padding:64px 0;text-align:center;color:var(--stroma);font-family:var(--mono);
@@ -120,6 +121,11 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
   <select id="fApproach" aria-label="Filter by approach"><option value="">any approach</option></select>
   <select id="fMod" aria-label="Filter by modality"><option value="">any modality</option></select>
   <select id="fPlat" aria-label="Filter by platform"><option value="">any platform</option></select>
+  <select id="sort" aria-label="Sort order">
+    <option value="date">newest</option>
+    <option value="match" id="optMatch" disabled>best match</option>
+    <option value="if">impact factor</option>
+  </select>
   <label class="range">from <input type="month" id="fFrom" aria-label="From month"></label>
   <label class="range">to <input type="month" id="fTo" aria-label="To month"></label>
   <button class="reset" id="reset" hidden>clear filters</button>
@@ -135,7 +141,7 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
 </div>
 
 <script>
-const state = {all:[], q:"", kind:"", appr:"", mod:"", plat:"", from:"", to:""};
+const state = {all:[], q:"", kind:"", appr:"", mod:"", plat:"", from:"", to:"", sort:"date"};
 const el = id => document.getElementById(id);
 
 fetch("entries.json").then(r => r.json()).then(init).catch(() => {
@@ -161,8 +167,11 @@ function init(data){
       state.appr = el("fApproach").value;
       state.mod = el("fMod").value;
       state.plat = el("fPlat").value;
+      el("optMatch").disabled = !state.q;          // best match needs a query
+      if (!state.q && state.sort === "match"){ state.sort = "date"; el("sort").value = "date"; }
       render();
     }));
+  el("sort").addEventListener("change", () => { state.sort = el("sort").value; render(); });
   ["fFrom","fTo"].forEach(id =>
     el(id).addEventListener("change", () => {
       state.from = el("fFrom").value;
@@ -172,8 +181,9 @@ function init(data){
       render();
     }));
   el("reset").addEventListener("click", () => {
-    Object.assign(state, {q:"",kind:"",appr:"",mod:"",plat:"",from:"",to:""});
+    Object.assign(state, {q:"",kind:"",appr:"",mod:"",plat:"",from:"",to:"",sort:"date"});
     el("q").value = ""; ["fKind","fApproach","fMod","fPlat","fFrom","fTo"].forEach(i => el(i).value = "");
+    el("sort").value = "date"; el("optMatch").disabled = true;
     paintStrip();
     render();
   });
@@ -260,8 +270,26 @@ function match(e){
   return true;
 }
 
+/* Relevance for "best match": a name hit outweighs a description/venue hit,
+   and a prefix hit outweighs a hit mid-string. Only meaningful with a query. */
+function score(e){
+  const q = state.q; if (!q) return 0;
+  const hit = (s, w) => { s = (s || "").toLowerCase();
+    return s.includes(q) ? w * (s.startsWith(q) ? 2 : 1) : 0; };
+  return hit(e.name,100) + hit(e.one_liner,10) + hit(e.title,10) + hit(e.venue,5);
+}
+const byDate = (a,b) => (b.date || "").localeCompare(a.date || "");
+const sorters = {
+  date:  byDate,
+  match: (a,b) => score(b) - score(a) || byDate(a,b),
+  if:    (a,b) => ((b.impact_factor ?? -1) - (a.impact_factor ?? -1)) || byDate(a,b),
+};
+
 function render(){
   const rows = state.all.filter(match);
+  // "best match" with no query is meaningless -> fall back to newest.
+  const eff = (state.sort === "match" && !state.q) ? "date" : state.sort;
+  rows.sort(sorters[eff]);
   const filtered = state.q || state.kind || state.appr || state.mod || state.plat || state.from || state.to;
   el("reset").hidden = !filtered;
   el("counter").textContent = filtered
@@ -273,6 +301,10 @@ function render(){
     return;
   }
 
+  if (eff !== "date"){                    // month headers only make sense by date
+    el("list").innerHTML = rows.map(row).join("");
+    return;
+  }
   let html = "", current = null;
   for (const e of rows){
     if (ym(e) !== current){ current = ym(e); html += `<div class="month">${current || "undated"}</div>`; }
@@ -301,6 +333,7 @@ function row(e){
     <div class="side">
       <span>${esc(e.date)}</span>
       <span class="${e.is_preprint ? "pp" : ""}">${esc(e.is_preprint ? "preprint" : e.venue)}</span>
+      ${e.impact_factor ? `<span class="if" title="Journal Impact Factor (approx.)">IF ${esc(e.impact_factor)}</span>` : ""}
       ${e.code_url ? `<a href="${esc(e.code_url)}" target="_blank" rel="noopener">code${e.stars ? " ★" + e.stars : ""}</a>` : ""}
     </div>
   </article>`;

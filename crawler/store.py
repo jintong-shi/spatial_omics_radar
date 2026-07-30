@@ -12,10 +12,12 @@ your fix survives every future crawl.
 
 import json
 import pathlib
+import re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 AUTO = ROOT / "data" / "entries.json"
 OVERRIDES = ROOT / "data" / "overrides.json"
+JOURNAL_IF = ROOT / "data" / "journal_if.json"
 PUBLISHED = ROOT / "docs" / "entries.json"
 
 
@@ -23,6 +25,19 @@ def _read(path, default):
     if not path.exists():
         return default
     return json.loads(path.read_text())
+
+
+def _norm_journal(name):
+    """Loose key so 'Bioinformatics (Oxford, England)' matches 'Bioinformatics'."""
+    s = (name or "").lower().split("(")[0].split(":")[0]
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", s)).strip()
+
+
+def _impact_factors():
+    """Human-maintained journal -> JIF map, keyed loosely. The _comment string
+    and any null entries fall out here because only numbers are kept."""
+    return {_norm_journal(k): v for k, v in _read(JOURNAL_IF, {}).items()
+            if isinstance(v, (int, float)) and not isinstance(v, bool)}
 
 
 def load_auto():
@@ -36,7 +51,9 @@ def save_auto(entries):
 def publish(auto, meta):
     """Apply overrides on top of auto data and write what the site consumes."""
     ov = _read(OVERRIDES, {"patch": {}, "hide": [], "add": {}})
-    merged = dict(auto)
+    # Copy each entry so stamping impact_factor below never mutates the
+    # machine-owned auto dict the caller may still be holding.
+    merged = {sid: dict(e) for sid, e in auto.items()}
 
     for sid, patch in ov.get("patch", {}).items():
         if sid in merged:
@@ -46,6 +63,13 @@ def publish(auto, meta):
 
     for sid in ov.get("hide", []):
         merged.pop(sid, None)
+
+    # Enrich published papers with their journal impact factor (preprints get none).
+    ifs = _impact_factors()
+    for e in merged.values():
+        jif = None if e.get("is_preprint") else ifs.get(_norm_journal(e.get("venue")))
+        if jif is not None:
+            e["impact_factor"] = jif
 
     rows = sorted(merged.values(), key=lambda e: e.get("date", ""), reverse=True)
     PUBLISHED.write_text(json.dumps(
