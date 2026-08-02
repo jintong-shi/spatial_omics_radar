@@ -17,7 +17,7 @@ import re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 AUTO = ROOT / "data" / "entries.json"
 OVERRIDES = ROOT / "data" / "overrides.json"
-JOURNAL_IF = ROOT / "data" / "journal_if.json"
+IF_CACHE = ROOT / "data" / "if_cache.json"
 PUBLISHED = ROOT / "docs" / "entries.json"
 
 
@@ -34,9 +34,10 @@ def _norm_journal(name):
 
 
 def _impact_factors():
-    """Human-maintained journal -> JIF map, keyed loosely. The _comment string
-    and any null entries fall out here because only numbers are kept."""
-    return {_norm_journal(k): v for k, v in _read(JOURNAL_IF, {}).items()
+    """Journal -> JIF map from the easyscholar cache (crawler/refresh_if.py),
+    keyed loosely. Null entries (journals easyscholar can't find) fall out here
+    because only numbers are kept."""
+    return {_norm_journal(k): v for k, v in _read(IF_CACHE, {}).items()
             if isinstance(v, (int, float)) and not isinstance(v, bool)}
 
 
