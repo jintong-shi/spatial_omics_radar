@@ -86,6 +86,8 @@ select{max-width:200px}
 .side>span{display:block}
 .side .pp{color:var(--eosin)}
 .side .if{color:var(--nuclei);font-weight:500}
+/* Journal names wrap past ~50 chars; mono font makes 50ch ≈ 50 characters. */
+.side .venue{display:inline-block;white-space:normal;width:max-content;max-width:50ch;vertical-align:top}
 .side a{display:block;text-decoration:none;border-bottom:1px solid var(--rule)}
 .side a:hover{color:var(--eosin)}
 .empty{padding:64px 0;text-align:center;color:var(--stroma);font-family:var(--mono);
@@ -332,7 +334,7 @@ function row(e){
     </div>
     <div class="side">
       <span>${esc(e.date)}</span>
-      <span class="${e.is_preprint ? "pp" : ""}">${esc(e.is_preprint ? "preprint" : e.venue)}</span>
+      <span class="venue ${e.is_preprint ? "pp" : ""}">${esc(e.is_preprint ? "preprint" : e.venue)}</span>
       ${e.impact_factor ? `<span class="if" title="Journal Impact Factor (approx.)">IF ${esc(e.impact_factor)}</span>` : ""}
       ${e.code_url ? `<a href="${esc(e.code_url)}" target="_blank" rel="noopener">code${e.stars ? " ★" + e.stars : ""}</a>` : ""}
     </div>
