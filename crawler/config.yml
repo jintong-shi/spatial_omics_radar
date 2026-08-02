@@ -16,7 +16,7 @@ europepmc_queries:
   - '(TITLE_ABS:"spatial transcriptomics" OR TITLE_ABS:"spatially resolved transcriptomics" OR TITLE_ABS:"spatial omics" OR TITLE_ABS:"spatially resolved omics") AND (TITLE_ABS:tool OR TITLE_ABS:method OR TITLE_ABS:framework OR TITLE_ABS:algorithm OR TITLE_ABS:software OR TITLE_ABS:pipeline OR TITLE_ABS:package)'
 
   # 2. Non-transcriptomic modalities, which query 1 largely misses
-  - '(TITLE_ABS:"spatial proteomics" OR TITLE_ABS:"spatial metabolomics" OR TITLE_ABS:"spatial epigenomics" OR TITLE_ABS:"spatial multi-omics" OR TITLE_ABS:"highly multiplexed imaging" OR TITLE_ABS:"mass spectrometry imaging") AND (TITLE_ABS:tool OR TITLE_ABS:method OR TITLE_ABS:framework OR TITLE_ABS:pipeline OR TITLE_ABS:software OR TITLE_ABS:platform)'
+  - '(TITLE_ABS:"spatial proteomics" OR TITLE_ABS:"spatial metabolomics" OR TITLE_ABS:"spatial epigenomics" OR TITLE_ABS:"spatial genomics" OR TITLE_ABS:"spatial lipidomics" OR TITLE_ABS:"spatial glycomics" OR TITLE_ABS:"spatial multi-omics" OR TITLE_ABS:"spatially resolved omics" OR TITLE_ABS:"highly multiplexed imaging" OR TITLE_ABS:"mass spectrometry imaging") AND (TITLE_ABS:tool OR TITLE_ABS:method OR TITLE_ABS:framework OR TITLE_ABS:pipeline OR TITLE_ABS:software OR TITLE_ABS:platform OR TITLE_ABS:assay OR TITLE_ABS:profiling)'
 
   # 3. Benchmarks across any spatial modality
   - '(TITLE_ABS:"spatial transcriptomics" OR TITLE_ABS:"spatial omics" OR TITLE_ABS:"spatial proteomics" OR TITLE_ABS:"multiplexed imaging") AND (TITLE:benchmark* OR TITLE_ABS:"comparative evaluation" OR TITLE_ABS:"systematic comparison" OR TITLE_ABS:"systematic evaluation")'
@@ -25,13 +25,14 @@ europepmc_queries:
   - 'TITLE_ABS:(Visium OR Xenium OR MERFISH OR seqFISH OR CosMx OR "Stereo-seq" OR "Slide-seq" OR "Slide-tags" OR GeoMx OR "Open-ST" OR "Curio Seeker" OR PhenoCycler OR CODEX OR "imaging mass cytometry" OR MIBI OR MALDI OR "spatial ATAC" OR "CUT&Tag")'
 
   # 5. AI / foundation models for spatial data
-  - '(TITLE_ABS:spatial AND TITLE_ABS:(transcriptom* OR proteom* OR metabolom* OR omics)) AND TITLE_ABS:("foundation model" OR "deep learning" OR transformer OR "graph neural network" OR "self-supervised" OR "pretrained")'
+  - '(TITLE_ABS:spatial AND TITLE_ABS:(transcriptom* OR proteom* OR metabolom* OR genom* OR epigenom* OR lipidom* OR glycom* OR omics)) AND TITLE_ABS:("foundation model" OR "deep learning" OR transformer OR "graph neural network" OR "self-supervised" OR "pretrained")'
 
 # GitHub repo search. Sorted by recent push; only repos with a real README survive triage.
 github_queries:
   - 'spatial transcriptomics in:name,description,readme stars:>15'
   - 'spatial omics tool in:name,description stars:>10'
   - 'spatial proteomics OR multiplexed imaging in:name,description stars:>10'
+  - 'spatial genomics OR spatial multi-omics in:name,description stars:>10'
 
 # ---------------------------------------------------------------------------
 # Stage 1 — cheap rule-based prefilter (high recall, low precision).
@@ -70,6 +71,11 @@ prefilter:
     - spatial atac
     - spatial cut&tag
     - spatial multi-omic
+    - spatial multiomic
+    # genomics + emerging omics (kept deliberately broad — catch future modalities)
+    - spatial genom
+    - spatial lipidom
+    - spatial glycom
     # concepts
     - spatial domain
     - spatial niche
