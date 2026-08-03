@@ -17,14 +17,14 @@ GH = "https://api.github.com/search/repositories"
 UA = {"User-Agent": "spatial-omics-radar (+https://github.com/)"}
 
 
-def fetch_europepmc(query, since, page_size=100, max_pages=30):
+def fetch_europepmc(query, since, page_size=100, max_pages=200):
     """Europe PMC covers PubMed *and* bioRxiv/medRxiv preprints in one index.
 
     `since` is a date string 'YYYY-MM-DD'; we filter on first publication date
     so a paper does not reappear when it moves from preprint to journal.
 
-    max_pages caps the crawl at max_pages * page_size records per query. 30 is
-    sized for a multi-year backfill; incremental runs never come close.
+    max_pages caps the crawl at max_pages * page_size records per query. 200 is
+    sized for a 10-year multi-omics backfill; incremental runs never come close.
     """
     today = dt.date.today().isoformat()
     scoped = f'({query}) AND (FIRST_PDATE:[{since} TO {today}])'
