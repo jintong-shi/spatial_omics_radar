@@ -22,6 +22,11 @@ import triage
 
 CONFIG = pathlib.Path(__file__).resolve().parent / "config.yml"
 
+# Persist progress every N LLM batches, so a crash (or a subscription usage
+# limit hit mid-backfill) loses at most this many batches and a resumed run
+# continues instead of re-judging everything from the start.
+CHECKPOINT_EVERY = 10
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -42,8 +47,9 @@ def main():
     model = args.model or cfg["llm"]["model"]
     since = args.since or (dt.date.today() - dt.timedelta(days=45)).isoformat()
     known = store.load_auto()
-    print(f"crawling since {since}; {len(known)} entries already known "
-          f"(llm backend: {backend}, model: {model})")
+    seen = store.load_seen()
+    print(f"crawling since {since}; {len(known)} entries already known, "
+          f"{len(seen)} already judged (llm backend: {backend}, model: {model})")
 
     # ---- fetch -------------------------------------------------------------
     t = time.perf_counter()
@@ -59,7 +65,7 @@ def main():
         for h in hits:
             raw.setdefault(h["source_id"], h)
 
-    fresh = {k: v for k, v in raw.items() if k not in known}
+    fresh = {k: v for k, v in raw.items() if k not in known and k not in seen}
     t_fetch = time.perf_counter() - t
     print(f"{len(raw)} unique records, {len(fresh)} not seen before")
 
@@ -162,14 +168,20 @@ def main():
                 done += 1
                 if verdict is None:
                     continue
+                seen.add(rec["source_id"])   # judged (keep or reject) — never re-do it
                 verdict = triage.sanitise(verdict, cfg["vocab"])
                 if not verdict.get("keep"):
                     continue
                 store_entry(rec, verdict)
                 print(f'  [{done}/{len(passed)}] + {known[rec["source_id"]]["name"]}')
+
+            if (start // batch_size) % CHECKPOINT_EVERY == 0:
+                store.save_auto(known)
+                store.save_seen(seen)
     t_llm = time.perf_counter() - t
 
     store.save_auto(known)
+    store.save_seen(seen)
     total = store.publish(known, {
         "updated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "site": cfg["site"],

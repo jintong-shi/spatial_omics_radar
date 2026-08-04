@@ -19,6 +19,7 @@ AUTO = ROOT / "data" / "entries.json"
 OVERRIDES = ROOT / "data" / "overrides.json"
 IF_CACHE = ROOT / "data" / "if_cache.json"
 PUBLISHED = ROOT / "docs" / "entries.json"
+SEEN = ROOT / "data" / "seen.json"
 
 
 def _read(path, default):
@@ -47,6 +48,17 @@ def load_auto():
 
 def save_auto(entries):
     AUTO.write_text(json.dumps(entries, indent=2, ensure_ascii=False, sort_keys=True))
+
+
+def load_seen():
+    """Source_ids the LLM has already judged (keep OR reject). Kept apart from
+    entries.json — which still holds only kept entries — so a chunked or resumed
+    backfill never re-classifies a record it has already ruled on."""
+    return set(_read(SEEN, []))
+
+
+def save_seen(seen):
+    SEEN.write_text(json.dumps(sorted(seen), indent=2, ensure_ascii=False))
 
 
 def publish(auto, meta):
