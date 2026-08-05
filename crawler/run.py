@@ -40,9 +40,22 @@ def main():
                          "Default comes from config.yml (llm.backend).")
     ap.add_argument("--model", help="override llm.model from config.yml "
                                     "(e.g. claude-sonnet-5 for an accuracy A/B)")
+    ap.add_argument("--publish-only", action="store_true",
+                    help="re-merge overrides + impact factors into docs and exit; "
+                         "no fetch, no LLM (use after crawler/refresh_if.py)")
     args = ap.parse_args()
 
     cfg = yaml.safe_load(CONFIG.read_text())
+
+    if args.publish_only:
+        total = store.publish(store.load_auto(), {
+            "updated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+            "site": cfg["site"],
+            "vocab": cfg["vocab"],
+        })
+        print(f"published {total} entries (publish-only; no fetch, no LLM)")
+        return
+
     backend = args.backend or cfg["llm"].get("backend", "api")
     model = args.model or cfg["llm"]["model"]
     since = args.since or (dt.date.today() - dt.timedelta(days=45)).isoformat()
