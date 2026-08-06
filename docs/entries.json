@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updated": "2026-08-06T09:16:30+00:00",
+    "updated": "2026-08-06T09:35:25+00:00",
     "site": {
       "title": "Spatial Omics Radar",
       "subtitle": "New technologies, tools, AI models and benchmarks across spatial omics",
       "maintainer": "Jintong",
-      "repo_url": "https://github.com/YOURNAME/spatial-omics-radar"
+      "repo_url": "https://github.com/jintong-shi/spatial_omics_radar"
     },
     "vocab": {
       "kind": [
@@ -57,90 +57,147 @@
   },
   "entries": [
     {
-      "id": "10.1371/journal.pcbi.1014609",
-      "name": "AddaGCN",
-      "title": "AddaGCN: Spatial transcriptomics deconvolution using graph convolutional networks with adversarial discriminative domain adaptation",
-      "one_liner": "Deconvolves cell-type composition from spatial transcriptomics spots using a graph convolutional network with adversarial domain adaptation.",
-      "kind": [
-        "method"
-      ],
+      "added": "2026-08-06",
       "approach": [
         "deep learning"
+      ],
+      "code_url": null,
+      "confidence": 0.85,
+      "curated": false,
+      "date": "2026-08-05",
+      "id": "10.1371/journal.pcbi.1014609",
+      "is_preprint": false,
+      "kind": [
+        "method"
       ],
       "modality": [
         "transcriptomics"
       ],
+      "name": "AddaGCN",
+      "needs_review": false,
+      "one_liner": "Deconvolves cell-type composition from spatial transcriptomics spots using a graph convolutional network with adversarial domain adaptation.",
       "platforms": [
         "platform-agnostic"
       ],
-      "url": "https://doi.org/10.1371/journal.pcbi.1014609",
-      "code_url": null,
-      "venue": "PLoS computational biology",
-      "date": "2026-08-05",
-      "is_preprint": false,
       "stars": null,
-      "confidence": 0.85,
-      "needs_review": false,
-      "added": "2026-08-06",
-      "curated": false,
+      "title": "AddaGCN: Spatial transcriptomics deconvolution using graph convolutional networks with adversarial discriminative domain adaptation",
+      "url": "https://doi.org/10.1371/journal.pcbi.1014609",
+      "venue": "PLoS computational biology",
       "impact_factor": 3.7
     },
     {
-      "id": "10.64898/2026.07.30.741921",
-      "name": "BIGraph-ST",
-      "title": "Multi-modal Graph Integration for Biologically Interpretable Domain Identification Using Spatial Transcriptomics",
-      "one_liner": "Identifies spatial tissue domains by integrating pathway activity and histology image features via multi-modal affinity graphs.",
-      "kind": [
-        "method"
-      ],
+      "added": "2026-08-06",
       "approach": [
         "classical / statistical"
+      ],
+      "code_url": null,
+      "confidence": 0.6,
+      "curated": false,
+      "date": "2026-08-05",
+      "id": "10.64898/2026.07.30.741921",
+      "is_preprint": true,
+      "kind": [
+        "method"
       ],
       "modality": [
         "transcriptomics",
         "histology / imaging-only"
       ],
+      "name": "BIGraph-ST",
+      "needs_review": true,
+      "one_liner": "Identifies spatial tissue domains by integrating pathway activity and histology image features via multi-modal affinity graphs.",
       "platforms": [
         "H&E / histology"
       ],
-      "url": "https://doi.org/10.64898/2026.07.30.741921",
-      "code_url": null,
-      "venue": "PPR",
-      "date": "2026-08-05",
-      "is_preprint": true,
       "stars": null,
-      "confidence": 0.6,
-      "needs_review": true,
-      "added": "2026-08-06",
-      "curated": false
+      "title": "Multi-modal Graph Integration for Biologically Interpretable Domain Identification Using Spatial Transcriptomics",
+      "url": "https://doi.org/10.64898/2026.07.30.741921",
+      "venue": "PPR"
     },
     {
-      "id": "10.64898/2026.07.29.741565",
-      "name": "TERRA",
-      "title": "Multi-scale modeling of human tissues from spatial transcriptomics with TERRA",
-      "one_liner": "A foundation model pretrained on spatial transcriptomics data yielding cell, gene and neighborhood embeddings for zero-shot analysis and in silico perturbation.",
-      "kind": [
-        "method"
-      ],
+      "added": "2026-08-06",
       "approach": [
         "foundation model"
+      ],
+      "code_url": null,
+      "confidence": 0.9,
+      "curated": false,
+      "date": "2026-08-04",
+      "id": "10.64898/2026.07.29.741565",
+      "is_preprint": true,
+      "kind": [
+        "method"
       ],
       "modality": [
         "transcriptomics"
       ],
+      "name": "TERRA",
+      "needs_review": false,
+      "one_liner": "A foundation model pretrained on spatial transcriptomics data yielding cell, gene and neighborhood embeddings for zero-shot analysis and in silico perturbation.",
       "platforms": [
         "platform-agnostic"
       ],
-      "url": "https://doi.org/10.64898/2026.07.29.741565",
-      "code_url": null,
-      "venue": "PPR",
-      "date": "2026-08-04",
-      "is_preprint": true,
       "stars": null,
-      "confidence": 0.9,
-      "needs_review": false,
+      "title": "Multi-scale modeling of human tissues from spatial transcriptomics with TERRA",
+      "url": "https://doi.org/10.64898/2026.07.29.741565",
+      "venue": "PPR"
+    },
+    {
       "added": "2026-08-06",
-      "curated": false
+      "approach": [
+        "classical / statistical"
+      ],
+      "code_url": null,
+      "confidence": 0.85,
+      "curated": false,
+      "date": "2026-08-03",
+      "id": "10.1016/j.plantsci.2026.113358",
+      "is_preprint": false,
+      "kind": [
+        "method"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "name": "PlantDeconv",
+      "needs_review": false,
+      "one_liner": "Probabilistic deconvolution framework that encodes plant-specific spatial structure priors to map cell types onto spatial transcriptomics spots.",
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "stars": null,
+      "title": "PlantDeconv: a structure-guided probabilistic deconvolution framework for plant spatial transcriptomics",
+      "url": "https://doi.org/10.1016/j.plantsci.2026.113358",
+      "venue": "Plant science : an international journal of experimental plant biology",
+      "impact_factor": 4.6
+    },
+    {
+      "added": "2026-08-06",
+      "approach": [],
+      "code_url": null,
+      "confidence": 0.85,
+      "curated": false,
+      "date": "2026-08-03",
+      "id": "10.1038/s41467-026-75405-x",
+      "is_preprint": false,
+      "kind": [
+        "assay"
+      ],
+      "modality": [
+        "transcriptomics",
+        "genomics"
+      ],
+      "name": "Stereo-XCR-seq",
+      "needs_review": false,
+      "one_liner": "Retrieves and sequences TCR/BCR from spatial transcriptome cDNA libraries at subcellular resolution.",
+      "platforms": [
+        "Stereo-seq"
+      ],
+      "stars": null,
+      "title": "Uncovering ectopic GC-like niches for tumor reactive lymphocyte priming in lung adenocarcinoma using Stereo-XCR-seq",
+      "url": "https://doi.org/10.1038/s41467-026-75405-x",
+      "venue": "Nature communications",
+      "impact_factor": 18.1
     },
     {
       "added": "2026-08-04",
@@ -194,63 +251,6 @@
       "title": "PanoMito: mapping mitochondrial heterogeneity from morphofunctional profiling to single-mitochondrion spatial transcriptomics",
       "url": "https://doi.org/10.21203/rs.3.rs-9176755/v1",
       "venue": "PPR"
-    },
-    {
-      "id": "10.1016/j.plantsci.2026.113358",
-      "name": "PlantDeconv",
-      "title": "PlantDeconv: a structure-guided probabilistic deconvolution framework for plant spatial transcriptomics",
-      "one_liner": "Probabilistic deconvolution framework that encodes plant-specific spatial structure priors to map cell types onto spatial transcriptomics spots.",
-      "kind": [
-        "method"
-      ],
-      "approach": [
-        "classical / statistical"
-      ],
-      "modality": [
-        "transcriptomics"
-      ],
-      "platforms": [
-        "platform-agnostic"
-      ],
-      "url": "https://doi.org/10.1016/j.plantsci.2026.113358",
-      "code_url": null,
-      "venue": "Plant science : an international journal of experimental plant biology",
-      "date": "2026-08-03",
-      "is_preprint": false,
-      "stars": null,
-      "confidence": 0.85,
-      "needs_review": false,
-      "added": "2026-08-06",
-      "curated": false,
-      "impact_factor": 4.6
-    },
-    {
-      "id": "10.1038/s41467-026-75405-x",
-      "name": "Stereo-XCR-seq",
-      "title": "Uncovering ectopic GC-like niches for tumor reactive lymphocyte priming in lung adenocarcinoma using Stereo-XCR-seq",
-      "one_liner": "Retrieves and sequences TCR/BCR from spatial transcriptome cDNA libraries at subcellular resolution.",
-      "kind": [
-        "assay"
-      ],
-      "approach": [],
-      "modality": [
-        "transcriptomics",
-        "genomics"
-      ],
-      "platforms": [
-        "Stereo-seq"
-      ],
-      "url": "https://doi.org/10.1038/s41467-026-75405-x",
-      "code_url": null,
-      "venue": "Nature communications",
-      "date": "2026-08-03",
-      "is_preprint": false,
-      "stars": null,
-      "confidence": 0.85,
-      "needs_review": false,
-      "added": "2026-08-06",
-      "curated": false,
-      "impact_factor": 18.1
     },
     {
       "added": "2026-08-03",
@@ -23396,30 +23396,30 @@
       "venue": "PPR"
     },
     {
-      "id": "dpeerlab/segger",
-      "name": "segger",
-      "title": "segger",
-      "one_liner": "Graph neural network tool that performs cell segmentation from spatial transcriptomics imaging data.",
-      "kind": [
-        "method"
-      ],
+      "added": "2026-08-06",
       "approach": [
         "deep learning"
+      ],
+      "code_url": "https://github.com/dpeerlab/segger",
+      "confidence": 0.7,
+      "curated": false,
+      "date": "2025-11-16",
+      "id": "dpeerlab/segger",
+      "is_preprint": false,
+      "kind": [
+        "method"
       ],
       "modality": [
         "transcriptomics"
       ],
-      "platforms": [],
-      "url": "https://github.com/dpeerlab/segger",
-      "code_url": "https://github.com/dpeerlab/segger",
-      "venue": "GitHub",
-      "date": "2025-11-16",
-      "is_preprint": false,
-      "stars": 22,
-      "confidence": 0.7,
+      "name": "segger",
       "needs_review": false,
-      "added": "2026-08-06",
-      "curated": false
+      "one_liner": "Graph neural network tool that performs cell segmentation from spatial transcriptomics imaging data.",
+      "platforms": [],
+      "stars": 22,
+      "title": "segger",
+      "url": "https://github.com/dpeerlab/segger",
+      "venue": "GitHub"
     },
     {
       "added": "2026-08-04",
@@ -56299,32 +56299,32 @@
       "impact_factor": 9.2
     },
     {
-      "id": "GoekeLab/bambu-pipe",
-      "name": "bambu-pipe",
-      "title": "bambu-pipe",
-      "one_liner": "Pipeline for transcript discovery and quantification from long-read single-cell and spatial transcriptomics data using Bambu.",
-      "kind": [
-        "method"
-      ],
+      "added": "2026-08-06",
       "approach": [
         "classical / statistical"
+      ],
+      "code_url": "https://github.com/GoekeLab/bambu-pipe",
+      "confidence": 0.55,
+      "curated": false,
+      "date": "2024-01-15",
+      "id": "GoekeLab/bambu-pipe",
+      "is_preprint": false,
+      "kind": [
+        "method"
       ],
       "modality": [
         "transcriptomics"
       ],
+      "name": "bambu-pipe",
+      "needs_review": true,
+      "one_liner": "Pipeline for transcript discovery and quantification from long-read single-cell and spatial transcriptomics data using Bambu.",
       "platforms": [
         "platform-agnostic"
       ],
-      "url": "https://github.com/GoekeLab/bambu-pipe",
-      "code_url": "https://github.com/GoekeLab/bambu-pipe",
-      "venue": "GitHub",
-      "date": "2024-01-15",
-      "is_preprint": false,
       "stars": 23,
-      "confidence": 0.55,
-      "needs_review": true,
-      "added": "2026-08-06",
-      "curated": false
+      "title": "bambu-pipe",
+      "url": "https://github.com/GoekeLab/bambu-pipe",
+      "venue": "GitHub"
     },
     {
       "added": "2026-08-04",
@@ -58014,32 +58014,32 @@
       "venue": "PPR"
     },
     {
-      "id": "ankitbioinfo/nico_tutorial",
-      "name": "nico",
-      "title": "nico_tutorial",
-      "one_liner": "Annotates cell types and identifies statistically enriched niche interactions and gene-program covariation from spatial transcriptomics.",
-      "kind": [
-        "method"
-      ],
+      "added": "2026-08-06",
       "approach": [
         "classical / statistical"
+      ],
+      "code_url": "https://github.com/ankitbioinfo/nico_tutorial",
+      "confidence": 0.55,
+      "curated": false,
+      "date": "2023-12-03",
+      "id": "ankitbioinfo/nico_tutorial",
+      "is_preprint": false,
+      "kind": [
+        "method"
       ],
       "modality": [
         "transcriptomics"
       ],
+      "name": "nico",
+      "needs_review": true,
+      "one_liner": "Annotates cell types and identifies statistically enriched niche interactions and gene-program covariation from spatial transcriptomics.",
       "platforms": [
         "platform-agnostic"
       ],
-      "url": "https://github.com/ankitbioinfo/nico_tutorial",
-      "code_url": "https://github.com/ankitbioinfo/nico_tutorial",
-      "venue": "GitHub",
-      "date": "2023-12-03",
-      "is_preprint": false,
       "stars": 16,
-      "confidence": 0.55,
-      "needs_review": true,
-      "added": "2026-08-06",
-      "curated": false
+      "title": "nico_tutorial",
+      "url": "https://github.com/ankitbioinfo/nico_tutorial",
+      "venue": "GitHub"
     },
     {
       "added": "2026-08-04",

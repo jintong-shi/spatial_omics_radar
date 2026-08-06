@@ -6,7 +6,7 @@ site:
   title: "Spatial Omics Radar"
   subtitle: "New technologies, tools, AI models and benchmarks across spatial omics"
   maintainer: "Jintong"
-  repo_url: "https://github.com/YOURNAME/spatial-omics-radar"
+  repo_url: "https://github.com/jintong-shi/spatial_omics_radar"
 
 # Europe PMC query syntax: https://europepmc.org/searchsyntax
 # Each query runs separately; results are pooled and de-duplicated.
