@@ -42,6 +42,12 @@ jobs:
           node-version: "20"
       - run: npm install -g @anthropic-ai/claude-code
 
+      # Claude Code runs its Bash tool inside a sandbox and refuses to start when
+      # the sandbox can't initialise (sandbox.failIfUnavailable, on by default on
+      # Linux). The GitHub runner lacks these tools, so install them.
+      - name: Install claude sandbox deps (bubblewrap + socat)
+        run: sudo apt-get update && sudo apt-get install -y bubblewrap socat
+
       - name: Crawl (Stage-2 via claude -p on subscription quota)
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
