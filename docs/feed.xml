@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>Spatial Omics Radar</title>
+<link>https://github.com/jintong-shi/spatial_omics_radar</link>
+<description>New technologies, tools, AI models and benchmarks across spatial omics</description>
+<lastBuildDate>Thu, 06 Aug 2026 11:03:52 +0000</lastBuildDate>
+<item>
+<title>PlantDeconv</title>
+<link>https://doi.org/10.1016/j.plantsci.2026.113358</link>
+<guid isPermaLink="false">10.1016/j.plantsci.2026.113358</guid>
+<pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+<description>Probabilistic deconvolution framework that encodes plant-specific spatial structure priors to map cell types onto spatial transcriptomics spots. (method · transcriptomics — Plant science : an international journal of experimental plant biology)</description>
+</item>
+<item>
+<title>Stereo-XCR-seq</title>
+<link>https://doi.org/10.1038/s41467-026-75405-x</link>
+<guid isPermaLink="false">10.1038/s41467-026-75405-x</guid>
+<pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+<description>Retrieves and sequences TCR/BCR from spatial transcriptome cDNA libraries at subcellular resolution. (assay · transcriptomics · genomics — Nature communications)</description>
+</item>
+<item>
+<title>AddaGCN</title>
+<link>https://doi.org/10.1371/journal.pcbi.1014609</link>
+<guid isPermaLink="false">10.1371/journal.pcbi.1014609</guid>
+<pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+<description>Deconvolves cell-type composition from spatial transcriptomics spots using a graph convolutional network with adversarial domain adaptation. (method · transcriptomics — PLoS computational biology)</description>
+</item>
+<item>
+<title>TERRA</title>
+<link>https://doi.org/10.64898/2026.07.29.741565</link>
+<guid isPermaLink="false">10.64898/2026.07.29.741565</guid>
+<pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+<description>A foundation model pretrained on spatial transcriptomics data yielding cell, gene and neighborhood embeddings for zero-shot analysis and in silico perturbation. (method · transcriptomics — preprint)</description>
+</item>
+<item>
+<title>BIGraph-ST</title>
+<link>https://doi.org/10.64898/2026.07.30.741921</link>
+<guid isPermaLink="false">10.64898/2026.07.30.741921</guid>
+<pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+<description>Identifies spatial tissue domains by integrating pathway activity and histology image features via multi-modal affinity graphs. (method · transcriptomics · histology / imaging-only — preprint)</description>
+</item>
+<item>
+<title>bambu-pipe</title>
+<link>https://github.com/GoekeLab/bambu-pipe</link>
+<guid isPermaLink="false">GoekeLab/bambu-pipe</guid>
+<pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+<description>Pipeline for transcript discovery and quantification from long-read single-cell and spatial transcriptomics data using Bambu. (method · transcriptomics — GitHub)</description>
+</item>
+<item>
+<title>nico</title>
+<link>https://github.com/ankitbioinfo/nico_tutorial</link>
+<guid isPermaLink="false">ankitbioinfo/nico_tutorial</guid>
+<pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+<description>Annotates cell types and identifies statistically enriched niche interactions and gene-program covariation from spatial transcriptomics. (method · transcriptomics — GitHub)</description>
+</item>
+<item>
+<title>segger</title>
+<link>https://github.com/dpeerlab/segger</link>
+<guid isPermaLink="false">dpeerlab/segger</guid>
+<pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+<description>Graph neural network tool that performs cell segmentation from spatial transcriptomics imaging data. (method · transcriptomics — GitHub)</description>
+</item>
+<item>
+<title>scmFormer</title>
+<link>https://doi.org/10.1002/advs.202307835</link>
+<guid isPermaLink="false">10.1002/advs.202307835</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Multi-task transformer integrates single-cell proteomics and transcriptomics, applicable to spatial multi-omic data. (method · proteomics · transcriptomics — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>STAGUE</title>
+<link>https://doi.org/10.1002/advs.202403572</link>
+<guid isPermaLink="false">10.1002/advs.202403572</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Jointly learns a cell graph structure and embedding via contrastive learning to improve spatial clustering and interaction discovery. (method · transcriptomics — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>stDCL</title>
+<link>https://doi.org/10.1002/advs.202410081</link>
+<guid isPermaLink="false">10.1002/advs.202410081</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Dual graph contrastive learning method that identifies spatial domains and interprets gene regulation in spatial transcriptomics data. (method · transcriptomics — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>GraphDEC</title>
+<link>https://doi.org/10.1002/advs.202502987</link>
+<guid isPermaLink="false">10.1002/advs.202502987</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Graph neural network that infers cell-type proportions from bulk or spatial proteomic profiles. (method · proteomics — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>SpaBalance</title>
+<link>https://doi.org/10.1002/advs.202512973</link>
+<guid isPermaLink="false">10.1002/advs.202512973</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Dual-stream deep learning framework balancing gradients across omics layers for spatial multi-omics integration. (method · multi-omics — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>Cohort-Scale Spatial Autocorrelation for Tumor Prediction in Mid-Infrared Pathology and Spatial Biomarker Discovery Using MALDI Imaging Lipidomics</title>
+<link>https://doi.org/10.1002/advs.202516847</link>
+<guid isPermaLink="false">10.1002/advs.202516847</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Spatial autocorrelation on MIR images enables automated tumor annotation and MSI-based lipid biomarker discovery. (method · metabolomics · histology / imaging-only — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>BiSCALE</title>
+<link>https://doi.org/10.1002/advs.202521151</link>
+<guid isPermaLink="false">10.1002/advs.202521151</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Predicts gene expression at bulk and spot scales from whole-slide histology images using deep learning. (method · transcriptomics · histology / imaging-only — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>CANDIES</title>
+<link>https://doi.org/10.1002/advs.202523754</link>
+<guid isPermaLink="false">10.1002/advs.202523754</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Conditional diffusion and contrastive learning model that denoises and jointly embeds spatial multi-omics data. (method · multi-omics — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>SpaMode</title>
+<link>https://doi.org/10.1002/advs.75478</link>
+<guid isPermaLink="false">10.1002/advs.75478</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Disentangles spatial multi-omics into modality-invariant/variant components for vertical, horizontal and mosaic integration. (method · multi-omics — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>SMOReg</title>
+<link>https://doi.org/10.1002/advs.75574</link>
+<guid isPermaLink="false">10.1002/advs.75574</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Hierarchical graph learning framework embedding cross-omics regulation into spot representations for spatial domain detection. (method · multi-omics — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>ASCAL</title>
+<link>https://doi.org/10.1002/advs.75857</link>
+<guid isPermaLink="false">10.1002/advs.75857</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Pipeline integrating single-cell reference annotation with spatial data to localize cells and build ocular atlas. (method · transcriptomics — Advanced science (Weinheim, Baden-Wurttemberg, Germany))</description>
+</item>
+<item>
+<title>Functional MSI</title>
+<link>https://doi.org/10.1002/anie.201911390</link>
+<guid isPermaLink="false">10.1002/anie.201911390</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>MSI method maps spatial enzyme activity by imaging exogenous substrate conversion products directly on tissue sections. (assay · metabolomics — Angewandte Chemie (International ed. in English))</description>
+</item>
+<item>
+<title>Micro-Lensed Fiber Laser Desorption Mass Spectrometry Imaging Reveals Subcellular Distribution of Drugs within Single Cells</title>
+<link>https://doi.org/10.1002/anie.202002151</link>
+<guid isPermaLink="false">10.1002/anie.202002151</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Micro-lensed fiber laser desorption MSI achieving 300 nm resolution for subcellular drug imaging. (assay · metabolomics — Angewandte Chemie (International ed. in English))</description>
+</item>
+<item>
+<title>Morphometric Cell Classification for Single-Cell MALDI-Mass Spectrometry Imaging</title>
+<link>https://doi.org/10.1002/anie.202007315</link>
+<guid isPermaLink="false">10.1002/anie.202007315</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Combines morphometric image analysis with single-cell MALDI-MSI to classify cells by shape and molecular profile. (method · metabolomics · histology / imaging-only — Angewandte Chemie (International ed. in English))</description>
+</item>
+<item>
+<title>Tandem Mass Spectrometry Imaging Enables High Definition for Mapping Lipids in Tissues</title>
+<link>https://doi.org/10.1002/anie.202214804</link>
+<guid isPermaLink="false">10.1002/anie.202214804</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Multiplexed MS2 imaging method mapping multiple lipid species and structural isomers at each tissue spot. (assay · metabolomics — Angewandte Chemie (International ed. in English))</description>
+</item>
+<item>
+<title>SVPro</title>
+<link>https://doi.org/10.1002/anie.202519440</link>
+<guid isPermaLink="false">10.1002/anie.202519440</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Trifunctional probe enabling simultaneous imaging and biotin-capture proteomics of cell-type-specific tissue regions. (assay · proteomics — Angewandte Chemie (International ed. in English))</description>
+</item>
+<item>
+<title>Multiplexed Tandem Mass Spectrometry Imaging Enables Large-Scale Isomer Mapping and Annotation in Tissues</title>
+<link>https://doi.org/10.1002/anie.202522119</link>
+<guid isPermaLink="false">10.1002/anie.202522119</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Parallel tandem-MS imaging plus spatial similarity networking for isomer-specific molecular annotation in tissue. (assay · method · metabolomics — Angewandte Chemie (International ed. in English))</description>
+</item>
+<item>
+<title>DeconS2L</title>
+<link>https://doi.org/10.1002/anie.4721868</link>
+<guid isPermaLink="false">10.1002/anie.4721868</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Deconvolution-based method coupled with parallel MS/MS acquisition for high-coverage spatial lipid imaging and annotation. (assay · method · metabolomics — Angewandte Chemie (International ed. in English))</description>
+</item>
+<item>
+<title>TRIFASE</title>
+<link>https://doi.org/10.1002/bimj.70031</link>
+<guid isPermaLink="false">10.1002/bimj.70031</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Semi-nonnegative matrix trifactorization for spatially aware coclustering of mass spectrometry imaging data. (method · metabolomics — Biometrical journal. Biometrische Zeitschrift)</description>
+</item>
+<item>
+<title>CDB-seq</title>
+<link>https://doi.org/10.1002/biot.202300294</link>
+<guid isPermaLink="false">10.1002/biot.202300294</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Barcoded-microbead multiplexed RNA-seq library prep for microdissected tissue spatial transcriptomics. (assay · transcriptomics — Biotechnology journal)</description>
+</item>
+<item>
+<title>MISH (Metal In Situ Hybridization)</title>
+<link>https://doi.org/10.1002/cyto.a.23281</link>
+<guid isPermaLink="false">10.1002/cyto.a.23281</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Combines RNAscope hybridization with mass cytometry to co-detect mRNA and surface proteins in single cells. (assay · multi-omics — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
+</item>
+<item>
+<title>TITAN</title>
+<link>https://doi.org/10.1002/cyto.a.24535</link>
+<guid isPermaLink="false">10.1002/cyto.a.24535</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>An open-source 3D Slicer extension for visualization, segmentation, analysis and export of IMC data. (method · proteomics — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
+</item>
+<item>
+<title>PEHPSI</title>
+<link>https://doi.org/10.1002/cyto.a.24550</link>
+<guid isPermaLink="false">10.1002/cyto.a.24550</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Antibody-based imaging mass cytometry panel co-visualizing bacteria and cancer cell phenotypes in tissue sections. (assay · proteomics — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
+</item>
+<item>
+<title>A novel process for H&amp;E, immunofluorescence, and imaging mass cytometry on a single slide with a concise analytics pipeline</title>
+<link>https://doi.org/10.1002/cyto.a.24789</link>
+<guid isPermaLink="false">10.1002/cyto.a.24789</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Sequential H&amp;E, multiplex IF and IMC staining on a single slide with a segmentation pipeline. (assay · proteomics · histology / imaging-only — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
+</item>
+<item>
+<title>OPTIMAL</title>
+<link>https://doi.org/10.1002/cyto.a.24803</link>
+<guid isPermaLink="false">10.1002/cyto.a.24803</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Benchmarking framework comparing segmentation, clustering, and neighborhood-analysis approaches for imaging mass cytometry. (benchmark · proteomics — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
+</item>
+<item>
+<title>OMIP-103</title>
+<link>https://doi.org/10.1002/cyto.a.24847</link>
+<guid isPermaLink="false">10.1002/cyto.a.24847</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>35-marker IMC panel co-detecting HIV RNA and immune cell populations in gut tissue. (assay · proteomics — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
+</item>
+<item>
+<title>Points2Regions</title>
+<link>https://doi.org/10.1002/cyto.a.24884</link>
+<guid isPermaLink="false">10.1002/cyto.a.24884</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Rasterizes mRNA points onto a grid and clusters them to identify multi-scale tissue regions quickly. (method · transcriptomics — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
+</item>
+<item>
+<title>BAIDEN</title>
+<link>https://doi.org/10.1002/cyto.b.22194</link>
+<guid isPermaLink="false">10.1002/cyto.b.22194</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Machine-learning pipeline with antibody panel and imaging mass cytometry to identify balloon cells in brain tissue. (method · proteomics — Cytometry. Part B, Clinical cytometry)</description>
+</item>
+<item>
+<title>IMC Cell Line Profiler</title>
+<link>https://doi.org/10.1002/cytoa.70009</link>
+<guid isPermaLink="false">10.1002/cytoa.70009</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Open-source workflow for visual rendering and segmentation-based analysis of IMC-profiled cell lines. (method · proteomics — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
+</item>
+<item>
+<title>Highly multiplexed tissue imaging using repeated oligonucleotide exchange reaction</title>
+<link>https://doi.org/10.1002/eji.202048891</link>
+<guid isPermaLink="false">10.1002/eji.202048891</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Simplifies CODEX multiplexed tissue imaging with 58 validated oligo barcodes and an analysis pipeline. (assay · method · proteomics — European journal of immunology)</description>
+</item>
+<item>
+<title>Fabrication of homogenous three-dimensional biomimetic tissue for mass spectrometry imaging</title>
+<link>https://doi.org/10.1002/jms.4342</link>
+<guid isPermaLink="false">10.1002/jms.4342</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Fabricated 3D biomimetic reference tissue plus PCA-based calibration for quantitative MSI quality control. (assay · method · metabolomics — Journal of mass spectrometry : JMS)</description>
+</item>
+<item>
+<title>Sample preparation strategies for high-throughput mass spectrometry imaging of primary tumor organoids</title>
+<link>https://doi.org/10.1002/jms.4452</link>
+<guid isPermaLink="false">10.1002/jms.4452</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Method to isolate tumor organoids from Matrigel into gelatin microarrays for high-throughput mass spec imaging. (assay · metabolomics — Journal of mass spectrometry : JMS)</description>
+</item>
+<item>
+<title>Immersion by rotation-based application of the matrix for fast and reproducible sample preparations and robust results in mass spectrometry imaging</title>
+<link>https://doi.org/10.1002/jms.4488</link>
+<guid isPermaLink="false">10.1002/jms.4488</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Automated immersion apparatus applies MALDI matrix in 5 minutes for fast, reproducible mass spectrometry imaging. (assay · metabolomics — Journal of mass spectrometry : JMS)</description>
+</item>
+<item>
+<title>Novel approach to enhance sensitivity while retaining morphology in fragile tissue sections for mass spectrometry imaging</title>
+<link>https://doi.org/10.1002/jms.4670</link>
+<guid isPermaLink="false">10.1002/jms.4670</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Adhesive-tape cryosection transfer technique improving sensitivity and morphology for MALDI-MS imaging of fragile tissue. (assay · metabolomics — Journal of mass spectrometry : JMS)</description>
+</item>
+<item>
+<title>PNP (pneumatic press)</title>
+<link>https://doi.org/10.1002/jms.70007</link>
+<guid isPermaLink="false">10.1002/jms.70007</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Pneumatic device standardizes pressure for imprinting plant tissue onto pPTFE sheets before MALDI-MSI. (assay · metabolomics — Journal of mass spectrometry : JMS)</description>
+</item>
+<item>
+<title>Protein biomarkers on tissue as imaged via MALDI mass spectrometry: A systematic approach to study the limits of detection</title>
+<link>https://doi.org/10.1002/pmic.201500515</link>
+<guid isPermaLink="false">10.1002/pmic.201500515</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Systematically characterizes MALDI-MSI limits of detection, variation, and resolution for tissue proteins. (benchmark · proteomics — Proteomics)</description>
+</item>
+<item>
+<title>MALDI Mass Spectrometry Imaging: A Novel Tool for the Identification and Classification of Amyloidosis</title>
+<link>https://doi.org/10.1002/pmic.201700236</link>
+<guid isPermaLink="false">10.1002/pmic.201700236</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>MALDI-IMS-MSI peptide filter and bioinformatics workflow to identify and classify amyloidosis subtypes. (method · proteomics — Proteomics)</description>
+</item>
+<item>
+<title>An optimized MALDI MSI protocol for spatial detection of tryptic peptides in fresh frozen prostate tissue</title>
+<link>https://doi.org/10.1002/pmic.202100223</link>
+<guid isPermaLink="false">10.1002/pmic.202100223</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Optimized sample-prep protocol for spatial detection of tryptic peptides via MALDI MSI in prostate tissue. (assay · proteomics — Proteomics)</description>
+</item>
+<item>
+<title>MALDImID</title>
+<link>https://doi.org/10.1002/pmic.202300005</link>
+<guid isPermaLink="false">10.1002/pmic.202300005</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>R package/Shiny app matching MALDI imaging peptide peaks to LC-MS/MS proteomic identification data. (method · proteomics — Proteomics)</description>
+</item>
+<item>
+<title>Robust subtyping of non-small cell lung cancer whole sections through MALDI mass spectrometry imaging</title>
+<link>https://doi.org/10.1002/prca.202100068</link>
+<guid isPermaLink="false">10.1002/prca.202100068</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Classification pipeline with preprocessing and NN/LDA classifiers for subtyping NSCLC whole sections from MALDI MSI. (method · proteomics — Proteomics. Clinical applications)</description>
+</item>
+<item>
+<title>iprm-PASEF</title>
+<link>https://doi.org/10.1002/rcm.10006</link>
+<guid isPermaLink="false">10.1002/rcm.10006</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Combines TIMS-PASEF with MALDI imaging to identify multiplexed tryptic peptides directly in tissue. (assay · proteomics — Rapid communications in mass spectrometry : RCM)</description>
+</item>
+<item>
+<title>psalign</title>
+<link>https://doi.org/10.1002/rcm.10172</link>
+<guid isPermaLink="false">10.1002/rcm.10172</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Spline-based peak-shape-aware algorithm corrects mass misalignment in mass spectrometry imaging data. (method · metabolomics — Rapid communications in mass spectrometry : RCM)</description>
+</item>
+</channel></rss>
