@@ -1,0 +1,61 @@
+# Weekly incremental crawl: classify new spatial-omics papers via the Stage-2
+# LLM and republish docs/entries.json.
+#
+# LLM billing: this uses the `cli` backend (`claude -p`), which draws on the
+# maintainer's Claude Pro/Max SUBSCRIPTION quota, NOT the metered Anthropic API.
+# That is why CLAUDE_CODE_OAUTH_TOKEN is set and ANTHROPIC_API_KEY is deliberately
+# left UNSET (config.yml defaults to `backend: api`; `--backend cli` overrides it
+# here). triage.py's cli backend passes every env var except ANTHROPIC_API_KEY
+# through to `claude -p`, so the OAuth token reaches the CLI unchanged.
+#
+# ⚠️ The token from `claude setup-token` lasts ~1 year and does NOT auto-renew.
+# When it expires this job fails with an auth error. Regenerate it locally and
+# update the CLAUDE_CODE_OAUTH_TOKEN secret. Set a reminder ~11 months out.
+name: weekly-crawl
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays 06:00 UTC
+  workflow_dispatch:      # also runnable by hand from the Actions tab
+
+permissions:
+  contents: write         # commit & push the refreshed data/ + docs/
+
+concurrency:
+  group: weekly-crawl
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g @anthropic-ai/claude-code
+
+      - name: Crawl (Stage-2 via claude -p on subscription quota)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python crawler/run.py --backend cli --limit 120
+
+      - name: Commit & push if data changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          if git diff --cached --quiet; then
+            echo "no new entries this week"
+          else
+            git commit -m "data: weekly crawl $(date -u +%F)"
+            git push
+          fi
