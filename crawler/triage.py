@@ -254,7 +254,8 @@ def classify_via_cli(rec, vocab, model, learned=(), extra_args=()):
     )
     if proc.returncode != 0:
         raise RuntimeError(
-            f"claude CLI exited {proc.returncode}: {proc.stderr.strip()[:300]}")
+            f"claude CLI exited {proc.returncode}: "
+            f"{(proc.stderr.strip() or proc.stdout.strip())[:500]}")
 
     try:
         envelope = json.loads(proc.stdout)
@@ -314,7 +315,8 @@ def classify_batch_via_cli(recs, vocab, model, learned=(), extra_args=()):
     )
     if proc.returncode != 0:
         raise RuntimeError(
-            f"claude CLI exited {proc.returncode}: {proc.stderr.strip()[:300]}")
+            f"claude CLI exited {proc.returncode}: "
+            f"{(proc.stderr.strip() or proc.stdout.strip())[:500]}")
 
     try:
         envelope = json.loads(proc.stdout)
