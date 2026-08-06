@@ -7597,6 +7597,34 @@
     "url": "https://doi.org/10.1016/j.plantsci.2026.113348",
     "venue": "Plant science : an international journal of experimental plant biology"
   },
+  "10.1016/j.plantsci.2026.113358": {
+    "added": "2026-08-06",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-08-03",
+    "id": "10.1016/j.plantsci.2026.113358",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "PlantDeconv",
+    "needs_review": false,
+    "one_liner": "Probabilistic deconvolution framework that encodes plant-specific spatial structure priors to map cell types onto spatial transcriptomics spots.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "PlantDeconv: a structure-guided probabilistic deconvolution framework for plant spatial transcriptomics",
+    "url": "https://doi.org/10.1016/j.plantsci.2026.113358",
+    "venue": "Plant science : an international journal of experimental plant biology"
+  },
   "10.1016/j.softx.2025.102223": {
     "added": "2026-08-04",
     "approach": [
@@ -18483,6 +18511,33 @@
     "stars": null,
     "title": "CenSegNet: a generalist high-throughput deep learning framework for centrosome phenotyping at spatial and single-cell resolution in heterogeneous tissues",
     "url": "https://doi.org/10.1038/s41467-026-75393-y",
+    "venue": "Nature communications"
+  },
+  "10.1038/s41467-026-75405-x": {
+    "added": "2026-08-06",
+    "approach": [],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-08-03",
+    "id": "10.1038/s41467-026-75405-x",
+    "is_preprint": false,
+    "kind": [
+      "assay"
+    ],
+    "modality": [
+      "transcriptomics",
+      "genomics"
+    ],
+    "name": "Stereo-XCR-seq",
+    "needs_review": false,
+    "one_liner": "Retrieves and sequences TCR/BCR from spatial transcriptome cDNA libraries at subcellular resolution.",
+    "platforms": [
+      "Stereo-seq"
+    ],
+    "stars": null,
+    "title": "Uncovering ectopic GC-like niches for tumor reactive lymphocyte priming in lung adenocarcinoma using Stereo-XCR-seq",
+    "url": "https://doi.org/10.1038/s41467-026-75405-x",
     "venue": "Nature communications"
   },
   "10.1038/s41540-024-00385-x": {
@@ -68027,6 +68082,34 @@
     "url": "https://doi.org/10.1371/journal.pcbi.1014362",
     "venue": "PLoS computational biology"
   },
+  "10.1371/journal.pcbi.1014609": {
+    "added": "2026-08-06",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-08-05",
+    "id": "10.1371/journal.pcbi.1014609",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "AddaGCN",
+    "needs_review": false,
+    "one_liner": "Deconvolves cell-type composition from spatial transcriptomics spots using a graph convolutional network with adversarial domain adaptation.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "AddaGCN: Spatial transcriptomics deconvolution using graph convolutional networks with adversarial discriminative domain adaptation",
+    "url": "https://doi.org/10.1371/journal.pcbi.1014609",
+    "venue": "PLoS computational biology"
+  },
   "10.1371/journal.pgen.1010983": {
     "added": "2026-08-04",
     "approach": [
@@ -81951,6 +82034,63 @@
     "url": "https://doi.org/10.64898/2026.07.29.741462",
     "venue": "PPR"
   },
+  "10.64898/2026.07.29.741565": {
+    "added": "2026-08-06",
+    "approach": [
+      "foundation model"
+    ],
+    "code_url": null,
+    "confidence": 0.9,
+    "curated": false,
+    "date": "2026-08-04",
+    "id": "10.64898/2026.07.29.741565",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "TERRA",
+    "needs_review": false,
+    "one_liner": "A foundation model pretrained on spatial transcriptomics data yielding cell, gene and neighborhood embeddings for zero-shot analysis and in silico perturbation.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "Multi-scale modeling of human tissues from spatial transcriptomics with TERRA",
+    "url": "https://doi.org/10.64898/2026.07.29.741565",
+    "venue": "PPR"
+  },
+  "10.64898/2026.07.30.741921": {
+    "added": "2026-08-06",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.6,
+    "curated": false,
+    "date": "2026-08-05",
+    "id": "10.64898/2026.07.30.741921",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "histology / imaging-only"
+    ],
+    "name": "BIGraph-ST",
+    "needs_review": true,
+    "one_liner": "Identifies spatial tissue domains by integrating pathway activity and histology image features via multi-modal affinity graphs.",
+    "platforms": [
+      "H&E / histology"
+    ],
+    "stars": null,
+    "title": "Multi-modal Graph Integration for Biologically Interpretable Domain Identification Using Spatial Transcriptomics",
+    "url": "https://doi.org/10.64898/2026.07.30.741921",
+    "venue": "PPR"
+  },
   "10.7150/thno.134316": {
     "added": "2026-08-03",
     "approach": [
@@ -82272,6 +82412,34 @@
     "stars": 90,
     "title": "segger_dev",
     "url": "https://github.com/EliHei2/segger_dev",
+    "venue": "GitHub"
+  },
+  "GoekeLab/bambu-pipe": {
+    "added": "2026-08-06",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": "https://github.com/GoekeLab/bambu-pipe",
+    "confidence": 0.55,
+    "curated": false,
+    "date": "2024-01-15",
+    "id": "GoekeLab/bambu-pipe",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "bambu-pipe",
+    "needs_review": true,
+    "one_liner": "Pipeline for transcript discovery and quantification from long-read single-cell and spatial transcriptomics data using Bambu.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": 23,
+    "title": "bambu-pipe",
+    "url": "https://github.com/GoekeLab/bambu-pipe",
     "venue": "GitHub"
   },
   "HelloWorldLTY/spEMO": {
@@ -82933,6 +83101,34 @@
     "url": "https://github.com/ZhangLabGT/scMultiSim",
     "venue": "GitHub"
   },
+  "ankitbioinfo/nico_tutorial": {
+    "added": "2026-08-06",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": "https://github.com/ankitbioinfo/nico_tutorial",
+    "confidence": 0.55,
+    "curated": false,
+    "date": "2023-12-03",
+    "id": "ankitbioinfo/nico_tutorial",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "nico",
+    "needs_review": true,
+    "one_liner": "Annotates cell types and identifies statistically enriched niche interactions and gene-program covariation from spatial transcriptomics.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": 16,
+    "title": "nico_tutorial",
+    "url": "https://github.com/ankitbioinfo/nico_tutorial",
+    "venue": "GitHub"
+  },
   "cafferychen777/ChatSpatial": {
     "added": "2026-08-03",
     "approach": [
@@ -83070,6 +83266,32 @@
     "stars": 19,
     "title": "SpaceTracer",
     "url": "https://github.com/douymLab/SpaceTracer",
+    "venue": "GitHub"
+  },
+  "dpeerlab/segger": {
+    "added": "2026-08-06",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": "https://github.com/dpeerlab/segger",
+    "confidence": 0.7,
+    "curated": false,
+    "date": "2025-11-16",
+    "id": "dpeerlab/segger",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "segger",
+    "needs_review": false,
+    "one_liner": "Graph neural network tool that performs cell segmentation from spatial transcriptomics imaging data.",
+    "platforms": [],
+    "stars": 22,
+    "title": "segger",
+    "url": "https://github.com/dpeerlab/segger",
     "venue": "GitHub"
   },
   "earmingol/scCellFie": {
