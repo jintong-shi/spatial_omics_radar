@@ -92,6 +92,13 @@ select{max-width:200px}
 .side a:hover{color:var(--eosin)}
 .empty{padding:64px 0;text-align:center;color:var(--stroma);font-family:var(--mono);
   font-size:.85rem}
+.pager{display:flex;justify-content:center;align-items:center;gap:16px;
+  padding:28px 0;font-family:var(--mono);font-size:.78rem}
+.pager button{font-family:var(--mono);font-size:.78rem;color:var(--eosin);
+  background:none;border:1px solid var(--rule);border-radius:3px;padding:7px 14px;cursor:pointer}
+.pager button:hover:not(:disabled){border-color:var(--eosin)}
+.pager button:disabled{color:var(--stroma);opacity:.5;cursor:default}
+.pager .pageinfo{color:var(--stroma);letter-spacing:.06em}
 footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
   color:var(--stroma);border-top:1px solid var(--rule);margin-top:40px}
 
@@ -134,6 +141,7 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
 </div>
 
 <main id="list"><p class="empty">loading entries…</p></main>
+<nav class="pager" id="pager" hidden></nav>
 
 <footer>
   <span id="updated"></span> ·
@@ -143,7 +151,8 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
 </div>
 
 <script>
-const state = {all:[], q:"", kind:"", appr:"", mod:"", plat:"", from:"", to:"", sort:"date"};
+const state = {all:[], q:"", kind:"", appr:"", mod:"", plat:"", from:"", to:"", sort:"date", page:1};
+const PER_PAGE = 20;   // entries shown per page
 const el = id => document.getElementById(id);
 
 fetch("entries.json").then(r => r.json()).then(init).catch(() => {
@@ -171,23 +180,32 @@ function init(data){
       state.plat = el("fPlat").value;
       el("optMatch").disabled = !state.q;          // best match needs a query
       if (!state.q && state.sort === "match"){ state.sort = "date"; el("sort").value = "date"; }
+      state.page = 1;                              // any filter change resets to page 1
       render();
     }));
-  el("sort").addEventListener("change", () => { state.sort = el("sort").value; render(); });
+  el("sort").addEventListener("change", () => { state.sort = el("sort").value; state.page = 1; render(); });
   ["fFrom","fTo"].forEach(id =>
     el(id).addEventListener("change", () => {
       state.from = el("fFrom").value;
       state.to = el("fTo").value;
       clampRange();
       paintStrip();
+      state.page = 1;
       render();
     }));
   el("reset").addEventListener("click", () => {
-    Object.assign(state, {q:"",kind:"",appr:"",mod:"",plat:"",from:"",to:"",sort:"date"});
+    Object.assign(state, {q:"",kind:"",appr:"",mod:"",plat:"",from:"",to:"",sort:"date",page:1});
     el("q").value = ""; ["fKind","fApproach","fMod","fPlat","fFrom","fTo"].forEach(i => el(i).value = "");
     el("sort").value = "date"; el("optMatch").disabled = true;
     paintStrip();
     render();
+  });
+  el("pager").addEventListener("click", e => {   // prev / next paging
+    const b = e.target.closest("button[data-page]");
+    if (!b || b.disabled) return;
+    state.page = +b.dataset.page;
+    render();
+    window.scrollTo({top:0});
   });
   render();
 }
@@ -230,6 +248,7 @@ function buildStrip(){
       state.from = state.to = single ? "" : mo;  // click the same one again to clear
       syncTimeInputs();
       paintStrip();
+      state.page = 1;
       render();
     };
     return b;
@@ -300,19 +319,37 @@ function render(){
 
   if (!rows.length){
     el("list").innerHTML = '<p class="empty">Nothing matches. Widen the filters.</p>';
+    renderPager(0);
     return;
   }
 
+  // Show at most PER_PAGE entries per page; clamp in case a filter shrank the set.
+  const pages = Math.ceil(rows.length / PER_PAGE);
+  state.page = Math.min(Math.max(state.page, 1), pages);
+  const slice = rows.slice((state.page - 1) * PER_PAGE, state.page * PER_PAGE);
+
   if (eff !== "date"){                    // month headers only make sense by date
-    el("list").innerHTML = rows.map(row).join("");
-    return;
+    el("list").innerHTML = slice.map(row).join("");
+  } else {
+    let html = "", current = null;
+    for (const e of slice){
+      if (ym(e) !== current){ current = ym(e); html += `<div class="month">${current || "undated"}</div>`; }
+      html += row(e);
+    }
+    el("list").innerHTML = html;
   }
-  let html = "", current = null;
-  for (const e of rows){
-    if (ym(e) !== current){ current = ym(e); html += `<div class="month">${current || "undated"}</div>`; }
-    html += row(e);
-  }
-  el("list").innerHTML = html;
+  renderPager(rows.length);
+}
+
+/* Prev / next pager. Hidden when everything fits on one page. */
+function renderPager(total){
+  const pages = Math.ceil(total / PER_PAGE), p = state.page;
+  if (pages <= 1){ el("pager").hidden = true; el("pager").innerHTML = ""; return; }
+  el("pager").hidden = false;
+  el("pager").innerHTML =
+    `<button data-page="${p - 1}"${p <= 1 ? " disabled" : ""}>‹ prev</button>` +
+    `<span class="pageinfo">page ${p} / ${pages}</span>` +
+    `<button data-page="${p + 1}"${p >= pages ? " disabled" : ""}>next ›</button>`;
 }
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
