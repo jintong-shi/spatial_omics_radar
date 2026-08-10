@@ -1,31 +1,46 @@
 # Spatial Omics Radar
 
-**A living index of new spatial omics technologies, tools, AI models and benchmarks — one place to see what shipped this week, so you don't have to scan the literature yourself.**
+**Every new spatial omics assay, method, AI model and benchmark — each one summarised in a single sentence, refreshed every Monday.**
 
 ### 👉 [Open the Radar](https://jintong-shi.github.io/spatial_omics_radar/)
 
-## What it covers
+---
 
-Every spatial omics modality — **transcriptomics, proteomics, metabolomics, epigenomics and multi-omics** — not just spatial transcriptomics. Assays, methods, software, AI models and benchmarks that *introduce a new resource*.
+## One sentence per entry — find the papers worth your time in seconds
 
-Databases and portals are deliberately left out, so the list stays signal.
+Every record carries an LLM-written one-liner that says what the resource *does*. Scan a whole week in the time it takes to read a few titles, then open only the two or three worth your afternoon.
 
-## Why use it
+No abstracts to wade through, no framing to see past. Filter by modality or kind, then go straight to the paper or the code.
 
-- **Cross-modality by design.** Proteomics, metabolomics and epigenomics get equal footing — the parts most other trackers miss.
-- **Curated, not a firehose.** Application papers that merely *used* spatial data are filtered out; only new resources make the list.
-- **Filter by modality and kind**, jump straight to the paper or the code.
+## Reusable resources only
 
-## Updated weekly
+The Radar indexes things you can pick up and use:
 
-Refreshed every Monday from **Europe PMC** (PubMed + bioRxiv/medRxiv preprints) and **GitHub**.
+| Included | Left out |
+|---|---|
+| **Assays** — new sequencing- and imaging-based spatial platforms | Databases, portals, atlases, data repositories |
+| **Methods** — software, pipelines, algorithms, AI models | Application papers that merely *used* spatial data |
+| **Benchmarks** — comparative evaluations and reference datasets | Reviews, perspectives, commentary |
 
-## Subscribe in Slack or Teams
+AI-driven methods are additionally flagged by approach — foundation model, generative, LLM / agent, deep learning, or classical / statistical — so the model papers are one click away instead of fifty titles deep.
 
-Get new entries pushed to a channel — one line, no account:
+All spatial omics modalities: **transcriptomics, proteomics, metabolomics, epigenomics and multi-omics**. 
+
+## Keep updated
+
+Refreshed **every Monday** from **Europe PMC** (PubMed + bioRxiv / medRxiv) and **GitHub**. Preprints are included, so tools show up months before they reach a journal.
+
+
+### Subscribe in Slack or Teams: free, one-minute to setup
+
+Push new entries into a channel. One line, no account:
 
 ```
 /feed subscribe https://jintong-shi.github.io/spatial_omics_radar/feed.xml
 ```
 
-(Teams: add the **RSS** connector to a channel and paste the same URL.)
+Teams: add the **RSS** connector to a channel and paste the same URL.
+
+---
+
+Free to use. No account, no tracking, no ads. Every refresh is a git commit, so any inclusion decision can be traced back.
