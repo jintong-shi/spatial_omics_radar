@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-08-06T11:03:52+00:00",
+    "updated": "2026-08-10T07:19:50+00:00",
     "site": {
       "title": "Spatial Omics Radar",
       "subtitle": "New technologies, tools, AI models and benchmarks across spatial omics",
@@ -53,9 +53,298 @@
         "platform-agnostic"
       ]
     },
-    "count": 3087
+    "count": 3100
   },
   "entries": [
+    {
+      "id": "10.1016/j.ajpath.2026.07.007",
+      "name": "X-SPATIO",
+      "title": "An Explanatory Deep Learning Pipeline for the Prediction and Visualization of Spatially Resolved Biomarker Expression in Triple-Negative Breast Cancer",
+      "one_liner": "Multiple-instance learning pipeline linking H&E histology to spatially resolved mRNA/protein biomarker expression in triple-negative breast cancer.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "deep learning"
+      ],
+      "modality": [
+        "transcriptomics",
+        "proteomics",
+        "histology / imaging-only"
+      ],
+      "platforms": [
+        "GeoMx",
+        "H&E / histology"
+      ],
+      "url": "https://doi.org/10.1016/j.ajpath.2026.07.007",
+      "code_url": null,
+      "venue": "The American journal of pathology",
+      "date": "2026-08-07",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 0.7,
+      "needs_review": false,
+      "added": "2026-08-10",
+      "curated": false
+    },
+    {
+      "id": "10.21203/rs.3.rs-10287417/v1",
+      "name": "UNIPRO",
+      "title": "UNIPRO enables protein inference and panel expansion across single-cell and spatial transcriptomics",
+      "one_liner": "Graph-based framework inferring spatial protein expression and expanding protein panels from transcriptomics and CITE-seq data.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "deep learning"
+      ],
+      "modality": [
+        "transcriptomics",
+        "proteomics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://doi.org/10.21203/rs.3.rs-10287417/v1",
+      "code_url": null,
+      "venue": "PPR",
+      "date": "2026-08-07",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 0.9,
+      "needs_review": false,
+      "added": "2026-08-10",
+      "curated": false
+    },
+    {
+      "id": "10.1158/2767-9764.crc-26-0182",
+      "name": "An Integrated Spatial Multi-Omics Workflow for Sequential RNA and Protein Profiling in FFPE Tumor Tissue",
+      "title": "An Integrated Spatial Multi-Omics Workflow for Sequential RNA and Protein Profiling in FFPE Tumor Tissue",
+      "one_liner": "Sequential Xenium RNA and imaging mass cytometry protein profiling workflow with computational co-registration on one FFPE section.",
+      "kind": [
+        "assay",
+        "method"
+      ],
+      "approach": [
+        "classical / statistical"
+      ],
+      "modality": [
+        "transcriptomics",
+        "proteomics",
+        "multi-omics"
+      ],
+      "platforms": [
+        "Xenium",
+        "imaging mass cytometry"
+      ],
+      "url": "https://doi.org/10.1158/2767-9764.crc-26-0182",
+      "code_url": null,
+      "venue": "Cancer research communications",
+      "date": "2026-08-07",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 0.6,
+      "needs_review": true,
+      "added": "2026-08-10",
+      "curated": false,
+      "impact_factor": 4.0
+    },
+    {
+      "id": "10.1002/anie.1256471",
+      "name": "10X ExMSI",
+      "title": "Tenfold Expansion Submicrometer MALDI Mass Spectrometry Imaging of Tissues and Cultured Cells",
+      "one_liner": "Tenfold sample-expansion MALDI-MSI workflow reaching ~500 nm lateral resolution for lipid imaging.",
+      "kind": [
+        "assay"
+      ],
+      "approach": [],
+      "modality": [
+        "metabolomics"
+      ],
+      "platforms": [
+        "MALDI-MSI"
+      ],
+      "url": "https://doi.org/10.1002/anie.1256471",
+      "code_url": null,
+      "venue": "Angewandte Chemie (International ed. in English)",
+      "date": "2026-08-07",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 0.85,
+      "needs_review": false,
+      "added": "2026-08-10",
+      "curated": false
+    },
+    {
+      "id": "10.64898/2026.08.03.741871",
+      "name": "Atera",
+      "title": "Resolving the immune response across clonal cancer evolution in situ with whole transcriptome profiling",
+      "one_liner": "Independently benchmarks the Atera whole-transcriptome spatial platform against Xenium in breast DCIS tissue.",
+      "kind": [
+        "benchmark"
+      ],
+      "approach": [],
+      "modality": [
+        "transcriptomics",
+        "genomics"
+      ],
+      "platforms": [
+        "Xenium"
+      ],
+      "url": "https://doi.org/10.64898/2026.08.03.741871",
+      "code_url": null,
+      "venue": "PPR",
+      "date": "2026-08-07",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 0.65,
+      "needs_review": true,
+      "added": "2026-08-10",
+      "curated": false
+    },
+    {
+      "id": "10.21203/rs.3.rs-10600213/v1",
+      "name": "Spatial GNN Analyzer",
+      "title": "Spatial GNN Analyzer: An AI-Powered Graph Neural Network Framework for Spatial Transcriptomics Domain Analysis and Visualization",
+      "one_liner": "AI framework combining GNNs, Scanpy and Squidpy for spatial domain clustering and visualization of Visium transcriptomics data.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "deep learning"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Visium"
+      ],
+      "url": "https://doi.org/10.21203/rs.3.rs-10600213/v1",
+      "code_url": null,
+      "venue": "PPR",
+      "date": "2026-08-06",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 0.5,
+      "needs_review": true,
+      "added": "2026-08-10",
+      "curated": false
+    },
+    {
+      "id": "10.64898/2026.08.02.741948",
+      "name": "MaskTalk",
+      "title": "MaskTalk: cell-identity-gated spatial lag for target-aware cell-cell communication inference in high-resolution spatial transcriptomics",
+      "one_liner": "Python package masking non-target neighbor signals to infer target-aware cell-cell communication from high-resolution spatial transcriptomics.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "classical / statistical"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "Visium HD",
+        "Xenium"
+      ],
+      "url": "https://doi.org/10.64898/2026.08.02.741948",
+      "code_url": null,
+      "venue": "PPR",
+      "date": "2026-08-06",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 0.9,
+      "needs_review": false,
+      "added": "2026-08-10",
+      "curated": false
+    },
+    {
+      "id": "10.64898/2026.08.02.742287",
+      "name": "RGAI",
+      "title": "Learning with Recurrence Geometric AI in Spatial Transcriptomics",
+      "one_liner": "Geometric deep learning framework aligning latent tissue states across heterogeneous spatial transcriptomics domains via graph autoencoders and optimal transport.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "deep learning"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://doi.org/10.64898/2026.08.02.742287",
+      "code_url": null,
+      "venue": "PPR",
+      "date": "2026-08-06",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 0.75,
+      "needs_review": false,
+      "added": "2026-08-10",
+      "curated": false
+    },
+    {
+      "id": "10.64898/2026.08.01.742217",
+      "name": "SAFFRON",
+      "title": "Evaluating the ability of spatial transcriptomics foundation models to learn multi-scale spatial variation",
+      "one_liner": "Sparse autoencoder framework interpreting and benchmarking spatial transcriptomics foundation models' ability to learn multi-scale spatial variation.",
+      "kind": [
+        "method",
+        "benchmark"
+      ],
+      "approach": [
+        "deep learning"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://doi.org/10.64898/2026.08.01.742217",
+      "code_url": null,
+      "venue": "PPR",
+      "date": "2026-08-06",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 0.8,
+      "needs_review": false,
+      "added": "2026-08-10",
+      "curated": false
+    },
+    {
+      "id": "10.64898/2026.07.31.741265",
+      "name": "TissueFormer",
+      "title": "Multi-modal foundation model with whole-slide attention enables transferrable digital pathology at single-cell resolution",
+      "one_liner": "Linear-complexity multimodal foundation model pretrained on 17M image-expression pairs predicting spatial gene expression from histology at cellular resolution.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "foundation model"
+      ],
+      "modality": [
+        "transcriptomics",
+        "histology / imaging-only"
+      ],
+      "platforms": [
+        "H&E / histology"
+      ],
+      "url": "https://doi.org/10.64898/2026.07.31.741265",
+      "code_url": null,
+      "venue": "PPR",
+      "date": "2026-08-06",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 0.9,
+      "needs_review": false,
+      "added": "2026-08-10",
+      "curated": false
+    },
     {
       "added": "2026-08-06",
       "approach": [
@@ -113,6 +402,35 @@
       "title": "Multi-modal Graph Integration for Biologically Interpretable Domain Identification Using Spatial Transcriptomics",
       "url": "https://doi.org/10.64898/2026.07.30.741921",
       "venue": "PPR"
+    },
+    {
+      "id": "10.1038/s41586-026-10884-y",
+      "name": "Virtual Tissues (VirTues)",
+      "title": "The Virtual Tissues foundation model resolves spatial proteomics across scales",
+      "one_liner": "Pretrained foundation model learning marker-aware, multi-scale representations from multiplex spatial proteomics imaging.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "foundation model"
+      ],
+      "modality": [
+        "proteomics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://doi.org/10.1038/s41586-026-10884-y",
+      "code_url": null,
+      "venue": "Nature",
+      "date": "2026-08-05",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 0.95,
+      "needs_review": false,
+      "added": "2026-08-10",
+      "curated": false,
+      "impact_factor": 56.1
     },
     {
       "added": "2026-08-06",
@@ -1595,6 +1913,34 @@
       "title": "Cyclic immunofluorescence platform using photocleavable linkers for direct antibody labeling enables cancer phenotyping",
       "url": "https://doi.org/10.64898/2026.07.19.735577",
       "venue": "PPR"
+    },
+    {
+      "id": "10.1093/bioadv/vbag202",
+      "name": "DeepHis2Exp",
+      "title": "Performance of deep learning methods for spatial gene expression prediction from histology images: a comprehensive assessment",
+      "one_liner": "Benchmarks seven deep learning methods predicting gene expression from histology images across six datasets and four cancer types.",
+      "kind": [
+        "benchmark"
+      ],
+      "approach": [],
+      "modality": [
+        "transcriptomics",
+        "histology / imaging-only"
+      ],
+      "platforms": [
+        "H&E / histology"
+      ],
+      "url": "https://doi.org/10.1093/bioadv/vbag202",
+      "code_url": null,
+      "venue": "Bioinformatics advances",
+      "date": "2026-07-20",
+      "is_preprint": false,
+      "stars": null,
+      "confidence": 0.9,
+      "needs_review": false,
+      "added": "2026-08-10",
+      "curated": false,
+      "impact_factor": 2.6
     },
     {
       "added": "2026-08-03",
@@ -55202,6 +55548,34 @@
       "url": "https://doi.org/10.1186/s13059-024-03185-y",
       "venue": "Genome biology",
       "impact_factor": 9.2
+    },
+    {
+      "id": "saeyslab/harpy",
+      "name": "Harpy",
+      "title": "harpy",
+      "one_liner": "Software package for analyzing single-cell resolution spatial omics data.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "classical / statistical"
+      ],
+      "modality": [
+        "multi-omics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://github.com/saeyslab/harpy",
+      "code_url": "https://github.com/saeyslab/harpy",
+      "venue": "GitHub",
+      "date": "2024-02-26",
+      "is_preprint": false,
+      "stars": 70,
+      "confidence": 0.55,
+      "needs_review": true,
+      "added": "2026-08-10",
+      "curated": false
     },
     {
       "added": "2026-08-04",

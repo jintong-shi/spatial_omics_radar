@@ -3,7 +3,98 @@
 <title>Spatial Omics Radar</title>
 <link>https://github.com/jintong-shi/spatial_omics_radar</link>
 <description>New technologies, tools, AI models and benchmarks across spatial omics</description>
-<lastBuildDate>Thu, 06 Aug 2026 11:03:52 +0000</lastBuildDate>
+<lastBuildDate>Mon, 10 Aug 2026 07:19:50 +0000</lastBuildDate>
+<item>
+<title>Spatial GNN Analyzer</title>
+<link>https://doi.org/10.21203/rs.3.rs-10600213/v1</link>
+<guid isPermaLink="false">10.21203/rs.3.rs-10600213/v1</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>AI framework combining GNNs, Scanpy and Squidpy for spatial domain clustering and visualization of Visium transcriptomics data. (method · transcriptomics — preprint)</description>
+</item>
+<item>
+<title>MaskTalk</title>
+<link>https://doi.org/10.64898/2026.08.02.741948</link>
+<guid isPermaLink="false">10.64898/2026.08.02.741948</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Python package masking non-target neighbor signals to infer target-aware cell-cell communication from high-resolution spatial transcriptomics. (method · transcriptomics — preprint)</description>
+</item>
+<item>
+<title>DeepHis2Exp</title>
+<link>https://doi.org/10.1093/bioadv/vbag202</link>
+<guid isPermaLink="false">10.1093/bioadv/vbag202</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Benchmarks seven deep learning methods predicting gene expression from histology images across six datasets and four cancer types. (benchmark · transcriptomics · histology / imaging-only — Bioinformatics advances)</description>
+</item>
+<item>
+<title>X-SPATIO</title>
+<link>https://doi.org/10.1016/j.ajpath.2026.07.007</link>
+<guid isPermaLink="false">10.1016/j.ajpath.2026.07.007</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Multiple-instance learning pipeline linking H&amp;E histology to spatially resolved mRNA/protein biomarker expression in triple-negative breast cancer. (method · transcriptomics · proteomics · histology / imaging-only — The American journal of pathology)</description>
+</item>
+<item>
+<title>UNIPRO</title>
+<link>https://doi.org/10.21203/rs.3.rs-10287417/v1</link>
+<guid isPermaLink="false">10.21203/rs.3.rs-10287417/v1</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Graph-based framework inferring spatial protein expression and expanding protein panels from transcriptomics and CITE-seq data. (method · transcriptomics · proteomics — preprint)</description>
+</item>
+<item>
+<title>RGAI</title>
+<link>https://doi.org/10.64898/2026.08.02.742287</link>
+<guid isPermaLink="false">10.64898/2026.08.02.742287</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Geometric deep learning framework aligning latent tissue states across heterogeneous spatial transcriptomics domains via graph autoencoders and optimal transport. (method · transcriptomics — preprint)</description>
+</item>
+<item>
+<title>SAFFRON</title>
+<link>https://doi.org/10.64898/2026.08.01.742217</link>
+<guid isPermaLink="false">10.64898/2026.08.01.742217</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Sparse autoencoder framework interpreting and benchmarking spatial transcriptomics foundation models' ability to learn multi-scale spatial variation. (method · benchmark · transcriptomics — preprint)</description>
+</item>
+<item>
+<title>TissueFormer</title>
+<link>https://doi.org/10.64898/2026.07.31.741265</link>
+<guid isPermaLink="false">10.64898/2026.07.31.741265</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Linear-complexity multimodal foundation model pretrained on 17M image-expression pairs predicting spatial gene expression from histology at cellular resolution. (method · transcriptomics · histology / imaging-only — preprint)</description>
+</item>
+<item>
+<title>An Integrated Spatial Multi-Omics Workflow for Sequential RNA and Protein Profiling in FFPE Tumor Tissue</title>
+<link>https://doi.org/10.1158/2767-9764.crc-26-0182</link>
+<guid isPermaLink="false">10.1158/2767-9764.crc-26-0182</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Sequential Xenium RNA and imaging mass cytometry protein profiling workflow with computational co-registration on one FFPE section. (assay · method · transcriptomics · proteomics · multi-omics — Cancer research communications)</description>
+</item>
+<item>
+<title>10X ExMSI</title>
+<link>https://doi.org/10.1002/anie.1256471</link>
+<guid isPermaLink="false">10.1002/anie.1256471</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Tenfold sample-expansion MALDI-MSI workflow reaching ~500 nm lateral resolution for lipid imaging. (assay · metabolomics — Angewandte Chemie (International ed. in English))</description>
+</item>
+<item>
+<title>Atera</title>
+<link>https://doi.org/10.64898/2026.08.03.741871</link>
+<guid isPermaLink="false">10.64898/2026.08.03.741871</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Independently benchmarks the Atera whole-transcriptome spatial platform against Xenium in breast DCIS tissue. (benchmark · transcriptomics · genomics — preprint)</description>
+</item>
+<item>
+<title>Virtual Tissues (VirTues)</title>
+<link>https://doi.org/10.1038/s41586-026-10884-y</link>
+<guid isPermaLink="false">10.1038/s41586-026-10884-y</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Pretrained foundation model learning marker-aware, multi-scale representations from multiplex spatial proteomics imaging. (method · proteomics — Nature)</description>
+</item>
+<item>
+<title>Harpy</title>
+<link>https://github.com/saeyslab/harpy</link>
+<guid isPermaLink="false">saeyslab/harpy</guid>
+<pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+<description>Software package for analyzing single-cell resolution spatial omics data. (method · multi-omics — GitHub)</description>
+</item>
 <item>
 <title>PlantDeconv</title>
 <link>https://doi.org/10.1016/j.plantsci.2026.113358</link>
@@ -262,96 +353,5 @@
 <guid isPermaLink="false">10.1002/cytoa.70009</guid>
 <pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
 <description>Open-source workflow for visual rendering and segmentation-based analysis of IMC-profiled cell lines. (method · proteomics — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
-</item>
-<item>
-<title>Highly multiplexed tissue imaging using repeated oligonucleotide exchange reaction</title>
-<link>https://doi.org/10.1002/eji.202048891</link>
-<guid isPermaLink="false">10.1002/eji.202048891</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Simplifies CODEX multiplexed tissue imaging with 58 validated oligo barcodes and an analysis pipeline. (assay · method · proteomics — European journal of immunology)</description>
-</item>
-<item>
-<title>Fabrication of homogenous three-dimensional biomimetic tissue for mass spectrometry imaging</title>
-<link>https://doi.org/10.1002/jms.4342</link>
-<guid isPermaLink="false">10.1002/jms.4342</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Fabricated 3D biomimetic reference tissue plus PCA-based calibration for quantitative MSI quality control. (assay · method · metabolomics — Journal of mass spectrometry : JMS)</description>
-</item>
-<item>
-<title>Sample preparation strategies for high-throughput mass spectrometry imaging of primary tumor organoids</title>
-<link>https://doi.org/10.1002/jms.4452</link>
-<guid isPermaLink="false">10.1002/jms.4452</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Method to isolate tumor organoids from Matrigel into gelatin microarrays for high-throughput mass spec imaging. (assay · metabolomics — Journal of mass spectrometry : JMS)</description>
-</item>
-<item>
-<title>Immersion by rotation-based application of the matrix for fast and reproducible sample preparations and robust results in mass spectrometry imaging</title>
-<link>https://doi.org/10.1002/jms.4488</link>
-<guid isPermaLink="false">10.1002/jms.4488</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Automated immersion apparatus applies MALDI matrix in 5 minutes for fast, reproducible mass spectrometry imaging. (assay · metabolomics — Journal of mass spectrometry : JMS)</description>
-</item>
-<item>
-<title>Novel approach to enhance sensitivity while retaining morphology in fragile tissue sections for mass spectrometry imaging</title>
-<link>https://doi.org/10.1002/jms.4670</link>
-<guid isPermaLink="false">10.1002/jms.4670</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Adhesive-tape cryosection transfer technique improving sensitivity and morphology for MALDI-MS imaging of fragile tissue. (assay · metabolomics — Journal of mass spectrometry : JMS)</description>
-</item>
-<item>
-<title>PNP (pneumatic press)</title>
-<link>https://doi.org/10.1002/jms.70007</link>
-<guid isPermaLink="false">10.1002/jms.70007</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Pneumatic device standardizes pressure for imprinting plant tissue onto pPTFE sheets before MALDI-MSI. (assay · metabolomics — Journal of mass spectrometry : JMS)</description>
-</item>
-<item>
-<title>Protein biomarkers on tissue as imaged via MALDI mass spectrometry: A systematic approach to study the limits of detection</title>
-<link>https://doi.org/10.1002/pmic.201500515</link>
-<guid isPermaLink="false">10.1002/pmic.201500515</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Systematically characterizes MALDI-MSI limits of detection, variation, and resolution for tissue proteins. (benchmark · proteomics — Proteomics)</description>
-</item>
-<item>
-<title>MALDI Mass Spectrometry Imaging: A Novel Tool for the Identification and Classification of Amyloidosis</title>
-<link>https://doi.org/10.1002/pmic.201700236</link>
-<guid isPermaLink="false">10.1002/pmic.201700236</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>MALDI-IMS-MSI peptide filter and bioinformatics workflow to identify and classify amyloidosis subtypes. (method · proteomics — Proteomics)</description>
-</item>
-<item>
-<title>An optimized MALDI MSI protocol for spatial detection of tryptic peptides in fresh frozen prostate tissue</title>
-<link>https://doi.org/10.1002/pmic.202100223</link>
-<guid isPermaLink="false">10.1002/pmic.202100223</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Optimized sample-prep protocol for spatial detection of tryptic peptides via MALDI MSI in prostate tissue. (assay · proteomics — Proteomics)</description>
-</item>
-<item>
-<title>MALDImID</title>
-<link>https://doi.org/10.1002/pmic.202300005</link>
-<guid isPermaLink="false">10.1002/pmic.202300005</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>R package/Shiny app matching MALDI imaging peptide peaks to LC-MS/MS proteomic identification data. (method · proteomics — Proteomics)</description>
-</item>
-<item>
-<title>Robust subtyping of non-small cell lung cancer whole sections through MALDI mass spectrometry imaging</title>
-<link>https://doi.org/10.1002/prca.202100068</link>
-<guid isPermaLink="false">10.1002/prca.202100068</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Classification pipeline with preprocessing and NN/LDA classifiers for subtyping NSCLC whole sections from MALDI MSI. (method · proteomics — Proteomics. Clinical applications)</description>
-</item>
-<item>
-<title>iprm-PASEF</title>
-<link>https://doi.org/10.1002/rcm.10006</link>
-<guid isPermaLink="false">10.1002/rcm.10006</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Combines TIMS-PASEF with MALDI imaging to identify multiplexed tryptic peptides directly in tissue. (assay · proteomics — Rapid communications in mass spectrometry : RCM)</description>
-</item>
-<item>
-<title>psalign</title>
-<link>https://doi.org/10.1002/rcm.10172</link>
-<guid isPermaLink="false">10.1002/rcm.10172</guid>
-<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
-<description>Spline-based peak-shape-aware algorithm corrects mass misalignment in mass spectrometry imaging data. (method · metabolomics — Rapid communications in mass spectrometry : RCM)</description>
 </item>
 </channel></rss>
