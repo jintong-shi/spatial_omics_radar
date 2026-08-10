@@ -25,6 +25,20 @@
       "venue": "vendor release",
       "date": "2024-10-01",
       "is_preprint": false
+    },
+    "manual:test-rss": {
+      "id": "manual:test-rss",
+      "name": "RSS test entry — please ignore",
+      "one_liner": "Temporary entry to verify the weekly Slack RSS push end-to-end. It will be removed shortly.",
+      "kind": ["method"],
+      "modality": ["transcriptomics"],
+      "platforms": [],
+      "url": "https://jintong-shi.github.io/spatial_omics_radar/",
+      "code_url": null,
+      "venue": "test",
+      "date": "2026-08-10",
+      "added": "2026-08-10",
+      "is_preprint": false
     }
   }
 }
