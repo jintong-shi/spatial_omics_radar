@@ -99,6 +99,13 @@ select{max-width:200px}
 .pager button:hover:not(:disabled){border-color:var(--eosin)}
 .pager button:disabled{color:var(--stroma);opacity:.5;cursor:default}
 .pager .pageinfo{color:var(--stroma);letter-spacing:.06em}
+.subscribe{border-top:1px solid var(--rule);margin-top:40px;padding:30px 0 0}
+.subscribe h2{font-family:var(--display);font-variation-settings:'wdth' 112;font-weight:700;
+  font-size:1.15rem;letter-spacing:-.01em;margin:0 0 6px}
+.subscribe p{font-size:.92rem;color:#5A4C68;margin:0 0 10px;max-width:60ch}
+.subscribe code{display:block;font-family:var(--mono);font-size:.8rem;background:var(--wash);
+  border:1px solid var(--rule);border-radius:4px;padding:10px 12px;overflow-x:auto;color:var(--hema)}
+.subscribe .sub-note{font-size:.8rem;color:var(--stroma);margin-top:10px}
 footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
   color:var(--stroma);border-top:1px solid var(--rule);margin-top:40px}
 
@@ -142,6 +149,13 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
 
 <main id="list"><p class="empty">loading entries…</p></main>
 <nav class="pager" id="pager" hidden></nav>
+
+<section class="subscribe">
+  <h2>Subscribe</h2>
+  <p>Get each week's new entries in your own Slack or Teams — no account, just one line:</p>
+  <code>/feed subscribe https://jintong-shi.github.io/spatial_omics_radar/feed.xml</code>
+  <p class="sub-note">In Slack, paste that into any channel (needs the RSS app). In Teams, add the RSS connector and use the <a href="feed.xml">feed URL</a>. Any RSS reader works too.</p>
+</section>
 
 <footer>
   <span id="updated"></span> ·
