@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-08-12T08:26:06+00:00",
+    "updated": "2026-08-12T12:02:25+00:00",
     "site": {
       "title": "Spatial Omics Radar",
       "subtitle": "New technologies, tools, AI models and benchmarks across spatial omics",
@@ -53,28 +53,9 @@
         "platform-agnostic"
       ]
     },
-    "count": 3101
+    "count": 3100
   },
   "entries": [
-    {
-      "id": "manual:test-rss-2",
-      "name": "RSS test entry — please ignore",
-      "one_liner": "Temporary entry to verify the weekly Slack RSS push end-to-end. It will be removed shortly.",
-      "kind": [
-        "method"
-      ],
-      "modality": [
-        "transcriptomics"
-      ],
-      "platforms": [],
-      "url": "https://jintong-shi.github.io/spatial_omics_radar/",
-      "code_url": null,
-      "venue": "test",
-      "date": "2026-08-10",
-      "added": "2026-08-10",
-      "is_preprint": false,
-      "curated": true
-    },
     {
       "added": "2026-08-10",
       "approach": [],

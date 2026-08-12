@@ -3,159 +3,152 @@
 <title>Spatial Omics Radar</title>
 <link>https://github.com/jintong-shi/spatial_omics_radar</link>
 <description>New technologies, tools, AI models and benchmarks across spatial omics</description>
-<lastBuildDate>Wed, 12 Aug 2026 08:26:06 +0000</lastBuildDate>
+<lastBuildDate>Wed, 12 Aug 2026 12:02:25 +0000</lastBuildDate>
 <item>
 <title>10X ExMSI</title>
 <link>https://doi.org/10.1002/anie.1256471</link>
 <guid isPermaLink="false">10.1002/anie.1256471</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Tenfold sample-expansion MALDI-MSI workflow reaching ~500 nm lateral resolution for lipid imaging. (assay · metabolomics — Angewandte Chemie (International ed. in English))</description>
 </item>
 <item>
 <title>X-SPATIO</title>
 <link>https://doi.org/10.1016/j.ajpath.2026.07.007</link>
 <guid isPermaLink="false">10.1016/j.ajpath.2026.07.007</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Multiple-instance learning pipeline linking H&amp;E histology to spatially resolved mRNA/protein biomarker expression in triple-negative breast cancer. (method · transcriptomics · proteomics · histology / imaging-only — The American journal of pathology)</description>
 </item>
 <item>
 <title>Virtual Tissues (VirTues)</title>
 <link>https://doi.org/10.1038/s41586-026-10884-y</link>
 <guid isPermaLink="false">10.1038/s41586-026-10884-y</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Pretrained foundation model learning marker-aware, multi-scale representations from multiplex spatial proteomics imaging. (method · proteomics — Nature)</description>
 </item>
 <item>
 <title>DeepHis2Exp</title>
 <link>https://doi.org/10.1093/bioadv/vbag202</link>
 <guid isPermaLink="false">10.1093/bioadv/vbag202</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Benchmarks seven deep learning methods predicting gene expression from histology images across six datasets and four cancer types. (benchmark · transcriptomics · histology / imaging-only — Bioinformatics advances)</description>
 </item>
 <item>
 <title>An Integrated Spatial Multi-Omics Workflow for Sequential RNA and Protein Profiling in FFPE Tumor Tissue</title>
 <link>https://doi.org/10.1158/2767-9764.crc-26-0182</link>
 <guid isPermaLink="false">10.1158/2767-9764.crc-26-0182</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Sequential Xenium RNA and imaging mass cytometry protein profiling workflow with computational co-registration on one FFPE section. (assay · method · transcriptomics · proteomics · multi-omics — Cancer research communications)</description>
 </item>
 <item>
 <title>UNIPRO</title>
 <link>https://doi.org/10.21203/rs.3.rs-10287417/v1</link>
 <guid isPermaLink="false">10.21203/rs.3.rs-10287417/v1</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Graph-based framework inferring spatial protein expression and expanding protein panels from transcriptomics and CITE-seq data. (method · transcriptomics · proteomics — preprint)</description>
 </item>
 <item>
 <title>Spatial GNN Analyzer</title>
 <link>https://doi.org/10.21203/rs.3.rs-10600213/v1</link>
 <guid isPermaLink="false">10.21203/rs.3.rs-10600213/v1</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>AI framework combining GNNs, Scanpy and Squidpy for spatial domain clustering and visualization of Visium transcriptomics data. (method · transcriptomics — preprint)</description>
 </item>
 <item>
 <title>TissueFormer</title>
 <link>https://doi.org/10.64898/2026.07.31.741265</link>
 <guid isPermaLink="false">10.64898/2026.07.31.741265</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Linear-complexity multimodal foundation model pretrained on 17M image-expression pairs predicting spatial gene expression from histology at cellular resolution. (method · transcriptomics · histology / imaging-only — preprint)</description>
 </item>
 <item>
 <title>SAFFRON</title>
 <link>https://doi.org/10.64898/2026.08.01.742217</link>
 <guid isPermaLink="false">10.64898/2026.08.01.742217</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Sparse autoencoder framework interpreting and benchmarking spatial transcriptomics foundation models' ability to learn multi-scale spatial variation. (method · benchmark · transcriptomics — preprint)</description>
 </item>
 <item>
 <title>MaskTalk</title>
 <link>https://doi.org/10.64898/2026.08.02.741948</link>
 <guid isPermaLink="false">10.64898/2026.08.02.741948</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Python package masking non-target neighbor signals to infer target-aware cell-cell communication from high-resolution spatial transcriptomics. (method · transcriptomics — preprint)</description>
 </item>
 <item>
 <title>RGAI</title>
 <link>https://doi.org/10.64898/2026.08.02.742287</link>
 <guid isPermaLink="false">10.64898/2026.08.02.742287</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Geometric deep learning framework aligning latent tissue states across heterogeneous spatial transcriptomics domains via graph autoencoders and optimal transport. (method · transcriptomics — preprint)</description>
 </item>
 <item>
 <title>Atera</title>
 <link>https://doi.org/10.64898/2026.08.03.741871</link>
 <guid isPermaLink="false">10.64898/2026.08.03.741871</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Independently benchmarks the Atera whole-transcriptome spatial platform against Xenium in breast DCIS tissue. (benchmark · transcriptomics · genomics — preprint)</description>
 </item>
 <item>
 <title>Harpy</title>
 <link>https://github.com/saeyslab/harpy</link>
 <guid isPermaLink="false">saeyslab/harpy</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Software package for analyzing single-cell resolution spatial omics data. (method · multi-omics — GitHub)</description>
-</item>
-<item>
-<title>RSS test entry — please ignore</title>
-<link>https://jintong-shi.github.io/spatial_omics_radar/</link>
-<guid isPermaLink="false">manual:test-rss-2</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
-<description>Temporary entry to verify the weekly Slack RSS push end-to-end. It will be removed shortly. (method · transcriptomics — test)</description>
 </item>
 <item>
 <title>PlantDeconv</title>
 <link>https://doi.org/10.1016/j.plantsci.2026.113358</link>
 <guid isPermaLink="false">10.1016/j.plantsci.2026.113358</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Probabilistic deconvolution framework that encodes plant-specific spatial structure priors to map cell types onto spatial transcriptomics spots. (method · transcriptomics — Plant science : an international journal of experimental plant biology)</description>
 </item>
 <item>
 <title>Stereo-XCR-seq</title>
 <link>https://doi.org/10.1038/s41467-026-75405-x</link>
 <guid isPermaLink="false">10.1038/s41467-026-75405-x</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Retrieves and sequences TCR/BCR from spatial transcriptome cDNA libraries at subcellular resolution. (assay · transcriptomics · genomics — Nature communications)</description>
 </item>
 <item>
 <title>AddaGCN</title>
 <link>https://doi.org/10.1371/journal.pcbi.1014609</link>
 <guid isPermaLink="false">10.1371/journal.pcbi.1014609</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Deconvolves cell-type composition from spatial transcriptomics spots using a graph convolutional network with adversarial domain adaptation. (method · transcriptomics — PLoS computational biology)</description>
 </item>
 <item>
 <title>TERRA</title>
 <link>https://doi.org/10.64898/2026.07.29.741565</link>
 <guid isPermaLink="false">10.64898/2026.07.29.741565</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>A foundation model pretrained on spatial transcriptomics data yielding cell, gene and neighborhood embeddings for zero-shot analysis and in silico perturbation. (method · transcriptomics — preprint)</description>
 </item>
 <item>
 <title>BIGraph-ST</title>
 <link>https://doi.org/10.64898/2026.07.30.741921</link>
 <guid isPermaLink="false">10.64898/2026.07.30.741921</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Identifies spatial tissue domains by integrating pathway activity and histology image features via multi-modal affinity graphs. (method · transcriptomics · histology / imaging-only — preprint)</description>
 </item>
 <item>
 <title>bambu-pipe</title>
 <link>https://github.com/GoekeLab/bambu-pipe</link>
 <guid isPermaLink="false">GoekeLab/bambu-pipe</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Pipeline for transcript discovery and quantification from long-read single-cell and spatial transcriptomics data using Bambu. (method · transcriptomics — GitHub)</description>
 </item>
 <item>
 <title>nico</title>
 <link>https://github.com/ankitbioinfo/nico_tutorial</link>
 <guid isPermaLink="false">ankitbioinfo/nico_tutorial</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Annotates cell types and identifies statistically enriched niche interactions and gene-program covariation from spatial transcriptomics. (method · transcriptomics — GitHub)</description>
 </item>
 <item>
 <title>segger</title>
 <link>https://github.com/dpeerlab/segger</link>
 <guid isPermaLink="false">dpeerlab/segger</guid>
-<pubDate>Wed, 12 Aug 2026 08:26:06 +0000</pubDate>
+<pubDate>Wed, 12 Aug 2026 12:02:25 +0000</pubDate>
 <description>Graph neural network tool that performs cell segmentation from spatial transcriptomics imaging data. (method · transcriptomics — GitHub)</description>
 </item>
 <item>
@@ -353,5 +346,12 @@
 <guid isPermaLink="false">10.1002/cyto.b.22194</guid>
 <pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
 <description>Machine-learning pipeline with antibody panel and imaging mass cytometry to identify balloon cells in brain tissue. (method · proteomics — Cytometry. Part B, Clinical cytometry)</description>
+</item>
+<item>
+<title>IMC Cell Line Profiler</title>
+<link>https://doi.org/10.1002/cytoa.70009</link>
+<guid isPermaLink="false">10.1002/cytoa.70009</guid>
+<pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+<description>Open-source workflow for visual rendering and segmentation-based analysis of IMC-profiled cell lines. (method · proteomics — Cytometry. Part A : the journal of the International Society for Analytical Cytology)</description>
 </item>
 </channel></rss>
