@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-08-10T08:58:15+00:00",
+    "updated": "2026-08-12T08:26:06+00:00",
     "site": {
       "title": "Spatial Omics Radar",
       "subtitle": "New technologies, tools, AI models and benchmarks across spatial omics",
@@ -57,7 +57,7 @@
   },
   "entries": [
     {
-      "id": "manual:test-rss",
+      "id": "manual:test-rss-2",
       "name": "RSS test entry — please ignore",
       "one_liner": "Temporary entry to verify the weekly Slack RSS push end-to-end. It will be removed shortly.",
       "kind": [

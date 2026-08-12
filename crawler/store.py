@@ -114,6 +114,8 @@ def _write_feed(entries, meta):
     present; Slack de-dupes on <guid> and only pushes ones it hasn't seen."""
     site = meta.get("site", {})
     esc = xml.sax.saxutils.escape
+    now = datetime.datetime.now(datetime.timezone.utc)
+    recent = (now - datetime.timedelta(days=7)).date().isoformat()
     items = sorted(entries, key=lambda e: (e.get("added") or e.get("date") or ""),
                    reverse=True)[:FEED_MAX]
     parts = [
@@ -131,12 +133,18 @@ def _write_feed(entries, meta):
         meta_bits = " — ".join(x for x in [tags, venue] if x)
         if meta_bits:
             desc = f"{desc} ({meta_bits})"
+        added = e.get("added") or e.get("date") or ""
+        # Slack's RSS app decides "new" by pubDate, so a recently-indexed entry
+        # dated at midnight can read as older than the subscription and never get
+        # pushed. Stamp entries indexed in the last 7 days with the build time so
+        # they register as fresh; older ones keep their date and aren't re-pushed.
+        pub = email.utils.format_datetime(now) if added >= recent else _rfc822(added)
         parts += [
             '<item>',
             f'<title>{esc(e.get("name") or e.get("title") or "untitled")}</title>',
             f'<link>{esc(e.get("url") or "")}</link>',
             f'<guid isPermaLink="false">{esc(e.get("id") or "")}</guid>',
-            f'<pubDate>{_rfc822(e.get("added") or e.get("date"))}</pubDate>',
+            f'<pubDate>{pub}</pubDate>',
             f'<description>{esc(desc)}</description>',
             '</item>',
         ]

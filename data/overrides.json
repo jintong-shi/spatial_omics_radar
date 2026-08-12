@@ -26,8 +26,8 @@
       "date": "2024-10-01",
       "is_preprint": false
     },
-    "manual:test-rss": {
-      "id": "manual:test-rss",
+    "manual:test-rss-2": {
+      "id": "manual:test-rss-2",
       "name": "RSS test entry — please ignore",
       "one_liner": "Temporary entry to verify the weekly Slack RSS push end-to-end. It will be removed shortly.",
       "kind": ["method"],
