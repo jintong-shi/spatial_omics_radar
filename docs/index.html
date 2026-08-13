@@ -164,7 +164,8 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
 
 <footer>
   <span id="updated"></span> ·
-  <a href="#" id="repo">source &amp; corrections</a> ·
+  <a href="#" id="repo">source &amp; corrections</a>
+  <span id="visits" hidden></span> ·
   entries are machine-triaged; dashed tags mark low-confidence records awaiting review
 </footer>
 </div>
@@ -177,6 +178,14 @@ const el = id => document.getElementById(id);
 fetch("entries.json").then(r => r.json()).then(init).catch(() => {
   el("list").innerHTML = '<p class="empty">entries.json not found — run the crawler first.</p>';
 });
+
+/* Total visitor count from GoatCounter's public counter endpoint (needs Settings
+   -> "Allow visitor counts" enabled). Progressive enhancement: on any failure we
+   warn to the console and show nothing, rather than render a broken number. */
+fetch("https://jintong-shi.goatcounter.com/counter/TOTAL.json")
+  .then(r => r.ok ? r.json() : Promise.reject("HTTP " + r.status))
+  .then(d => { el("visits").textContent = ` · ${d.count} visits`; el("visits").hidden = false; })
+  .catch(err => console.warn("visitor count unavailable:", err));
 
 function init(data){
   state.all = data.entries || [];
