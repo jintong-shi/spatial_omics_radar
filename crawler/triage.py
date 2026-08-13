@@ -355,20 +355,21 @@ def _build_week_prompt(entries):
         f"researchers in Slack. This week's {len(entries)} new entries, each as "
         "'name (venue, impact factor): one-liner [kind · approach · modality]':\n\n"
         f"{catalogue}\n\n"
-        "Write 3-5 sentences (max ~110 words) that SYNTHESISE the week. Do NOT enumerate "
-        "entries. Follow this shape:\n"
-        "1. Lead with the week's dominant theme, or which kinds/modalities dominate.\n"
-        "2. Call out 2-3 genuinely notable standouts, named, each with WHY it matters — "
-        "judge notability from the venue and impact factor (a journal paper or a benchmark "
-        "outweighs yet another preprint method).\n"
-        "3. Explicitly flag any non-transcriptomics work (proteomics / metabolomics / "
-        "epigenomics / multi-omics); cross-modality coverage is the point of this digest.\n"
+        "Write a TIGHT teaser of 2-3 sentences (HARD max ~55 words) — this is a Slack "
+        "preview and the full list is one click away, so do NOT try to cover the week. Do "
+        "NOT enumerate entries. Follow this shape:\n"
+        "1. Lead with the single most notable addition, named, with a few words on WHY it "
+        "matters — judge notability from the venue and impact factor (a journal paper or a "
+        "benchmark outweighs yet another preprint method).\n"
+        "2. Add at most one more standout, or the week's dominant theme in a clause.\n"
+        "3. If there is notable non-transcriptomics work (proteomics / metabolomics / "
+        "epigenomics / multi-omics), flag it in a few words; cross-modality coverage is the "
+        "point of this digest.\n"
         "Plain text only: no markdown, no bullet points, no preamble, no sign-off.\n\n"
-        "BAD (never do this): 'New this week: ToolA, ToolB, ToolC, and 12 more.'\n"
-        "GOOD (do this): 'Spatial proteomics led the week: a Nature Methods antibody-panel "
-        "assay and a benchmark of three deconvolution tools stood out, while two graph-based "
-        "methods target cell-cell communication. Beyond transcriptomics, a new MALDI workflow "
-        "pushes metabolite imaging toward sub-micron resolution.'"
+        "BAD (too long, and a list): 'New this week: ToolA, ToolB, ToolC, and 12 more.'\n"
+        "GOOD (tight teaser): 'A new antibody-panel assay in Nature Methods was the week's "
+        "standout, with foundation models a clear sub-theme. Beyond transcriptomics, a MALDI "
+        "workflow pushes metabolite imaging to sub-micron resolution.'"
     )
 
 
@@ -404,7 +405,7 @@ def summarise_week(entries, model, backend, extra_args=()):
         API,
         headers={"x-api-key": key, "anthropic-version": "2023-06-01",
                  "content-type": "application/json"},
-        json={"model": model, "max_tokens": 550,
+        json={"model": model, "max_tokens": 200,
               "messages": [{"role": "user", "content": prompt}]},
         timeout=120,
     )

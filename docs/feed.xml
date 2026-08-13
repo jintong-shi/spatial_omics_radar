@@ -3,12 +3,17 @@
 <title>Spatial Omics Radar</title>
 <link>https://jintong-shi.github.io/spatial_omics_radar/</link>
 <description>New technologies, tools, AI models and benchmarks across spatial omics</description>
-<lastBuildDate>Thu, 13 Aug 2026 14:47:51 +0000</lastBuildDate>
+<lastBuildDate>Thu, 13 Aug 2026 18:52:51 +0000</lastBuildDate>
 <item>
-<title>Weekly update · 22 new entries</title>
+<title>Weekly update · 23 new entries</title>
 <link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-08-06</link>
 <guid isPermaLink="false">weekly-2026-W33</guid>
-<pubDate>Thu, 13 Aug 2026 14:47:51 +0000</pubDate>
-<description>Spatial transcriptomics dominated again, with foundation models the clear sub-theme: TERRA, TissueFormer, and Virtual Tissues (VirTues) all launched pretrained embedding models this week. Virtues stands out most, landing in Nature and being the rare foundation model built on multiplex spatial proteomics rather than transcriptomics. DeepHis2Exp is the notable benchmark, systematically comparing seven histology-to-expression methods across six datasets. Beyond transcriptomics, 10X ExMSI (Angewandte Chemie) pushes MALDI-MSI metabolomics to ~500 nm resolution, and a new FFPE workflow combines Xenium RNA with imaging mass cytometry protein profiling for multi-omics co-registration on a single section — one of the few genuine multi-omics/proteomics entries amid an otherwise transcriptomics-heavy, preprint-heavy week.</description>
+<pubDate>Thu, 13 Aug 2026 18:52:51 +0000</pubDate>
+<description>VirTues, a foundation model for multiplex spatial proteomics, lands in Nature and is this week's clear standout given the venue. TissueFormer's 17M-pair histology-to-expression foundation model is worth a look too, as foundation models are the week's dominant thread. Otherwise heavy on transcriptomics methods, with only a scattering of proteomics/metabolomics work (10X ExMSI, UNIPRO) for cross-modality coverage.
+
+### English fix
+None needed.
+
+no commit needed</description>
 </item>
 </channel></rss>

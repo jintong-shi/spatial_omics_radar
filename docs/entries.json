@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-08-13T14:47:51+00:00",
+    "updated": "2026-08-13T18:52:51+00:00",
     "site": {
       "title": "Spatial Omics Radar",
       "subtitle": "New technologies, tools, AI models and benchmarks across spatial omics",
@@ -56,33 +56,61 @@
     },
     "weekly": {
       "since": "2026-08-06",
-      "highlight": "Spatial transcriptomics dominated again, with foundation models the clear sub-theme: TERRA, TissueFormer, and Virtual Tissues (VirTues) all launched pretrained embedding models this week. Virtues stands out most, landing in Nature and being the rare foundation model built on multiplex spatial proteomics rather than transcriptomics. DeepHis2Exp is the notable benchmark, systematically comparing seven histology-to-expression methods across six datasets. Beyond transcriptomics, 10X ExMSI (Angewandte Chemie) pushes MALDI-MSI metabolomics to ~500 nm resolution, and a new FFPE workflow combines Xenium RNA with imaging mass cytometry protein profiling for multi-omics co-registration on a single section — one of the few genuine multi-omics/proteomics entries amid an otherwise transcriptomics-heavy, preprint-heavy week."
+      "highlight": "VirTues, a foundation model for multiplex spatial proteomics, lands in Nature and is this week's clear standout given the venue. TissueFormer's 17M-pair histology-to-expression foundation model is worth a look too, as foundation models are the week's dominant thread. Otherwise heavy on transcriptomics methods, with only a scattering of proteomics/metabolomics work (10X ExMSI, UNIPRO) for cross-modality coverage.\n\n### English fix\nNone needed.\n\nno commit needed"
     },
-    "count": 3101
+    "count": 3102
   },
   "entries": [
     {
-      "id": "10.21203/rs.3.rs-10407073/v1",
-      "name": "GraphTransformer-CoGNN",
-      "title": "GraphTransformer-CoGNN: A two-stage dynamic graph learning framework for label-scarce cell-type annotation in spatial transcriptomics",
-      "one_liner": "Two-stage dynamic graph learning framework combining Graph Transformer and cooperative GNN for semi-supervised cell-type annotation.",
-      "kind": [
-        "method"
-      ],
+      "added": "2026-08-13",
       "approach": [
         "deep learning"
+      ],
+      "code_url": null,
+      "confidence": 0.75,
+      "curated": false,
+      "date": "2026-08-12",
+      "id": "10.21203/rs.3.rs-10407073/v1",
+      "is_preprint": true,
+      "kind": [
+        "method"
       ],
       "modality": [
         "transcriptomics"
       ],
+      "name": "GraphTransformer-CoGNN",
+      "needs_review": false,
+      "one_liner": "Two-stage dynamic graph learning framework combining Graph Transformer and cooperative GNN for semi-supervised cell-type annotation.",
       "platforms": [
         "CosMx",
         "Visium"
       ],
+      "stars": null,
+      "title": "GraphTransformer-CoGNN: A two-stage dynamic graph learning framework for label-scarce cell-type annotation in spatial transcriptomics",
       "url": "https://doi.org/10.21203/rs.3.rs-10407073/v1",
+      "venue": "PPR"
+    },
+    {
+      "id": "10.64898/2026.08.04.742705",
+      "name": "FOCUS",
+      "title": "FOCUS: end-to-end preprocessing, alignment and resolution-matched integration of spatial multi-omics data",
+      "one_liner": "Python package for end-to-end preprocessing, cross-modality alignment and resolution-matched integration of spatial multi-omics data.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "classical / statistical"
+      ],
+      "modality": [
+        "multi-omics"
+      ],
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "url": "https://doi.org/10.64898/2026.08.04.742705",
       "code_url": null,
       "venue": "PPR",
-      "date": "2026-08-12",
+      "date": "2026-08-09",
       "is_preprint": true,
       "stars": null,
       "confidence": 0.75,

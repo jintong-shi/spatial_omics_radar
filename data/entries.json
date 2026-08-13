@@ -82463,6 +82463,34 @@
     "url": "https://doi.org/10.64898/2026.08.03.741871",
     "venue": "PPR"
   },
+  "10.64898/2026.08.04.742705": {
+    "added": "2026-08-13",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.75,
+    "curated": false,
+    "date": "2026-08-09",
+    "id": "10.64898/2026.08.04.742705",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "multi-omics"
+    ],
+    "name": "FOCUS",
+    "needs_review": false,
+    "one_liner": "Python package for end-to-end preprocessing, cross-modality alignment and resolution-matched integration of spatial multi-omics data.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "FOCUS: end-to-end preprocessing, alignment and resolution-matched integration of spatial multi-omics data",
+    "url": "https://doi.org/10.64898/2026.08.04.742705",
+    "venue": "PPR"
+  },
   "10.7150/thno.134316": {
     "added": "2026-08-03",
     "approach": [
