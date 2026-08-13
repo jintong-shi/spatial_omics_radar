@@ -3,12 +3,12 @@
 <title>Spatial Omics Radar</title>
 <link>https://jintong-shi.github.io/spatial_omics_radar/</link>
 <description>New technologies, tools, AI models and benchmarks across spatial omics</description>
-<lastBuildDate>Thu, 13 Aug 2026 07:27:44 +0000</lastBuildDate>
+<lastBuildDate>Thu, 13 Aug 2026 14:47:51 +0000</lastBuildDate>
 <item>
-<title>Weekly update · 21 new entries</title>
+<title>Weekly update · 22 new entries</title>
 <link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-08-06</link>
 <guid isPermaLink="false">weekly-2026-W33</guid>
-<pubDate>Thu, 13 Aug 2026 07:27:44 +0000</pubDate>
-<description>New this week: 10X ExMSI, X-SPATIO, Virtual Tissues (VirTues), DeepHis2Exp, An Integrated Spatial Multi-Omics Workflow for Sequential RNA and Protein Profiling in FFPE Tumor Tissue, UNIPRO, Spatial GNN Analyzer, TissueFormer, +13 more.</description>
+<pubDate>Thu, 13 Aug 2026 14:47:51 +0000</pubDate>
+<description>Spatial transcriptomics dominated again, with foundation models the clear sub-theme: TERRA, TissueFormer, and Virtual Tissues (VirTues) all launched pretrained embedding models this week. Virtues stands out most, landing in Nature and being the rare foundation model built on multiplex spatial proteomics rather than transcriptomics. DeepHis2Exp is the notable benchmark, systematically comparing seven histology-to-expression methods across six datasets. Beyond transcriptomics, 10X ExMSI (Angewandte Chemie) pushes MALDI-MSI metabolomics to ~500 nm resolution, and a new FFPE workflow combines Xenium RNA with imaging mass cytometry protein profiling for multi-omics co-registration on a single section — one of the few genuine multi-omics/proteomics entries amid an otherwise transcriptomics-heavy, preprint-heavy week.</description>
 </item>
 </channel></rss>

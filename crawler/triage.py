@@ -333,23 +333,42 @@ def classify_batch_via_cli(recs, vocab, model, learned=(), extra_args=()):
 
 
 def _build_week_prompt(entries):
-    """Prompt for the weekly Slack digest blurb: this week's new entries in,
-    a short plain-text highlight paragraph out."""
+    """Prompt for the weekly Slack digest blurb: this week's new entries in, a
+    short SYNTHESISED highlight out (themes + a few named standouts, never a list
+    of names). Each entry carries venue / impact factor / axes so the model can
+    judge what is actually notable."""
     lines = []
     for e in entries:
-        bits = " · ".join([*(e.get("kind") or []), *(e.get("modality") or [])])
+        tags = " · ".join([*(e.get("kind") or []), *(e.get("approach") or []),
+                           *(e.get("modality") or [])])
+        venue = "preprint" if e.get("is_preprint") else (e.get("venue") or "")
+        if e.get("impact_factor"):
+            venue = f"{venue}, IF {e['impact_factor']}".lstrip(", ")
         one = e.get("one_liner") or e.get("title") or ""
         name = e.get("name") or e.get("title") or "untitled"
-        lines.append(f"- {name}: {one}" + (f" [{bits}]" if bits else ""))
+        head = f"{name} ({venue})" if venue else name
+        lines.append(f"- {head}: {one}" + (f" [{tags}]" if tags else ""))
     catalogue = "\n".join(lines)
     return (
-        "You write a one-paragraph highlight for a weekly digest of new spatial-omics "
-        f"resources (tools, methods, benchmarks, assays, models). This week's {len(entries)} "
-        f"new entries:\n\n{catalogue}\n\n"
-        "Write 2-4 sentences (max ~90 words) calling out the most notable additions and any "
-        "cross-modality breadth (proteomics / metabolomics / epigenomics stand out more than "
-        "yet another transcriptomics tool). Plain text only: no markdown, no bullet list, no "
-        "preamble, no sign-off. Return just the paragraph."
+        "You write the highlight for a weekly digest of new spatial-omics resources "
+        "(tools, methods, benchmarks, assays, models), read by working spatial-omics "
+        f"researchers in Slack. This week's {len(entries)} new entries, each as "
+        "'name (venue, impact factor): one-liner [kind · approach · modality]':\n\n"
+        f"{catalogue}\n\n"
+        "Write 3-5 sentences (max ~110 words) that SYNTHESISE the week. Do NOT enumerate "
+        "entries. Follow this shape:\n"
+        "1. Lead with the week's dominant theme, or which kinds/modalities dominate.\n"
+        "2. Call out 2-3 genuinely notable standouts, named, each with WHY it matters — "
+        "judge notability from the venue and impact factor (a journal paper or a benchmark "
+        "outweighs yet another preprint method).\n"
+        "3. Explicitly flag any non-transcriptomics work (proteomics / metabolomics / "
+        "epigenomics / multi-omics); cross-modality coverage is the point of this digest.\n"
+        "Plain text only: no markdown, no bullet points, no preamble, no sign-off.\n\n"
+        "BAD (never do this): 'New this week: ToolA, ToolB, ToolC, and 12 more.'\n"
+        "GOOD (do this): 'Spatial proteomics led the week: a Nature Methods antibody-panel "
+        "assay and a benchmark of three deconvolution tools stood out, while two graph-based "
+        "methods target cell-cell communication. Beyond transcriptomics, a new MALDI workflow "
+        "pushes metabolite imaging toward sub-micron resolution.'"
     )
 
 
@@ -385,7 +404,7 @@ def summarise_week(entries, model, backend, extra_args=()):
         API,
         headers={"x-api-key": key, "anthropic-version": "2023-06-01",
                  "content-type": "application/json"},
-        json={"model": model, "max_tokens": 400,
+        json={"model": model, "max_tokens": 550,
               "messages": [{"role": "user", "content": prompt}]},
         timeout=120,
     )

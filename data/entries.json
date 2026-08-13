@@ -68957,6 +68957,35 @@
     "url": "https://doi.org/10.21203/rs.3.rs-10387597/v1",
     "venue": "PPR"
   },
+  "10.21203/rs.3.rs-10407073/v1": {
+    "added": "2026-08-13",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.75,
+    "curated": false,
+    "date": "2026-08-12",
+    "id": "10.21203/rs.3.rs-10407073/v1",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "GraphTransformer-CoGNN",
+    "needs_review": false,
+    "one_liner": "Two-stage dynamic graph learning framework combining Graph Transformer and cooperative GNN for semi-supervised cell-type annotation.",
+    "platforms": [
+      "CosMx",
+      "Visium"
+    ],
+    "stars": null,
+    "title": "GraphTransformer-CoGNN: A two-stage dynamic graph learning framework for label-scarce cell-type annotation in spatial transcriptomics",
+    "url": "https://doi.org/10.21203/rs.3.rs-10407073/v1",
+    "venue": "PPR"
+  },
   "10.21203/rs.3.rs-10451569/v1": {
     "added": "2026-08-02",
     "approach": [

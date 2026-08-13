@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-08-13T07:27:44+00:00",
+    "updated": "2026-08-13T14:47:51+00:00",
     "site": {
       "title": "Spatial Omics Radar",
       "subtitle": "New technologies, tools, AI models and benchmarks across spatial omics",
@@ -54,9 +54,42 @@
         "platform-agnostic"
       ]
     },
-    "count": 3100
+    "weekly": {
+      "since": "2026-08-06",
+      "highlight": "Spatial transcriptomics dominated again, with foundation models the clear sub-theme: TERRA, TissueFormer, and Virtual Tissues (VirTues) all launched pretrained embedding models this week. Virtues stands out most, landing in Nature and being the rare foundation model built on multiplex spatial proteomics rather than transcriptomics. DeepHis2Exp is the notable benchmark, systematically comparing seven histology-to-expression methods across six datasets. Beyond transcriptomics, 10X ExMSI (Angewandte Chemie) pushes MALDI-MSI metabolomics to ~500 nm resolution, and a new FFPE workflow combines Xenium RNA with imaging mass cytometry protein profiling for multi-omics co-registration on a single section — one of the few genuine multi-omics/proteomics entries amid an otherwise transcriptomics-heavy, preprint-heavy week."
+    },
+    "count": 3101
   },
   "entries": [
+    {
+      "id": "10.21203/rs.3.rs-10407073/v1",
+      "name": "GraphTransformer-CoGNN",
+      "title": "GraphTransformer-CoGNN: A two-stage dynamic graph learning framework for label-scarce cell-type annotation in spatial transcriptomics",
+      "one_liner": "Two-stage dynamic graph learning framework combining Graph Transformer and cooperative GNN for semi-supervised cell-type annotation.",
+      "kind": [
+        "method"
+      ],
+      "approach": [
+        "deep learning"
+      ],
+      "modality": [
+        "transcriptomics"
+      ],
+      "platforms": [
+        "CosMx",
+        "Visium"
+      ],
+      "url": "https://doi.org/10.21203/rs.3.rs-10407073/v1",
+      "code_url": null,
+      "venue": "PPR",
+      "date": "2026-08-12",
+      "is_preprint": true,
+      "stars": null,
+      "confidence": 0.75,
+      "needs_review": false,
+      "added": "2026-08-13",
+      "curated": false
+    },
     {
       "added": "2026-08-10",
       "approach": [],
