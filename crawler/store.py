@@ -25,8 +25,6 @@ PUBLISHED = ROOT / "docs" / "entries.json"
 FEED = ROOT / "docs" / "feed.xml"
 SEEN = ROOT / "data" / "seen.json"
 
-FEED_MAX = 50   # most-recently-indexed entries to expose in the RSS feed
-
 
 def _read(path, default):
     if not path.exists():
@@ -98,54 +96,50 @@ def publish(auto, meta):
     return len(rows)
 
 
-def _rfc822(d):
-    """YYYY-MM-DD -> RFC 822 date (RSS pubDate). Empty string if unparseable."""
-    try:
-        dt = datetime.datetime.strptime(d, "%Y-%m-%d").replace(tzinfo=datetime.timezone.utc)
-        return email.utils.format_datetime(dt)
-    except (ValueError, TypeError):
-        return ""
-
-
 def _write_feed(entries, meta):
-    """Write a static RSS 2.0 feed of the most-recently-indexed entries, so
-    anyone can subscribe from their own Slack or Teams (`/feed subscribe <url>`)
-    with no backend. Ordered by `added` so this week's new entries are always
-    present; Slack de-dupes on <guid> and only pushes ones it hasn't seen."""
+    """Write a static RSS 2.0 feed with a SINGLE item: a weekly digest of the
+    entries indexed in the last 7 days. Slack's RSS app posts one message per new
+    <item> and de-dupes on <guid>, so a guid that is stable within an ISO week
+    yields exactly one Slack message per week. The item links back to the site
+    filtered to that week (?since=<date>). `meta["weekly"]["highlight"]` is an
+    optional LLM-written blurb; without it the item lists the week's names."""
     site = meta.get("site", {})
+    weekly = meta.get("weekly") or {}
     esc = xml.sax.saxutils.escape
     now = datetime.datetime.now(datetime.timezone.utc)
-    recent = (now - datetime.timedelta(days=7)).date().isoformat()
-    items = sorted(entries, key=lambda e: (e.get("added") or e.get("date") or ""),
-                   reverse=True)[:FEED_MAX]
+    since = weekly.get("since") or (now - datetime.timedelta(days=7)).date().isoformat()
+    week = sorted((e for e in entries if (e.get("added") or "") >= since),
+                  key=lambda e: (e.get("added") or e.get("date") or ""), reverse=True)
     parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<rss version="2.0"><channel>',
         f'<title>{esc(site.get("title") or "Spatial Omics Radar")}</title>',
-        f'<link>{esc(site.get("repo_url") or "")}</link>',
+        f'<link>{esc(site.get("url") or site.get("repo_url") or "")}</link>',
         f'<description>{esc(site.get("subtitle") or "New tools, assays and benchmarks across spatial omics")}</description>',
-        f'<lastBuildDate>{email.utils.format_datetime(datetime.datetime.now(datetime.timezone.utc))}</lastBuildDate>',
+        f'<lastBuildDate>{email.utils.format_datetime(now)}</lastBuildDate>',
     ]
-    for e in items:
-        tags = " · ".join([*(e.get("kind") or []), *(e.get("modality") or [])])
-        venue = "preprint" if e.get("is_preprint") else (e.get("venue") or "")
-        desc = e.get("one_liner") or e.get("title") or ""
-        meta_bits = " — ".join(x for x in [tags, venue] if x)
-        if meta_bits:
-            desc = f"{desc} ({meta_bits})"
-        added = e.get("added") or e.get("date") or ""
-        # Slack's RSS app decides "new" by pubDate, so a recently-indexed entry
-        # dated at midnight can read as older than the subscription and never get
-        # pushed. Stamp entries indexed in the last 7 days with the build time so
-        # they register as fresh; older ones keep their date and aren't re-pushed.
-        pub = email.utils.format_datetime(now) if added >= recent else _rfc822(added)
+    # No new entries this week -> emit an empty channel (no Slack message).
+    if week:
+        # Key the guid on the current ISO week: stable for any re-run within the
+        # week (Slack de-dupes -> one message), rolls over exactly once a week.
+        iso = now.isocalendar()
+        wid = f"weekly-{iso[0]}-W{iso[1]:02d}"
+        base = (site.get("url") or "").rstrip("/")
+        link = f"{base}/?since={since}" if base else ""
+        names = ", ".join(e.get("name") or e.get("title") or "untitled" for e in week[:8])
+        if len(week) > 8:
+            names += f", +{len(week) - 8} more"
+        # Fall back to a plain name list if the LLM highlight is missing/failed:
+        # real data, never fabricated.
+        blurb = (weekly.get("highlight") or "").strip() or f"New this week: {names}."
+        title = f"Weekly update · {len(week)} new " + ("entry" if len(week) == 1 else "entries")
         parts += [
             '<item>',
-            f'<title>{esc(e.get("name") or e.get("title") or "untitled")}</title>',
-            f'<link>{esc(e.get("url") or "")}</link>',
-            f'<guid isPermaLink="false">{esc(e.get("id") or "")}</guid>',
-            f'<pubDate>{pub}</pubDate>',
-            f'<description>{esc(desc)}</description>',
+            f'<title>{esc(title)}</title>',
+            f'<link>{esc(link)}</link>',
+            f'<guid isPermaLink="false">{esc(wid)}</guid>',
+            f'<pubDate>{email.utils.format_datetime(now)}</pubDate>',
+            f'<description>{esc(blurb)}</description>',
             '</item>',
         ]
     parts.append('</channel></rss>')

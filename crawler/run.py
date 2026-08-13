@@ -195,10 +195,31 @@ def main():
 
     store.save_auto(known)
     store.save_seen(seen)
+
+    # ---- weekly digest highlight ------------------------------------------
+    # One extra LLM call summarising this week's new entries for the Slack digest
+    # item. Same backend as classification: cli = subscription (no API bill),
+    # api = per-token. If it fails we degrade LOUDLY -- the feed still lists the
+    # real entries -- rather than sink a crawl that already succeeded.
+    week_since = (dt.date.today() - dt.timedelta(days=7)).isoformat()
+    week = [e for e in known.values() if (e.get("added") or "") >= week_since]
+    highlight = None
+    if week and cfg["llm"]["enabled"]:
+        # Bound the summariser's input -- a (re-)backfill can put thousands in the
+        # window. The feed's headline count still reflects the true total.
+        sample = sorted(week, key=lambda e: (e.get("added") or e.get("date") or ""),
+                        reverse=True)[:60]
+        try:
+            highlight = triage.summarise_week(
+                sample, model, backend, cfg["llm"].get("cli_extra_args") or [])
+        except Exception as ex:                  # sanctioned broad catch: degrade, don't crash
+            print(f"  ⚠️ weekly summary failed ({ex}); digest will list entries only")
+
     total = store.publish(known, {
         "updated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "site": cfg["site"],
         "vocab": cfg["vocab"],
+        "weekly": {"since": week_since, "highlight": highlight},
     })
     print(f"added {kept}; published {total} entries")
 

@@ -6,6 +6,9 @@ site:
   title: "Spatial Omics Radar"
   subtitle: "New technologies, tools, AI models and benchmarks across spatial omics"
   maintainer: "Jintong"
+  # Public site root (GitHub Pages). Used to build the weekly digest link in the
+  # RSS feed. Keep the trailing slash.
+  url: "https://jintong-shi.github.io/spatial_omics_radar/"
   repo_url: "https://github.com/jintong-shi/spatial_omics_radar"
 
 # Europe PMC query syntax: https://europepmc.org/searchsyntax

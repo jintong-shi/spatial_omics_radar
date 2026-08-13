@@ -99,6 +99,10 @@ select{max-width:200px}
 .pager button:hover:not(:disabled){border-color:var(--eosin)}
 .pager button:disabled{color:var(--stroma);opacity:.5;cursor:default}
 .pager .pageinfo{color:var(--stroma);letter-spacing:.06em}
+.weekbanner{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  background:var(--wash);border:1px solid var(--rule);border-radius:8px;
+  padding:9px 14px;margin:0 0 16px;font-size:.9rem;color:#5A4C68}
+.weekbanner a{color:inherit}
 .subscribe{border-top:1px solid var(--rule);margin-top:40px;padding:30px 0 0}
 .subscribe h2{font-family:var(--display);font-variation-settings:'wdth' 112;font-weight:700;
   font-size:1.15rem;letter-spacing:-.01em;margin:0 0 6px}
@@ -147,6 +151,7 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
   <button class="reset" id="reset" hidden>clear filters</button>
 </div>
 
+<div id="weekBanner" class="weekbanner" hidden></div>
 <main id="list"><p class="empty">loading entries…</p></main>
 <nav class="pager" id="pager" hidden></nav>
 
@@ -165,7 +170,7 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
 </div>
 
 <script>
-const state = {all:[], q:"", kind:"", appr:"", mod:"", plat:"", from:"", to:"", sort:"date", page:1};
+const state = {all:[], q:"", kind:"", appr:"", mod:"", plat:"", from:"", to:"", sinceAdded:"", sort:"date", page:1};
 const PER_PAGE = 20;   // entries shown per page
 const el = id => document.getElementById(id);
 
@@ -175,6 +180,8 @@ fetch("entries.json").then(r => r.json()).then(init).catch(() => {
 
 function init(data){
   state.all = data.entries || [];
+  const since = new URLSearchParams(location.search).get("since");
+  if (since && /^\d{4}-\d{2}-\d{2}$/.test(since)) state.sinceAdded = since;  // weekly-digest deep link
   const meta = data.meta || {};
   el("updated").textContent = "last crawl " + (meta.updated || "unknown").slice(0,16).replace("T"," ");
   if (meta.site && meta.site.repo_url) el("repo").href = meta.site.repo_url;
@@ -208,10 +215,18 @@ function init(data){
       render();
     }));
   el("reset").addEventListener("click", () => {
-    Object.assign(state, {q:"",kind:"",appr:"",mod:"",plat:"",from:"",to:"",sort:"date",page:1});
+    Object.assign(state, {q:"",kind:"",appr:"",mod:"",plat:"",from:"",to:"",sinceAdded:"",sort:"date",page:1});
     el("q").value = ""; ["fKind","fApproach","fMod","fPlat","fFrom","fTo"].forEach(i => el(i).value = "");
     el("sort").value = "date"; el("optMatch").disabled = true;
+    history.replaceState(null, "", location.pathname);   // drop ?since so a refresh shows all
     paintStrip();
+    render();
+  });
+  el("weekBanner").addEventListener("click", e => {       // "show all" leaves the weekly view
+    if (!e.target.closest("#weekAll")) return;
+    e.preventDefault();
+    state.sinceAdded = ""; state.page = 1;
+    history.replaceState(null, "", location.pathname);
     render();
   });
   el("pager").addEventListener("click", e => {   // prev / next paging
@@ -298,6 +313,7 @@ function match(e){
   if (state.plat && !(e.platforms || []).includes(state.plat)) return false;
   if (state.from && ym(e) < state.from) return false;
   if (state.to && ym(e) > state.to) return false;
+  if (state.sinceAdded && (e.added || "") < state.sinceAdded) return false;
   if (state.q){
     const hay = [e.name, e.one_liner, e.title, e.venue].join(" ").toLowerCase();
     if (!hay.includes(state.q)) return false;
@@ -325,8 +341,14 @@ function render(){
   // "best match" with no query is meaningless -> fall back to newest.
   const eff = (state.sort === "match" && !state.q) ? "date" : state.sort;
   rows.sort(sorters[eff]);
-  const filtered = state.q || state.kind || state.appr || state.mod || state.plat || state.from || state.to;
+  const filtered = state.q || state.kind || state.appr || state.mod || state.plat || state.from || state.to || state.sinceAdded;
   el("reset").hidden = !filtered;
+  const wb = el("weekBanner");
+  if (state.sinceAdded){
+    wb.hidden = false;
+    wb.innerHTML = `<span>Showing entries added since <strong>${esc(state.sinceAdded)}</strong></span>`
+      + `<a href="#" id="weekAll">show all ${state.all.length}</a>`;
+  } else { wb.hidden = true; wb.innerHTML = ""; }
   el("counter").textContent = filtered
     ? `${rows.length} of ${state.all.length} entries`
     : `${state.all.length} entries indexed`;

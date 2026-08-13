@@ -332,6 +332,68 @@ def classify_batch_via_cli(recs, vocab, model, learned=(), extra_args=()):
     return _parse_batch(envelope.get("result", ""), recs), usage
 
 
+def _build_week_prompt(entries):
+    """Prompt for the weekly Slack digest blurb: this week's new entries in,
+    a short plain-text highlight paragraph out."""
+    lines = []
+    for e in entries:
+        bits = " · ".join([*(e.get("kind") or []), *(e.get("modality") or [])])
+        one = e.get("one_liner") or e.get("title") or ""
+        name = e.get("name") or e.get("title") or "untitled"
+        lines.append(f"- {name}: {one}" + (f" [{bits}]" if bits else ""))
+    catalogue = "\n".join(lines)
+    return (
+        "You write a one-paragraph highlight for a weekly digest of new spatial-omics "
+        f"resources (tools, methods, benchmarks, assays, models). This week's {len(entries)} "
+        f"new entries:\n\n{catalogue}\n\n"
+        "Write 2-4 sentences (max ~90 words) calling out the most notable additions and any "
+        "cross-modality breadth (proteomics / metabolomics / epigenomics stand out more than "
+        "yet another transcriptomics tool). Plain text only: no markdown, no bullet list, no "
+        "preamble, no sign-off. Return just the paragraph."
+    )
+
+
+def summarise_week(entries, model, backend, extra_args=()):
+    """Return a plain-text highlight paragraph for the weekly digest, produced by
+    the same backend as classification (cli = subscription quota, api = per-token).
+    Raises on any failure; the caller decides whether to degrade to a name list."""
+    prompt = _build_week_prompt(entries)
+    if backend == "cli":
+        exe = shutil.which("claude")
+        if not exe:
+            raise RuntimeError(
+                "`claude` CLI not found on PATH. Install Claude Code and run "
+                "`claude login`, or use --backend api.")
+        env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
+        proc = subprocess.run(
+            [exe, "-p", prompt, "--output-format", "json", "--model", model, *extra_args],
+            capture_output=True, text=True, env=env, timeout=180,
+        )
+        if proc.returncode != 0:
+            raise RuntimeError(
+                f"claude CLI exited {proc.returncode}: "
+                f"{(proc.stderr.strip() or proc.stdout.strip())[:500]}")
+        envelope = json.loads(proc.stdout)
+        if envelope.get("is_error"):
+            raise RuntimeError("claude CLI reported an error generating the weekly summary")
+        return (envelope.get("result") or "").strip()
+
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        raise RuntimeError("ANTHROPIC_API_KEY is not set")
+    r = requests.post(
+        API,
+        headers={"x-api-key": key, "anthropic-version": "2023-06-01",
+                 "content-type": "application/json"},
+        json={"model": model, "max_tokens": 400,
+              "messages": [{"role": "user", "content": prompt}]},
+        timeout=120,
+    )
+    r.raise_for_status()
+    body = r.json()
+    return "".join(b["text"] for b in body["content"] if b["type"] == "text").strip()
+
+
 def sanitise(verdict, vocab):
     """Drop any value the LLM invented outside the controlled vocabulary."""
     verdict["kind"] = [k for k in verdict.get("kind") or [] if k in vocab["kind"]]
