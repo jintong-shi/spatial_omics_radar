@@ -12,6 +12,7 @@ import json
 import os
 import shutil
 import subprocess
+import tempfile
 
 import requests
 
@@ -373,6 +374,20 @@ def _build_week_prompt(entries):
     )
 
 
+def _strip_cli_instructions(text):
+    """`claude -p` is Claude Code: it loads the repo's CLAUDE.md / CLAUDE.local.md and
+    appends their conventions to its answer (an '### English fix' note, a commit
+    suggestion). Running in a neutral cwd stops that at the source; this is the
+    deterministic backstop. The summary is always the first block, so cut from the
+    first markdown header, fenced block, or commit trailer onward."""
+    cut = len(text)
+    for marker in ("\n### ", "\n```", "\nno commit needed"):
+        i = text.find(marker)
+        if i != -1:
+            cut = min(cut, i)
+    return text[:cut].strip()
+
+
 def summarise_week(entries, model, backend, extra_args=()):
     """Return a plain-text highlight paragraph for the weekly digest, produced by
     the same backend as classification (cli = subscription quota, api = per-token).
@@ -385,9 +400,13 @@ def summarise_week(entries, model, backend, extra_args=()):
                 "`claude` CLI not found on PATH. Install Claude Code and run "
                 "`claude login`, or use --backend api.")
         env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
+        # Run OUTSIDE the repo: `claude -p` is Claude Code and would otherwise load
+        # this project's CLAUDE.md / CLAUDE.local.md and bleed their conventions
+        # (English-fix note, commit suggestion) into the summary text.
         proc = subprocess.run(
             [exe, "-p", prompt, "--output-format", "json", "--model", model, *extra_args],
             capture_output=True, text=True, env=env, timeout=180,
+            cwd=tempfile.gettempdir(),
         )
         if proc.returncode != 0:
             raise RuntimeError(
@@ -396,7 +415,7 @@ def summarise_week(entries, model, backend, extra_args=()):
         envelope = json.loads(proc.stdout)
         if envelope.get("is_error"):
             raise RuntimeError("claude CLI reported an error generating the weekly summary")
-        return (envelope.get("result") or "").strip()
+        return _strip_cli_instructions(envelope.get("result") or "")
 
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
