@@ -82491,6 +82491,33 @@
     "url": "https://doi.org/10.64898/2026.08.04.742705",
     "venue": "PPR"
   },
+  "10.64898/2026.08.07.743457": {
+    "added": "2026-08-14",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.75,
+    "curated": false,
+    "date": "2026-08-13",
+    "id": "10.64898/2026.08.07.743457",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "metabolomics",
+      "proteomics"
+    ],
+    "name": "IsoMobil",
+    "needs_review": false,
+    "one_liner": "Dimensionality-reduction framework that detects isotopologue groups in ion-mobility imaging mass spectrometry data.",
+    "platforms": [],
+    "stars": null,
+    "title": "IsoMobil: Resolving Molecular Ambiguity in Mass Spectrometry-based Spatial Omics Through Ion Mobility",
+    "url": "https://doi.org/10.64898/2026.08.07.743457",
+    "venue": "PPR"
+  },
   "10.7150/thno.134316": {
     "added": "2026-08-03",
     "approach": [

@@ -3,17 +3,12 @@
 <title>Spatial Omics Radar</title>
 <link>https://jintong-shi.github.io/spatial_omics_radar/</link>
 <description>New technologies, tools, AI models and benchmarks across spatial omics</description>
-<lastBuildDate>Thu, 13 Aug 2026 18:52:51 +0000</lastBuildDate>
+<lastBuildDate>Fri, 14 Aug 2026 11:59:24 +0000</lastBuildDate>
 <item>
-<title>Weekly update · 23 new entries</title>
-<link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-08-06</link>
+<title>Weekly update · 16 new entries</title>
+<link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-08-07</link>
 <guid isPermaLink="false">weekly-2026-W33</guid>
-<pubDate>Thu, 13 Aug 2026 18:52:51 +0000</pubDate>
-<description>VirTues, a foundation model for multiplex spatial proteomics, lands in Nature and is this week's clear standout given the venue. TissueFormer's 17M-pair histology-to-expression foundation model is worth a look too, as foundation models are the week's dominant thread. Otherwise heavy on transcriptomics methods, with only a scattering of proteomics/metabolomics work (10X ExMSI, UNIPRO) for cross-modality coverage.
-
-### English fix
-None needed.
-
-no commit needed</description>
+<pubDate>Fri, 14 Aug 2026 11:59:24 +0000</pubDate>
+<description>VirTues, a marker-aware foundation model for multiplex spatial proteomics, lands in Nature and is easily the week's biggest addition. Foundation models keep multiplying, with TissueFormer pretrained on 17M histology-expression pairs. Beyond transcriptomics, 10X ExMSI's tenfold sample-expansion MALDI-MSI pushes lipid imaging down to ~500 nm resolution.</description>
 </item>
 </channel></rss>
