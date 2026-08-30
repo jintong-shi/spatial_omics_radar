@@ -13,6 +13,7 @@ your fix survives every future crawl.
 import collections
 import datetime
 import email.utils
+import html
 import json
 import pathlib
 import re
@@ -24,6 +25,7 @@ OVERRIDES = ROOT / "data" / "overrides.json"
 IF_CACHE = ROOT / "data" / "if_cache.json"
 PUBLISHED = ROOT / "docs" / "entries.json"
 FEED = ROOT / "docs" / "feed.xml"
+EMAIL_FEED = ROOT / "docs" / "feed_email.xml"
 SEEN = ROOT / "data" / "seen.json"
 
 
@@ -94,6 +96,7 @@ def publish(auto, meta):
         {"meta": {**meta, "count": len(rows)}, "entries": rows},
         indent=2, ensure_ascii=False))
     _write_feed(merged.values(), meta)
+    _write_email_feed(merged.values(), meta)
     return len(rows)
 
 
@@ -155,3 +158,61 @@ def _write_feed(entries, meta):
         ]
     parts.append('</channel></rss>')
     FEED.write_text("\n".join(parts), encoding="utf-8")
+
+
+def _write_email_feed(entries, meta):
+    """Write a second static RSS 2.0 feed for the EMAIL channel: a single weekly
+    item whose body lists every entry indexed in the last 7 days (name, one-liner,
+    link), one block per entry. An RSS-to-email service (e.g. follow.it) turns that
+    one item into one email per week that a reader scrolls entry by entry. This is
+    deliberately separate from feed.xml, which stays a one-line digest for Slack;
+    the two feeds share the same weekly window (meta['weekly']['since'])."""
+    site = meta.get("site", {})
+    weekly = meta.get("weekly") or {}
+    esc = xml.sax.saxutils.escape
+    now = datetime.datetime.now(datetime.timezone.utc)
+    since = weekly.get("since") or (now - datetime.timedelta(days=7)).date().isoformat()
+    week = sorted((e for e in entries if (e.get("added") or "") >= since),
+                  key=lambda e: (e.get("added") or e.get("date") or ""), reverse=True)
+    parts = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<rss version="2.0"><channel>',
+        f'<title>{esc((site.get("title") or "Spatial Omics Radar") + " — email digest")}</title>',
+        f'<link>{esc(site.get("url") or site.get("repo_url") or "")}</link>',
+        f'<description>{esc(site.get("subtitle") or "New tools, assays and benchmarks across spatial omics")}</description>',
+        f'<lastBuildDate>{email.utils.format_datetime(now)}</lastBuildDate>',
+    ]
+    # No new entries this week -> emit an empty channel (no email).
+    if week:
+        # Same ISO-week guid scheme as feed.xml (distinct prefix) -> the RSS-to-email
+        # service de-dupes to exactly one email per week, rolling over once a week.
+        iso = now.isocalendar()
+        wid = f"weekly-email-{iso[0]}-W{iso[1]:02d}"
+        base = (site.get("url") or "").rstrip("/")
+        link = f"{base}/?since={since}" if base else ""
+        n = len(week)
+        noun = "entry" if n == 1 else "entries"
+        title = f"Weekly update · {n} new {noun}"
+        # HTML body, one block per entry, CDATA-wrapped so the email client renders
+        # it (links, line breaks) rather than showing raw tags. Every entry field is
+        # html.escape'd, so a stray '<' or '>' in a title cannot break out -- which
+        # also means the CDATA-closing sequence ']]>' can never appear in the body.
+        blocks = []
+        for e in week:
+            name = html.escape(e.get("name") or e.get("title") or "Untitled")
+            url = html.escape(e.get("url") or "", quote=True)
+            one = html.escape(e.get("one_liner") or "")
+            heading = f'<a href="{url}">{name}</a>' if url else name
+            blocks.append(f"<p><strong>{heading}</strong><br>{one}</p>")
+        body = "\n".join(blocks)
+        parts += [
+            '<item>',
+            f'<title>{esc(title)}</title>',
+            f'<link>{esc(link)}</link>',
+            f'<guid isPermaLink="false">{esc(wid)}</guid>',
+            f'<pubDate>{email.utils.format_datetime(now)}</pubDate>',
+            f'<description><![CDATA[{body}]]></description>',
+            '</item>',
+        ]
+    parts.append('</channel></rss>')
+    EMAIL_FEED.write_text("\n".join(parts), encoding="utf-8")
