@@ -110,6 +110,16 @@ select{max-width:200px}
 .subscribe code{display:block;font-family:var(--mono);font-size:.8rem;background:var(--wash);
   border:1px solid var(--rule);border-radius:4px;padding:10px 12px;overflow-x:auto;color:var(--hema)}
 .subscribe .sub-note{font-size:.8rem;color:var(--stroma);margin-top:10px}
+.subscribe .email-intro{margin-top:22px}
+.subscribe .emailsub{display:flex;gap:8px;margin:2px 0 0;max-width:420px}
+.subscribe .emailsub input{flex:1;font-family:var(--mono);font-size:.82rem;color:var(--hema);
+  background:#fff;border:1px solid var(--rule);border-radius:3px;padding:8px 10px;outline:none}
+.subscribe .emailsub input:focus{border-color:var(--nuclei)}
+.subscribe .emailsub button{font-family:var(--mono);font-size:.8rem;font-weight:600;color:#fff;
+  background:var(--nuclei);border:0;border-radius:3px;padding:8px 16px;cursor:pointer}
+.subscribe .emailsub button:hover{background:var(--hema)}
+.subscribe .powered{font-size:.7rem;color:var(--stroma);margin:6px 0 0}
+.subscribe .powered a{color:inherit}
 footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
   color:var(--stroma);border-top:1px solid var(--rule);margin-top:40px}
 
@@ -160,6 +170,12 @@ footer{padding:56px 0 40px;font-family:var(--mono);font-size:.72rem;
   <p>Get each week's new entries in your own Slack or Teams — no account, just one line:</p>
   <code>/feed subscribe https://jintong-shi.github.io/spatial_omics_radar/feed.xml</code>
   <p class="sub-note">In Slack, paste that into any channel (needs the RSS app). In Teams, add the RSS connector and use the <a href="feed.xml">feed URL</a>. Any RSS reader works too.</p>
+  <p class="email-intro">Or get them by email — one message a week, each new entry listed:</p>
+  <form class="emailsub" action="https://api.follow.it/subscription-form/RktpdmhwZ3RXK3d2OE9ncExVcGhBMFA0M3hGN1JlSmpxSVFFS3VLVmJOS0Yza3V0ZWI1by84T1oySG5BcXUrR2JxbUhLLzZQTjRNMTJUcTdCdGhzbXBTL1dnbGdGNWNZb0VUcTlFeWtydU9UK2oxWm0rN3JzZEkzMkN4NEJjL2t8QWhqY0NncHBqZFhGVCtVUlJZL2lwYnJWUEd3azZUVy9jRnBsRm82blZSST0=/8" method="post">
+    <input type="email" name="email" required placeholder="you@lab.edu" aria-label="Email address">
+    <button type="submit">Subscribe</button>
+  </form>
+  <p class="powered">Delivered by <a href="https://follow.it" rel="nofollow">follow.it</a>.</p>
 </section>
 
 <footer>
