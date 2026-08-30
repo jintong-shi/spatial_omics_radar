@@ -10,6 +10,7 @@ missed, or blacklist a false positive. Because entries are keyed by source_id,
 your fix survives every future crawl.
 """
 
+import collections
 import datetime
 import email.utils
 import json
@@ -101,8 +102,8 @@ def _write_feed(entries, meta):
     entries indexed in the last 7 days. Slack's RSS app posts one message per new
     <item> and de-dupes on <guid>, so a guid that is stable within an ISO week
     yields exactly one Slack message per week. The item links back to the site
-    filtered to that week (?since=<date>). `meta["weekly"]["highlight"]` is an
-    optional LLM-written blurb; without it the item lists the week's names."""
+    filtered to that week (?since=<date>). The item body is a plain factual line:
+    the entry count plus which omics fields the week touched (most-common first)."""
     site = meta.get("site", {})
     weekly = meta.get("weekly") or {}
     esc = xml.sax.saxutils.escape
@@ -126,13 +127,23 @@ def _write_feed(entries, meta):
         wid = f"weekly-{iso[0]}-W{iso[1]:02d}"
         base = (site.get("url") or "").rstrip("/")
         link = f"{base}/?since={since}" if base else ""
-        names = ", ".join(e.get("name") or e.get("title") or "untitled" for e in week[:8])
-        if len(week) > 8:
-            names += f", +{len(week) - 8} more"
-        # Fall back to a plain name list if the LLM highlight is missing/failed:
-        # real data, never fabricated.
-        blurb = (weekly.get("highlight") or "").strip() or f"New this week: {names}."
-        title = f"Weekly update · {len(week)} new " + ("entry" if len(week) == 1 else "entries")
+        n = len(week)
+        noun = "entry" if n == 1 else "entries"
+        title = f"Weekly update · {n} new {noun}"
+        # Body: count + the omics fields this week touched, most-common first.
+        # Real data only. If a week has >4 distinct fields, tail-collapse the rest.
+        counts = collections.Counter(m for e in week for m in (e.get("modality") or []))
+        fields = [m for m, _ in counts.most_common()]
+        if len(fields) > 4:
+            fields = fields[:4] + [f"{len(fields) - 4} more"]
+        if not fields:
+            blurb = f"{n} new {noun} this week."
+        elif len(fields) == 1:
+            blurb = f"{n} new {noun} this week, spanning {fields[0]}."
+        elif len(fields) == 2:
+            blurb = f"{n} new {noun} this week, spanning {fields[0]} and {fields[1]}."
+        else:
+            blurb = f"{n} new {noun} this week, spanning " + ", ".join(fields[:-1]) + f", and {fields[-1]}."
         parts += [
             '<item>',
             f'<title>{esc(title)}</title>',
