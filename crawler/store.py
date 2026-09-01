@@ -100,6 +100,26 @@ def publish(auto, meta):
     return len(rows)
 
 
+def _weekly_blurb(week):
+    """One factual line: this week's entry count plus the omics fields it touched,
+    most-common first, tail-collapsed past four. Shared by the Slack and email feeds
+    so both read identically."""
+    n = len(week)
+    noun = "entry" if n == 1 else "entries"
+    counts = collections.Counter(m for e in week for m in (e.get("modality") or []))
+    fields = [m for m, _ in counts.most_common()]
+    if len(fields) > 4:
+        fields = fields[:4] + [f"{len(fields) - 4} more"]
+    if not fields:
+        return f"{n} new {noun} this week."
+    if len(fields) == 1:
+        return f"{n} new {noun} this week, spanning {fields[0]}."
+    if len(fields) == 2:
+        return f"{n} new {noun} this week, spanning {fields[0]} and {fields[1]}."
+    return (f"{n} new {noun} this week, spanning "
+            + ", ".join(fields[:-1]) + f", and {fields[-1]}.")
+
+
 def _write_feed(entries, meta):
     """Write a static RSS 2.0 feed with a SINGLE item: a weekly digest of the
     entries indexed in the last 7 days. Slack's RSS app posts one message per new
@@ -133,20 +153,7 @@ def _write_feed(entries, meta):
         n = len(week)
         noun = "entry" if n == 1 else "entries"
         title = f"Weekly update · {n} new {noun}"
-        # Body: count + the omics fields this week touched, most-common first.
-        # Real data only. If a week has >4 distinct fields, tail-collapse the rest.
-        counts = collections.Counter(m for e in week for m in (e.get("modality") or []))
-        fields = [m for m, _ in counts.most_common()]
-        if len(fields) > 4:
-            fields = fields[:4] + [f"{len(fields) - 4} more"]
-        if not fields:
-            blurb = f"{n} new {noun} this week."
-        elif len(fields) == 1:
-            blurb = f"{n} new {noun} this week, spanning {fields[0]}."
-        elif len(fields) == 2:
-            blurb = f"{n} new {noun} this week, spanning {fields[0]} and {fields[1]}."
-        else:
-            blurb = f"{n} new {noun} this week, spanning " + ", ".join(fields[:-1]) + f", and {fields[-1]}."
+        blurb = _weekly_blurb(week)
         parts += [
             '<item>',
             f'<title>{esc(title)}</title>',
@@ -162,8 +169,9 @@ def _write_feed(entries, meta):
 
 def _write_email_feed(entries, meta):
     """Write a second static RSS 2.0 feed for the EMAIL channel: a single weekly
-    item whose body lists every entry indexed in the last 7 days (name, one-liner,
-    link), one block per entry. An RSS-to-email service (e.g. follow.it) turns that
+    item whose body opens with a one-line summary, then lists every entry indexed in
+    the last 7 days (name, one-liner, link), one block per entry. An RSS-to-email
+    service (e.g. Buttondown) turns that
     one item into one email per week that a reader scrolls entry by entry. This is
     deliberately separate from feed.xml, which stays a one-line digest for Slack;
     the two feeds share the same weekly window (meta['weekly']['since'])."""
@@ -197,7 +205,9 @@ def _write_email_feed(entries, meta):
         # it (links, line breaks) rather than showing raw tags. Every entry field is
         # html.escape'd, so a stray '<' or '>' in a title cannot break out -- which
         # also means the CDATA-closing sequence ']]>' can never appear in the body.
-        blocks = []
+        # Lead with the same one-line summary the Slack feed uses, then one block
+        # per entry.
+        blocks = [f"<p>{html.escape(_weekly_blurb(week))}</p>"]
         for e in week:
             name = html.escape(e.get("name") or e.get("title") or "Untitled")
             url = html.escape(e.get("url") or "", quote=True)
