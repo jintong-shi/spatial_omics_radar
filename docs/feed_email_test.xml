@@ -3,12 +3,12 @@
 <title>Spatial Omics Radar — email digest</title>
 <link>https://jintong-shi.github.io/spatial_omics_radar/</link>
 <description>New technologies, tools, AI models and benchmarks across spatial omics</description>
-<lastBuildDate>Tue, 01 Sep 2026 20:58:19 +0000</lastBuildDate>
+<lastBuildDate>Fri, 04 Sep 2026 09:43:55 +0000</lastBuildDate>
 <item>
-<title>[TEST] Weekly update · 53 new entries</title>
-<link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-08-24</link>
-<guid isPermaLink="false">weekly-email-test-1788296299</guid>
-<pubDate>Tue, 01 Sep 2026 20:58:19 +0000</pubDate>
+<title>[TEST 09:43 UTC] Weekly update · 53 new entries</title>
+<link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-08-24&amp;_t=1788515035</link>
+<guid isPermaLink="false">weekly-email-test-1788515035</guid>
+<pubDate>Fri, 04 Sep 2026 09:43:55 +0000</pubDate>
 <description><![CDATA[<p>53 new entries this week, spanning transcriptomics, histology / imaging-only, proteomics, metabolomics, and 3 more.</p>
 <p><strong><a href="https://doi.org/10.64898/2026.08.25.747147">nf_xpatial</a></strong><br>Nextflow pipeline for standardized QC, normalization, integration and clustering of 10x Xenium spatial transcriptomics data.</p>
 <p><strong><a href="https://doi.org/10.64898/2026.08.25.747158">L-STAR</a></strong><br>Uses a visual LLM to rank and combine existing spatial domain detection methods into a consensus result.</p>
