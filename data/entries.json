@@ -8799,6 +8799,35 @@
     "url": "https://doi.org/10.1016/j.xpro.2026.104557",
     "venue": "STAR protocols"
   },
+  "10.1016/j.xpro.2026.104825": {
+    "added": "2026-09-21",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.55,
+    "curated": false,
+    "date": "2026-09-18",
+    "id": "10.1016/j.xpro.2026.104825",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "proteomics"
+    ],
+    "name": "Protocol for identifying cellular and molecular signatures from spatial profiling data using micro-tissue analysis",
+    "needs_review": true,
+    "one_liner": "Protocol using partial least-squares modeling to find multivariate feature signatures in spatial profiling microenvironments.",
+    "platforms": [
+      "GeoMx"
+    ],
+    "stars": null,
+    "title": "Protocol for identifying cellular and molecular signatures from spatial profiling data using micro-tissue analysis",
+    "url": "https://doi.org/10.1016/j.xpro.2026.104825",
+    "venue": "STAR protocols"
+  },
   "10.1016/j.ygeno.2026.111242": {
     "added": "2026-08-03",
     "approach": [
@@ -30293,6 +30322,35 @@
     "url": "https://doi.org/10.1093/bib/bbag480",
     "venue": "Briefings in bioinformatics"
   },
+  "10.1093/bib/bbag515": {
+    "added": "2026-09-21",
+    "approach": [
+      "foundation model"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-09-01",
+    "id": "10.1093/bib/bbag515",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "histology / imaging-only"
+    ],
+    "name": "Halo",
+    "needs_review": false,
+    "one_liner": "Pretrained model reconstructing whole-cell boundaries from nuclei images and transcript density in spatial transcriptomics.",
+    "platforms": [
+      "Xenium"
+    ],
+    "stars": null,
+    "title": "Halo: a pretrained model for whole-cell segmentation from nuclei images in spatial transcriptomics",
+    "url": "https://doi.org/10.1093/bib/bbag515",
+    "venue": "Briefings in bioinformatics"
+  },
   "10.1093/bioadv/vbac048": {
     "added": "2026-08-04",
     "approach": [
@@ -30838,6 +30896,32 @@
     "stars": null,
     "title": "jsPCA: fast, scalable, and interpretable identification of spatial domains and variable genes across multi-slice and multi-sample spatial transcriptomics data",
     "url": "https://doi.org/10.1093/bioadv/vbag206",
+    "venue": "Bioinformatics advances"
+  },
+  "10.1093/bioadv/vbag241": {
+    "added": "2026-09-21",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-08-19",
+    "id": "10.1093/bioadv/vbag241",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "AINR",
+    "needs_review": false,
+    "one_liner": "Implicit neural representation with attention maps spatial coordinates to gene expression for domain identification.",
+    "platforms": [],
+    "stars": null,
+    "title": "AINR: attention-guided implicit neural representations for spatial domain identification in spatial transcriptomics",
+    "url": "https://doi.org/10.1093/bioadv/vbag241",
     "venue": "Bioinformatics advances"
   },
   "10.1093/bioinformatics/btaa1061": {
@@ -35681,6 +35765,32 @@
     "stars": null,
     "title": "SPCC: Inferring Spatial Cell-Cell Interaction by Integrating Single-cell and Spatial Transcriptomics",
     "url": "https://doi.org/10.1093/gpbjnl/qzag083",
+    "venue": "Genomics, proteomics & bioinformatics"
+  },
+  "10.1093/gpbjnl/qzag098": {
+    "added": "2026-09-21",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.9,
+    "curated": false,
+    "date": "2026-09-17",
+    "id": "10.1093/gpbjnl/qzag098",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "STCGCar",
+    "needs_review": false,
+    "one_liner": "Graph contrastive learning framework with reliable augmentation for spatial domain clustering in spatial transcriptomics.",
+    "platforms": [],
+    "stars": null,
+    "title": "STCGCar: Graph Contrastive Learning with Reliable Augmentation for Spatial Transcriptomics Clustering",
+    "url": "https://doi.org/10.1093/gpbjnl/qzag098",
     "venue": "Genomics, proteomics & bioinformatics"
   },
   "10.1093/molbev/msad267": {
@@ -62751,6 +62861,32 @@
     "url": "https://doi.org/10.1101/gr.281829.125",
     "venue": "Genome research"
   },
+  "10.1101/gr.281999.126": {
+    "added": "2026-09-21",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-09-16",
+    "id": "10.1101/gr.281999.126",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "STAMGC",
+    "needs_review": false,
+    "one_liner": "Dual-contrastive graph convolutional network that identifies spatial domains in spatial transcriptomics data.",
+    "platforms": [],
+    "stars": null,
+    "title": "Dual-contrastive learning for spatial domain identification in spatial transcriptomics with STAMGC",
+    "url": "https://doi.org/10.1101/gr.281999.126",
+    "venue": "Genome research"
+  },
   "10.1101/gr.282244.126": {
     "added": "2026-08-31",
     "approach": [
@@ -63544,6 +63680,32 @@
     "url": "https://doi.org/10.1109/tcbbio.2026.3697726",
     "venue": "IEEE transactions on computational biology and bioinformatics"
   },
+  "10.1109/tcbbio.2026.3733661": {
+    "added": "2026-09-21",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.9,
+    "curated": false,
+    "date": "2026-09-15",
+    "id": "10.1109/tcbbio.2026.3733661",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "SSMGCN",
+    "needs_review": false,
+    "one_liner": "Multi-view graph convolutional network decoupling shared/specific spatial and expression information for spatial domain clustering.",
+    "platforms": [],
+    "stars": null,
+    "title": "SSMGCN: Multi-View Graph Clustering with Shared-Specific Information Modelling for Spatially Resolved Transcriptomics",
+    "url": "https://doi.org/10.1109/tcbbio.2026.3733661",
+    "venue": "IEEE transactions on computational biology and bioinformatics"
+  },
   "10.1109/tip.2026.3700912": {
     "added": "2026-08-03",
     "approach": [
@@ -63680,6 +63842,35 @@
     "stars": null,
     "title": "Balanced Multi-view Clustering",
     "url": "https://doi.org/10.1109/tpami.2026.3688728",
+    "venue": "IEEE transactions on pattern analysis and machine intelligence"
+  },
+  "10.1109/tpami.2026.3733393": {
+    "added": "2026-09-21",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-09-15",
+    "id": "10.1109/tpami.2026.3733393",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "Domain Elastic Transform",
+    "needs_review": false,
+    "one_liner": "Grid-free Bayesian framework registering high-dimensional spatial transcriptomics functions without voxelization.",
+    "platforms": [
+      "MERFISH",
+      "Stereo-seq"
+    ],
+    "stars": null,
+    "title": "Domain Elastic Transform: Bayesian Function Registration for High-Dimensional Scientific Data",
+    "url": "https://doi.org/10.1109/tpami.2026.3733393",
     "venue": "IEEE transactions on pattern analysis and machine intelligence"
   },
   "10.1109/tvcg.2017.2744479": {
@@ -70528,6 +70719,34 @@
     "url": "https://doi.org/10.21203/rs.3.rs-10451569/v1",
     "venue": "PPR"
   },
+  "10.21203/rs.3.rs-10505162/v1": {
+    "added": "2026-09-21",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.8,
+    "curated": false,
+    "date": "2026-09-18",
+    "id": "10.21203/rs.3.rs-10505162/v1",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "multi-omics"
+    ],
+    "name": "SpaOT",
+    "needs_review": false,
+    "one_liner": "Semi-metric unbalanced optimal transport framework for integrating and aligning spatial multi-omics tissue data.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "Semi-metric optimal transport enables robust spatial multi-omics integration",
+    "url": "https://doi.org/10.21203/rs.3.rs-10505162/v1",
+    "venue": "PPR"
+  },
   "10.21203/rs.3.rs-10544415/v1": {
     "added": "2026-08-04",
     "approach": [],
@@ -70823,6 +71042,34 @@
     "stars": null,
     "title": "Identification of spatially variable genes with graph cuts",
     "url": "https://doi.org/10.21203/rs.3.rs-108841/v1",
+    "venue": "PPR"
+  },
+  "10.21203/rs.3.rs-11012643/v1": {
+    "added": "2026-09-21",
+    "approach": [
+      "foundation model"
+    ],
+    "code_url": null,
+    "confidence": 0.95,
+    "curated": false,
+    "date": "2026-09-18",
+    "id": "10.21203/rs.3.rs-11012643/v1",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "spaGFM",
+    "needs_review": false,
+    "one_liner": "Graph foundation model pretrained on 43.9M cells to represent cellular neighborhoods across spatial technologies.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "spaGFM is a scalable graph foundation model for spatial transcriptomics analyses",
+    "url": "https://doi.org/10.21203/rs.3.rs-11012643/v1",
     "venue": "PPR"
   },
   "10.21203/rs.3.rs-119776/v1": {
@@ -85617,6 +85864,33 @@
     "url": "https://doi.org/10.64898/2026.09.07.749926",
     "venue": "PPR"
   },
+  "10.64898/2026.09.07.749981": {
+    "added": "2026-09-21",
+    "approach": [],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-09-14",
+    "id": "10.64898/2026.09.07.749981",
+    "is_preprint": true,
+    "kind": [
+      "assay"
+    ],
+    "modality": [
+      "metabolomics",
+      "proteomics"
+    ],
+    "name": "ITO-PET slide",
+    "needs_review": false,
+    "one_liner": "Conductive ITO-PET slide enabling sequential MALDI-MSI and LCM-proteomics on the same tissue section.",
+    "platforms": [
+      "MALDI-MSI"
+    ],
+    "stars": null,
+    "title": "Integrated Spatial Metabolomics and Proteomics from the Same Tissue Section Using a Conductive ITO-PET Slide",
+    "url": "https://doi.org/10.64898/2026.09.07.749981",
+    "venue": "PPR"
+  },
   "10.64898/2026.09.08.749933": {
     "added": "2026-09-14",
     "approach": [
@@ -85643,6 +85917,91 @@
     "stars": null,
     "title": "PhenoMapR: scalable mapping of sample phenotypes to single-cell, spatial, and bulk transcriptomics data",
     "url": "https://doi.org/10.64898/2026.09.08.749933",
+    "venue": "PPR"
+  },
+  "10.64898/2026.09.09.750350": {
+    "added": "2026-09-21",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.9,
+    "curated": false,
+    "date": "2026-09-15",
+    "id": "10.64898/2026.09.09.750350",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "CellDot",
+    "needs_review": false,
+    "one_liner": "Optimal-transport framework reassigning or removing misassigned transcripts to decontaminate imaging-based spatial transcriptomics.",
+    "platforms": [],
+    "stars": null,
+    "title": "Accurate and scalable decontamination of imaging-based spatial transcriptomics via optimal transport",
+    "url": "https://doi.org/10.64898/2026.09.09.750350",
+    "venue": "PPR"
+  },
+  "10.64898/2026.09.10.750095": {
+    "added": "2026-09-21",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.9,
+    "curated": false,
+    "date": "2026-09-15",
+    "id": "10.64898/2026.09.10.750095",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "DiffGSP",
+    "needs_review": false,
+    "one_liner": "Uses Fick's law and graph signal processing to reverse mRNA diffusion and recover true spatial expression.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "DiffGSP: reversing mRNA diffusion to unlock high-fidelity spatial transcriptomics",
+    "url": "https://doi.org/10.64898/2026.09.10.750095",
+    "venue": "PPR"
+  },
+  "10.64898/2026.09.12.751186": {
+    "added": "2026-09-21",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.6,
+    "curated": false,
+    "date": "2026-09-18",
+    "id": "10.64898/2026.09.12.751186",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "proteomics",
+      "histology / imaging-only"
+    ],
+    "name": "SCIRA, GCSCAN, PathNet-TLS",
+    "needs_review": true,
+    "one_liner": "Purpose-built tools for receptor-ligand quantification, TLS/germinal center delineation, and TLS detection on H&E.",
+    "platforms": [
+      "MERFISH",
+      "H&E / histology"
+    ],
+    "stars": null,
+    "title": "Spatially resolved multimodal hallmarks of response to neoadjuvant immunotherapies in the melanoma ecosystem in 2D and 3D",
+    "url": "https://doi.org/10.64898/2026.09.12.751186",
     "venue": "PPR"
   },
   "10.7150/thno.134316": {
@@ -86462,6 +86821,30 @@
     "title": "BEASTsim—a benchmarking and analysis platform for spatial transcriptomics simulations",
     "url": "https://europepmc.org/article/PMC/PMC13056711",
     "venue": "Briefings in bioinformatics"
+  },
+  "PMC:PMC13586480": {
+    "added": "2026-09-21",
+    "approach": [],
+    "code_url": null,
+    "confidence": 0.55,
+    "curated": false,
+    "date": "2026-09-17",
+    "id": "PMC:PMC13586480",
+    "is_preprint": false,
+    "kind": [
+      "benchmark"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "A Real‐Data‐Driven Framework for Evaluating Differential Transcript Usage Methods Across Long‐Read Bulk, Single‐Cell, and Spatial Transcriptomics",
+    "needs_review": true,
+    "one_liner": "Evaluates differential transcript usage methods using real data across bulk, single-cell and spatial long-read transcriptomics.",
+    "platforms": [],
+    "stars": null,
+    "title": "A Real‐Data‐Driven Framework for Evaluating Differential Transcript Usage Methods Across Long‐Read Bulk, Single‐Cell, and Spatial Transcriptomics",
+    "url": "https://europepmc.org/article/PMC/PMC13586480",
+    "venue": "Advanced Science"
   },
   "PMC:PMC7424624": {
     "added": "2026-08-04",
