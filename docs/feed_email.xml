@@ -3,47 +3,58 @@
 <title>Spatial Omics Radar — email digest</title>
 <link>https://jintong-shi.github.io/spatial_omics_radar/</link>
 <description>New technologies, tools, AI models and benchmarks across spatial omics</description>
-<lastBuildDate>Mon, 19 Oct 2026 11:45:52 +0000</lastBuildDate>
+<lastBuildDate>Mon, 26 Oct 2026 12:04:15 +0000</lastBuildDate>
 <item>
-<title>Weekly update · 35 new entries</title>
-<link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-10-12</link>
-<guid isPermaLink="false">weekly-email-2026-W43</guid>
-<pubDate>Mon, 19 Oct 2026 11:45:52 +0000</pubDate>
-<description><![CDATA[<p>35 new entries this week, spanning transcriptomics, proteomics, histology / imaging-only, multi-omics, and 2 more.</p>
-<p><strong><a href="https://doi.org/10.1371/journal.pcbi.1014845">STARIT</a></strong><br>Converts imaging-based spatial transcriptomics data into image tensors for deep learning-based cell state analysis.</p>
-<p><strong><a href="https://doi.org/10.1093/bioinformatics/btag707">Serval</a></strong><br>Modular framework for developing and benchmarking barcode decoding methods, including new CoSiD algorithm.</p>
-<p><strong><a href="https://doi.org/10.1038/s43588-026-01054-1">CellART</a></strong><br>Combines deep learning and probabilistic modeling for cell segmentation and annotation across high-resolution ST platforms.</p>
-<p><strong><a href="https://doi.org/10.1038/s41467-026-77500-5">Benchmarking copy number alteration inference methods for spatial transcriptomics</a></strong><br>Benchmarks nine copy-number-alteration inference methods across spatial transcriptomics datasets and cancer types.</p>
-<p><strong><a href="https://doi.org/10.1093/bioinformatics/btag572">STiLE</a></strong><br>Automates tissue microarray core assignment from spatial transcriptomics cell centroid coordinates using clustering algorithms.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.09.757915">SCOTE</a></strong><br>Computes scale-resolved spatial covariance tensors to unify comparison across spatial omics platforms and resolutions.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.15.759112">Navigating the rapidly evolving landscape of sequencing-based spatial transcriptomics technologies: a comprehensive multi-platform benchmark</a></strong><br>Systematically benchmarks multiple sequencing-based spatial transcriptomics platforms for capture efficiency and spatial accuracy.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.06.757026">ALBIS</a></strong><br>Statistical framework simulating 3D tissue to generate synthetic spatial transcriptomics data at multiple resolutions.</p>
-<p><strong><a href="https://doi.org/10.1109/jbhi.2026.3740681">ST-DAI</a></strong><br>Domain-adaptive neural network imputes sparse spatial sections for cost-efficient 3D transcriptomics reconstruction.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.07.757371">SVC</a></strong><br>Vision Transformer model learns subcellular transcript localization, transferring to imputation, clustering and perturbation tasks.</p>
-<p><strong><a href="https://doi.org/10.3389/fcell.2026.1943696">CauSTI</a></strong><br>Infers direction-specific cell-cell communication from spatial transcriptomics using a causal-prior-guided variational graph autoencoder.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.06.757143">EcoNet</a></strong><br>Graph attention network modeling TME signaling ecosystems to predict immunotherapy response.</p>
-<p><strong><a href="https://doi.org/10.1109/tcbbio.2026.3741541">CellCom2</a></strong><br>Web platform combining multiple algorithms and resources to predict and visualize ligand-receptor cell communication.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.09.757940">SMODER</a></strong><br>RNA-anchored framework deconvolving cell types from spatial multi-omics co-profiling RNA with other modalities.</p>
+<title>Weekly update · 46 new entries</title>
+<link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-10-19</link>
+<guid isPermaLink="false">weekly-email-2026-W44</guid>
+<pubDate>Mon, 26 Oct 2026 12:04:15 +0000</pubDate>
+<description><![CDATA[<p>46 new entries this week, spanning transcriptomics, metabolomics, histology / imaging-only, proteomics, and 3 more.</p>
+<p><strong><a href="https://doi.org/10.1038/s41592-026-03272-x">Benchmarking segmentation methods for spatial transcriptomics</a></strong><br>Benchmarks 11 segmentation methods across 15 datasets and 5 platforms with new biologically informed evaluation metrics.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.23.760875">Probabilistic uncertainty in virtual spatial transcriptomics from histology is largely redundant with the predicted mean</a></strong><br>Benchmarks uncertainty-estimation methods for histology-based virtual spatial transcriptomics, finding uncertainty largely redundant with predicted mean.</p>
+<p><strong><a href="https://doi.org/10.1038/s41551-026-01800-w">SpatialZoomer</a></strong><br>Spectral graph method extracting multi-scale spatial transcriptomic features at single-cell, niche and domain scales via low-pass filtering.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.13.756865">X-SPEAR</a></strong><br>Framework for designing and auditing Xenium gene panels using a Boolean rule-based marker-selection method and off-target checks.</p>
+<p><strong><a href="https://doi.org/10.1016/j.isci.2026.117765">REBOSEP</a></strong><br>Workflow detecting tissue boundaries in spatial transcriptomics and quantifying gene expression changes relative to boundary distance.</p>
+<p><strong><a href="https://doi.org/10.1109/tpami.2026.3745900">DIaS</a></strong><br>Disentangles spatial, intrinsic and harmonized signals in spatial transcriptomics and hyperspectral imaging using Gaussian-process-based embeddings.</p>
+<p><strong><a href="https://doi.org/10.1016/j.crmeth.2026.101642">STID</a></strong><br>Seurat/Python-based standardized framework for infection-associated niche identification and host-pathogen spatial analysis.</p>
+<p><strong><a href="https://doi.org/10.1109/tcbbio.2026.3745540">HetAnn</a></strong><br>Graph attention network jointly embeds spatial transcriptomics and scRNA-seq data for cell type annotation.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.22.761199">SPInfer</a></strong><br>Workflow fine-tuning Cellpose-SAM foundation model for accurate brain tissue cell segmentation in spatial proteomics.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.16.759405">StarTrak</a></strong><br>Neural network framework reconstructing cell lineage and tumor migration from somatic mutations in spatial omics data.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.15.759369">BiNVaST</a></strong><br>Dual-branch VAE using synthetic data and reference integration for cell typing across high-resolution spatial platforms.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.20.760347">CellBridge</a></strong><br>Contrastive model pretrained on paired H&amp;E and spatial profiles predicts cell types from pathology images.</p>
+<p><strong><a href="https://doi.org/10.21203/rs.3.rs-11193156/v1">SDESE</a></strong><br>Joint spatial and genetic fine-mapping method linking GWAS risk loci to spatial transcriptomic neuroanatomical niches.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.16.759546">SpacePath</a></strong><br>Scores pathways across tissue and groups unannotated ions into de novo molecular families in spatial MSI data.</p>
+<p><strong><a href="https://doi.org/10.1002/advs.78141">AgaeSMO</a></strong><br>Graph attention autoencoder integrates paired and unpaired spatial multi-omics including H&amp;E images for domain delineation.</p>
+<p><strong><a href="https://doi.org/10.1021/acsami.6c12158">Quadruple Boronic Acid-Functionalized Lanthanide MOFs Enable Deep and Unbiased Spatial Proteomics from Ultra-Trace Laser-Captured Microtissues</a></strong><br>Boronic-acid MOF-based sample prep workflow boosts protein capture and depth from laser-captured microtissue sections.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.15.758756">CPMsi</a></strong><br>Pipeline that aligns, reduces and integrates large multi-omics MSI datasets into consensus spectra across tissue sections.</p>
+<p><strong><a href="https://doi.org/10.1016/j.mcpro.2026.101599">Evaluation of the nano Liquid Chromatography coupled with Zeno TOF 7600 Mass Spectrometer for Cell Type-Resolved Spatial Proteomics</a></strong><br>Combines image-guided laser capture microdissection with nanoLC-Zeno TOF DIA-MS for cell type-resolved spatial proteomics.</p>
+<p><strong><a href="https://doi.org/10.1021/acs.analchem.6c03106">Enabling High-Throughput Tissue Sectioning for Robust Lipid Mass Spectrometry Imaging</a></strong><br>Automated tissue processing integrated with MALDI-MSI and serial two-photon tomography for reproducible lipid imaging.</p>
+<p><strong><a href="https://doi.org/10.1021/jasms.6c00169">Thyra</a></strong><br>Memory-bounded Python library streaming MSI data directly into SpatialData/Zarr for scverse-compatible analysis.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.21.760612">SPATNIC</a></strong><br>VAE trained on H&amp;E-matched Xenium labels to classify cancer vs normal cells across spatial and single-cell platforms.</p>
+<p><strong><a href="https://doi.org/10.1021/acs.analchem.6c03262">Michler&#x27;s Ketone matrix</a></strong><br>Novel negative-ion MALDI matrix improving amino acid detection and spatial imaging in tissue.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.20.760373">CoSMIM</a></strong><br>Represents cell niches via multi-scale gene covariance fusion to identify spatial domains without training.</p>
+<p><strong><a href="https://doi.org/10.1021/jasms.6c00219">Ionic Solid Matrix (ISM) + LTE</a></strong><br>Ionic solid matrices with low-temperature evaporation improve MALDI-MSI sensitivity for small metabolites.</p>
 <p><strong><a href="https://doi.org/10.1038/s41467-026-77127-6">Correlating metabolites, lipids, and N-glycans in murine kidney microstructures via integrative mass spectrometry imaging</a></strong><br>Multi-omic mass spectrometry imaging protocol co-registering metabolites, lipids and N-glycans in one tissue section.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.09.757882">STARgrid</a></strong><br>Open-source pipeline converting Visium HD sequencing reads into spatial count matrices, replacing Space Ranger.</p>
+<p><strong><a href="https://doi.org/10.1038/s41467-026-77500-5">Benchmarking copy number alteration inference methods for spatial transcriptomics</a></strong><br>Benchmarks nine copy-number-alteration inference methods across spatial transcriptomics datasets and cancer types.</p>
+<p><strong><a href="https://doi.org/10.1038/s43588-026-01054-1">CellART</a></strong><br>Combines deep learning and probabilistic modeling for cell segmentation and annotation across high-resolution ST platforms.</p>
+<p><strong><a href="https://doi.org/10.1093/bioinformatics/btag572">STiLE</a></strong><br>Automates tissue microarray core assignment from spatial transcriptomics cell centroid coordinates using clustering algorithms.</p>
+<p><strong><a href="https://doi.org/10.1093/bioinformatics/btag707">Serval</a></strong><br>Modular framework for developing and benchmarking barcode decoding methods, including new CoSiD algorithm.</p>
+<p><strong><a href="https://doi.org/10.1109/jbhi.2026.3740681">ST-DAI</a></strong><br>Domain-adaptive neural network imputes sparse spatial sections for cost-efficient 3D transcriptomics reconstruction.</p>
+<p><strong><a href="https://doi.org/10.1109/tcbbio.2026.3741541">CellCom2</a></strong><br>Web platform combining multiple algorithms and resources to predict and visualize ligand-receptor cell communication.</p>
+<p><strong><a href="https://doi.org/10.1371/journal.pcbi.1014845">STARIT</a></strong><br>Converts imaging-based spatial transcriptomics data into image tensors for deep learning-based cell state analysis.</p>
+<p><strong><a href="https://doi.org/10.3389/fcell.2026.1943696">CauSTI</a></strong><br>Infers direction-specific cell-cell communication from spatial transcriptomics using a causal-prior-guided variational graph autoencoder.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.06.757026">ALBIS</a></strong><br>Statistical framework simulating 3D tissue to generate synthetic spatial transcriptomics data at multiple resolutions.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.06.757143">EcoNet</a></strong><br>Graph attention network modeling TME signaling ecosystems to predict immunotherapy response.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.07.757371">SVC</a></strong><br>Vision Transformer model learns subcellular transcript localization, transferring to imputation, clustering and perturbation tasks.</p>
 <p><strong><a href="https://doi.org/10.64898/2026.10.08.757632">spatialMIFtools</a></strong><br>R package separating proximity, neighborhood composition, and conditional coordination statistics in multiplexed tissue images.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.09.757882">STARgrid</a></strong><br>Open-source pipeline converting Visium HD sequencing reads into spatial count matrices, replacing Space Ranger.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.09.757915">SCOTE</a></strong><br>Computes scale-resolved spatial covariance tensors to unify comparison across spatial omics platforms and resolutions.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.09.757940">SMODER</a></strong><br>RNA-anchored framework deconvolving cell types from spatial multi-omics co-profiling RNA with other modalities.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.15.759112">Navigating the rapidly evolving landscape of sequencing-based spatial transcriptomics technologies: a comprehensive multi-platform benchmark</a></strong><br>Systematically benchmarks multiple sequencing-based spatial transcriptomics platforms for capture efficiency and spatial accuracy.</p>
 <p><strong><a href="https://github.com/BhuvaLab/SpaNorm">SpaNorm</a></strong><br>R package performing normalisation of spatial transcriptomics expression data.</p>
-<p><strong><a href="https://github.com/mims-harvard/CONCERT">CONCERT</a></strong><br>Generative model predicting spatially resolved transcriptomic responses to perturbations.</p>
 <p><strong><a href="https://github.com/JEFworks-Lab/STalign">STalign</a></strong><br>Python tool aligning spatial transcriptomics datasets via diffeomorphic metric mapping (LDDMM).</p>
-<p><strong><a href="https://github.com/bunnelab/virtues">virtues</a></strong><br>Foundation model analyzing multiplexed tissue imaging across molecular, cellular and tissue scales for clinical tasks.</p>
 <p><strong><a href="https://github.com/bunnelab/spora-io">spora-io</a></strong><br>Unified data loading and processing framework harmonizing spatial proteomics and histopathology imaging datasets.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.09.29.26363734">AlphaFISH</a></strong><br>Sequencing-free subcellular spatial profiling platform with transformer model linking host transcriptome and microbiome.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.09.30.755663">ASTRA</a></strong><br>Pretrained model performs zero-shot super-resolution reconstruction of spatial transcriptomics across capture geometries.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.01.752251">VINTER</a></strong><br>Vision-language model jointly reading histology, expression and neighborhood to annotate and interrogate tissue regions.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.01.756049">SpatialOmicsLab</a></strong><br>Integrated environment and LLM-based AI co-scientist that assembles and runs spatial transcriptomics analysis workflows.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.02.756019">Point-Process Modelling of Cell-Type Interaction Structure in CosMx Glioma Data for Hypothesis-Driven Tumor Inference from scRNA-seq</a></strong><br>Log-Gaussian Cox Process framework modeling cell-type spatial interactions to predict tumor-proximity phenotypes.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.02.756144">mzQC</a></strong><br>JSON-based standard and toolset for reporting quality-control metrics across mass spectrometry workflows, including imaging.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.02.756177">STAVelo</a></strong><br>Graph attention encoder-decoder infers spatially-aware RNA velocity from spatial transcriptomics data.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.08.738042">InSTability</a></strong><br>Computes per-spot clustering instability scores across repeated spatial transcriptomics clustering runs.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.08.757722">GRASS-MIL</a></strong><br>Graph multiple-instance learning framework that predicts phenotypes and decomposes predictions into signed neighborhood contributions.</p>
-<p><strong><a href="https://github.com/BiomedicalMachineLearning/stLearn">stLearn</a></strong><br>Machine learning pipeline combining morphology, expression and spatial location to analyse spatial transcriptomics data.</p>
-<p><strong><a href="https://github.com/LiuLab-Bioelectronics-Harvard/STAgent">STAgent</a></strong><br>Multimodal LLM agent enabling conversational deep research over spatial transcriptomics datasets.</p>
-<p><strong><a href="https://github.com/OpenBMB/Scicore-Omics">Scicore-Omics</a></strong><br>Tri-modal foundation model jointly embedding histology images, spatial transcriptomics and biological language.</p>
-<p><strong><a href="https://europepmc.org/article/PMC/PMC13648210">Serval</a></strong><br>Modular computational framework for decoding imaging-based spatial transcriptomics data.</p>]]></description>
+<p><strong><a href="https://github.com/bunnelab/virtues">virtues</a></strong><br>Foundation model analyzing multiplexed tissue imaging across molecular, cellular and tissue scales for clinical tasks.</p>
+<p><strong><a href="https://github.com/mims-harvard/CONCERT">CONCERT</a></strong><br>Generative model predicting spatially resolved transcriptomic responses to perturbations.</p>]]></description>
 </item>
 </channel></rss>
