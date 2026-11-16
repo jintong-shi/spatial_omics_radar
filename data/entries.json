@@ -6640,6 +6640,62 @@
     "url": "https://doi.org/10.1016/j.crmeth.2026.101646",
     "venue": "Cell reports methods"
   },
+  "10.1016/j.crmeth.2026.101661": {
+    "added": "2026-11-16",
+    "approach": [
+      "generative"
+    ],
+    "code_url": null,
+    "confidence": 0.75,
+    "curated": false,
+    "date": "2026-11-12",
+    "id": "10.1016/j.crmeth.2026.101661",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "PIANO",
+    "needs_review": false,
+    "one_liner": "Generative autoencoder framework integrating single-cell and spatial transcriptomics across species and scales to 100M cells.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "PIANO enables generative modeling of gene expression and scales multi-omics integration to 100 million cells",
+    "url": "https://doi.org/10.1016/j.crmeth.2026.101661",
+    "venue": "Cell reports methods"
+  },
+  "10.1016/j.crmeth.2026.101663": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.8,
+    "curated": false,
+    "date": "2026-11-12",
+    "id": "10.1016/j.crmeth.2026.101663",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "proteomics"
+    ],
+    "name": "CONCLAVE",
+    "needs_review": false,
+    "one_liner": "Consensus-clustering workflow combining multiple algorithms to produce robust cell annotations from cyclic multiplexed immunofluorescence data.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "CONCLAVE: A consensus clustering with annotation-validation extrapolation for cyclic multiplexed immunofluorescence data",
+    "url": "https://doi.org/10.1016/j.crmeth.2026.101663",
+    "venue": "Cell reports methods"
+  },
   "10.1016/j.cryobiol.2023.104843": {
     "added": "2026-08-04",
     "approach": [],
@@ -8883,6 +8939,33 @@
     "url": "https://doi.org/10.1016/j.xgen.2026.101141",
     "venue": "Cell genomics"
   },
+  "10.1016/j.xgen.2026.101420": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.75,
+    "curated": false,
+    "date": "2026-11-12",
+    "id": "10.1016/j.xgen.2026.101420",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "proteomics"
+    ],
+    "name": "SPIN",
+    "needs_review": false,
+    "one_liner": "Integrates subject-specific spatial co-expression networks with Bayesian scalar-on-network regression for clinical prediction.",
+    "platforms": [],
+    "stars": null,
+    "title": "Population-scale integration of spatial omics networks for clinical prediction and biological discovery by SPIN",
+    "url": "https://doi.org/10.1016/j.xgen.2026.101420",
+    "venue": "Cell genomics"
+  },
   "10.1016/j.xinn.2025.101220": {
     "added": "2026-08-03",
     "approach": [
@@ -9160,6 +9243,36 @@
     "stars": null,
     "title": "Protocol for identifying cellular and molecular signatures from spatial profiling data using micro-tissue analysis",
     "url": "https://doi.org/10.1016/j.xpro.2026.104825",
+    "venue": "STAR protocols"
+  },
+  "10.1016/j.xpro.2026.104946": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.55,
+    "curated": false,
+    "date": "2026-11-10",
+    "id": "10.1016/j.xpro.2026.104946",
+    "is_preprint": false,
+    "kind": [
+      "assay",
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "proteomics"
+    ],
+    "name": "Protocol for integrated multimodal spatial RNA and protein profiling using Xenium and MACSima",
+    "needs_review": true,
+    "one_liner": "Protocol and scripts for combined spatial RNA (Xenium) and cyclic protein (MACSima) imaging on same section.",
+    "platforms": [
+      "Xenium"
+    ],
+    "stars": null,
+    "title": "Protocol for integrated multimodal spatial RNA and protein profiling using Xenium and MACSima",
+    "url": "https://doi.org/10.1016/j.xpro.2026.104946",
     "venue": "STAR protocols"
   },
   "10.1016/j.ygeno.2026.111242": {
@@ -19840,6 +19953,60 @@
     "url": "https://doi.org/10.1038/s41467-026-77924-z",
     "venue": "Nature communications"
   },
+  "10.1038/s41467-026-78316-z": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-10-14",
+    "id": "10.1038/s41467-026-78316-z",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "GESSO",
+    "needs_review": false,
+    "one_liner": "Estimates spatial gene set activity scores with gene-level contributions and location-specific statistical tests.",
+    "platforms": [],
+    "stars": null,
+    "title": "Interpretable and scalable spatial gene set activity analysis with GESSO uncovers functional tissue architecture",
+    "url": "https://doi.org/10.1038/s41467-026-78316-z",
+    "venue": "Nature communications"
+  },
+  "10.1038/s41467-026-78447-3": {
+    "added": "2026-11-16",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.75,
+    "curated": false,
+    "date": "2026-10-14",
+    "id": "10.1038/s41467-026-78447-3",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "MacSGP",
+    "needs_review": false,
+    "one_liner": "Graph neural network and probabilistic framework identifies cell-type-specific spatial gene expression programs defining tissue niches.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "Mapping cell-type-specific spatial gene programs uncovers tissue architecture and microenvironment organization",
+    "url": "https://doi.org/10.1038/s41467-026-78447-3",
+    "venue": "Nature communications"
+  },
   "10.1038/s41540-024-00385-x": {
     "added": "2026-08-04",
     "approach": [
@@ -23953,6 +24120,59 @@
     "url": "https://doi.org/10.1038/s41592-026-03289-2",
     "venue": "Nature methods"
   },
+  "10.1038/s41592-026-03296-3": {
+    "added": "2026-11-16",
+    "approach": [],
+    "code_url": null,
+    "confidence": 0.88,
+    "curated": false,
+    "date": "2026-11-10",
+    "id": "10.1038/s41592-026-03296-3",
+    "is_preprint": false,
+    "kind": [
+      "assay"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "BCR-MERFISH",
+    "needs_review": false,
+    "one_liner": "Measures plasma cell clonality and V gene usage alongside transcriptome profiling in situ.",
+    "platforms": [
+      "MERFISH"
+    ],
+    "stars": null,
+    "title": "In situ profiling of plasma cell clonality with image-based single-cell transcriptomics",
+    "url": "https://doi.org/10.1038/s41592-026-03296-3",
+    "venue": "Nature methods"
+  },
+  "10.1038/s41592-026-03308-2": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.75,
+    "curated": false,
+    "date": "2026-11-09",
+    "id": "10.1038/s41592-026-03308-2",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "multi-omics"
+    ],
+    "name": "GeneSPOT",
+    "needs_review": false,
+    "one_liner": "Optimal transport framework characterizing and comparing spatial relationships among genes across conditions and time.",
+    "platforms": [],
+    "stars": null,
+    "title": "Deciphering the gene-centric spatial dynamics across tissue and time with GeneSPOT",
+    "url": "https://doi.org/10.1038/s41592-026-03308-2",
+    "venue": "Nature methods"
+  },
   "10.1038/s41593-026-02267-3": {
     "added": "2026-08-04",
     "approach": [
@@ -25047,6 +25267,30 @@
     "stars": null,
     "title": "privateST: a feasible framework for privacy-preserving spatial transcriptomics prediction from histopathology images",
     "url": "https://doi.org/10.1038/s41598-026-55961-4",
+    "venue": "Scientific reports"
+  },
+  "10.1038/s41598-026-70919-2": {
+    "added": "2026-11-16",
+    "approach": [],
+    "code_url": null,
+    "confidence": 0.82,
+    "curated": false,
+    "date": "2026-10-05",
+    "id": "10.1038/s41598-026-70919-2",
+    "is_preprint": false,
+    "kind": [
+      "benchmark"
+    ],
+    "modality": [
+      "proteomics"
+    ],
+    "name": "Benchmarking cell segmentation in two Spatialomics platforms with open-source software",
+    "needs_review": false,
+    "one_liner": "Benchmarks fourteen cell segmentation algorithms against pathologist ground truth on spatial proteomics images.",
+    "platforms": [],
+    "stars": null,
+    "title": "Benchmarking cell segmentation in two Spatialomics platforms with open-source software",
+    "url": "https://doi.org/10.1038/s41598-026-70919-2",
     "venue": "Scientific reports"
   },
   "10.1038/s41698-019-0089-y": {
@@ -26191,6 +26435,35 @@
     "stars": null,
     "title": "The automated computational workflow QUICHE reveals structural definitions of antitumor responses in triple-negative breast cancer",
     "url": "https://doi.org/10.1038/s43018-026-01122-5",
+    "venue": "Nature cancer"
+  },
+  "10.1038/s43018-026-01270-8": {
+    "added": "2026-11-16",
+    "approach": [
+      "generative"
+    ],
+    "code_url": null,
+    "confidence": 0.82,
+    "curated": false,
+    "date": "2026-11-13",
+    "id": "10.1038/s43018-026-01270-8",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "proteomics",
+      "histology / imaging-only"
+    ],
+    "name": "Hist2Prot",
+    "needs_review": false,
+    "one_liner": "Deep learning model that predicts single-cell spatial proteomic profiles from routine H&E histology images.",
+    "platforms": [
+      "H&E / histology"
+    ],
+    "stars": null,
+    "title": "The deep learning framework Hist2Prot infers single-cell spatial proteomics from histology to predict biomarkers and clinical outcomes",
+    "url": "https://doi.org/10.1038/s43018-026-01270-8",
     "venue": "Nature cancer"
   },
   "10.1038/s43587-026-01219-7": {
@@ -31372,6 +31645,32 @@
     "url": "https://doi.org/10.1093/bib/bbag606",
     "venue": "Briefings in bioinformatics"
   },
+  "10.1093/bib/bbag615": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.8,
+    "curated": false,
+    "date": "2026-11-01",
+    "id": "10.1093/bib/bbag615",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "ASAOT",
+    "needs_review": false,
+    "one_liner": "Asymmetric optimal transport framework with sharpening regularization for spatial deconvolution and single-cell mapping.",
+    "platforms": [],
+    "stars": null,
+    "title": "ASAOT: an accentuated structure-differentiated asymmetric optimal transport model for cell type and single-cell spatial mapping",
+    "url": "https://doi.org/10.1093/bib/bbag615",
+    "venue": "Briefings in bioinformatics"
+  },
   "10.1093/bib/bbag621": {
     "added": "2026-11-09",
     "approach": [
@@ -31396,6 +31695,34 @@
     "stars": null,
     "title": "IsoPrism predicts isoform usage from short-read transcriptomes through structure-guided competitive allocation",
     "url": "https://doi.org/10.1093/bib/bbag621",
+    "venue": "Briefings in bioinformatics"
+  },
+  "10.1093/bib/bbag623": {
+    "added": "2026-11-16",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-11-01",
+    "id": "10.1093/bib/bbag623",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "spaDWGCN",
+    "needs_review": false,
+    "one_liner": "Distance-weighted graph convolutional network jointly modeling expression and neighborhood composition for spatial domains.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "spaDWGCN: a spatial distance weighted graph convolution network for accurate spatial tissue structure identification",
+    "url": "https://doi.org/10.1093/bib/bbag623",
     "venue": "Briefings in bioinformatics"
   },
   "10.1093/bioadv/vbac048": {
@@ -35883,6 +36210,33 @@
     "stars": null,
     "title": "TRACER: Twin-contrastive learning for fine-grained and rare spatial domain identification in spatial transcriptomics",
     "url": "https://doi.org/10.1093/bioinformatics/btag805",
+    "venue": "Bioinformatics (Oxford, England)"
+  },
+  "10.1093/bioinformatics/btag829": {
+    "added": "2026-11-16",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.8,
+    "curated": false,
+    "date": "2026-11-12",
+    "id": "10.1093/bioinformatics/btag829",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "histology / imaging-only"
+    ],
+    "name": "CroSP",
+    "needs_review": false,
+    "one_liner": "Multi-view graph autoencoder integrating expression, location and morphology for spatial domain identification.",
+    "platforms": [],
+    "stars": null,
+    "title": "Deep learning-based enhancing spatial biological context parsing",
+    "url": "https://doi.org/10.1093/bioinformatics/btag829",
     "venue": "Bioinformatics (Oxford, England)"
   },
   "10.1093/bioinformatics/btw548": {
@@ -71437,6 +71791,33 @@
     "url": "https://doi.org/10.1371/journal.pcbi.1014923",
     "venue": "PLoS computational biology"
   },
+  "10.1371/journal.pcbi.1014954": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.82,
+    "curated": false,
+    "date": "2026-11-11",
+    "id": "10.1371/journal.pcbi.1014954",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "proteomics",
+      "transcriptomics"
+    ],
+    "name": "Sphinx",
+    "needs_review": false,
+    "one_liner": "R package for adaptive spatial neighborhood modeling, cell annotation, and functional analysis in spatial proteomics.",
+    "platforms": [],
+    "stars": null,
+    "title": "Sphinx: An R package for adaptive spatial neighborhood modeling and functional analysis in spatial omics",
+    "url": "https://doi.org/10.1371/journal.pcbi.1014954",
+    "venue": "PLoS computational biology"
+  },
   "10.1371/journal.pgen.1010983": {
     "added": "2026-08-04",
     "approach": [
@@ -72713,6 +73094,62 @@
     "stars": null,
     "title": "Joint spatial and gene fine-mapping reveals convergent neuroanatomical niches but limited overlap among associated genes in psychiatric disorders",
     "url": "https://doi.org/10.21203/rs.3.rs-11193156/v1",
+    "venue": "PPR"
+  },
+  "10.21203/rs.3.rs-11339003/v1": {
+    "added": "2026-11-16",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-11-13",
+    "id": "10.21203/rs.3.rs-11339003/v1",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "MuSpec",
+    "needs_review": false,
+    "one_liner": "Multi-scale attention-fusion encoder that learns spatial niche embeddings from spatial transcriptomics data.",
+    "platforms": [
+      "Stereo-seq"
+    ],
+    "stars": null,
+    "title": "MuSpec: an unsupervised multi-scale spatial-niche encoder recovers conserved granuloma niches and nominates host-directed repurposing candidates in human pulmonary tuberculosis",
+    "url": "https://doi.org/10.21203/rs.3.rs-11339003/v1",
+    "venue": "PPR"
+  },
+  "10.21203/rs.3.rs-11482224/v1": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.75,
+    "curated": false,
+    "date": "2026-11-13",
+    "id": "10.21203/rs.3.rs-11482224/v1",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "SpaCoDA",
+    "needs_review": false,
+    "one_liner": "Fast compositional deconvolution method identifies and integrates recurrent cellular niches across hundreds of spatial sections.",
+    "platforms": [
+      "Visium"
+    ],
+    "stars": null,
+    "title": "SpaCoDA: fast compositional deconvolution maps recurrent cellular niches across hundreds of spatial transcriptomics sections",
+    "url": "https://doi.org/10.21203/rs.3.rs-11482224/v1",
     "venue": "PPR"
   },
   "10.21203/rs.3.rs-119776/v1": {
@@ -88650,6 +89087,30 @@
     "url": "https://doi.org/10.64898/2026.10.06.757026",
     "venue": "PPR"
   },
+  "10.64898/2026.10.06.757132": {
+    "added": "2026-11-16",
+    "approach": [],
+    "code_url": null,
+    "confidence": 0.8,
+    "curated": false,
+    "date": "2026-10-07",
+    "id": "10.64898/2026.10.06.757132",
+    "is_preprint": true,
+    "kind": [
+      "assay"
+    ],
+    "modality": [
+      "multi-omics"
+    ],
+    "name": "REZCUE",
+    "needs_review": false,
+    "one_liner": "Antigen retrieval chemistry enabling 3D multiplexed imaging and multi-omic profiling of archived FFPE tissue.",
+    "platforms": [],
+    "stars": null,
+    "title": "REZCUE: 3D spatial multi-omics profiling from archived FFPE tissue",
+    "url": "https://doi.org/10.64898/2026.10.06.757132",
+    "venue": "PPR"
+  },
   "10.64898/2026.10.06.757143": {
     "added": "2026-10-19",
     "approach": [
@@ -89519,6 +89980,35 @@
     "url": "https://doi.org/10.64898/2026.10.29.762851",
     "venue": "PPR"
   },
+  "10.64898/2026.10.29.762926": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.75,
+    "curated": false,
+    "date": "2026-11-09",
+    "id": "10.64898/2026.10.29.762926",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "THiRST",
+    "needs_review": false,
+    "one_liner": "Registers and integrates serial 2D spatial transcriptomics sections into multi-resolution 3D tissue representations.",
+    "platforms": [
+      "Visium",
+      "Visium HD"
+    ],
+    "stars": null,
+    "title": "THiRST: Computer Vision Empowered Three-Dimensional High-Resolution Spatial Transcriptomics Analytics",
+    "url": "https://doi.org/10.64898/2026.10.29.762926",
+    "venue": "PPR"
+  },
   "10.64898/2026.10.29.762981": {
     "added": "2026-11-09",
     "approach": [
@@ -89771,6 +90261,33 @@
     "url": "https://doi.org/10.64898/2026.11.05.764509",
     "venue": "PPR"
   },
+  "10.64898/2026.11.05.764699": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.8,
+    "curated": false,
+    "date": "2026-11-09",
+    "id": "10.64898/2026.11.05.764699",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "histology / imaging-only"
+    ],
+    "name": "MorphoANOVA",
+    "needs_review": false,
+    "one_liner": "Gene-wise spatially varying coefficient model and ANOVA to dissect morphology-expression associations in spatial transcriptomics.",
+    "platforms": [],
+    "stars": null,
+    "title": "MorphoANOVA: Dissecting Histology–Gene Expression Relationships in Spatial Transcriptomics",
+    "url": "https://doi.org/10.64898/2026.11.05.764699",
+    "venue": "PPR"
+  },
   "10.64898/2026.11.05.764753": {
     "added": "2026-11-09",
     "approach": [
@@ -89795,6 +90312,34 @@
     "stars": null,
     "title": "scCircaSim: A Circadian Simulator for Single-Cell and Spatial Transcriptomics",
     "url": "https://doi.org/10.64898/2026.11.05.764753",
+    "venue": "PPR"
+  },
+  "10.64898/2026.11.05.764757": {
+    "added": "2026-11-16",
+    "approach": [
+      "LLM / agent"
+    ],
+    "code_url": null,
+    "confidence": 0.68,
+    "curated": false,
+    "date": "2026-11-09",
+    "id": "10.64898/2026.11.05.764757",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "scPolyA",
+    "needs_review": true,
+    "one_liner": "AI framework quantifying alternative polyadenylation in single-cell/spatial transcriptomes via deep learning and NL agent.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": null,
+    "title": "scPolyA enables efficient, interactive and agent-guided alternative polyadenylation analysis in single-cell and spatial transcriptomes",
+    "url": "https://doi.org/10.64898/2026.11.05.764757",
     "venue": "PPR"
   },
   "10.64898/2026.11.06.764689": {
@@ -89822,6 +90367,169 @@
     "stars": null,
     "title": "SPACE-Tag Enables High-Throughput Spatial Chromatin Profiling With CUT&Tag",
     "url": "https://doi.org/10.64898/2026.11.06.764689",
+    "venue": "PPR"
+  },
+  "10.64898/2026.11.07.765042": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-11-09",
+    "id": "10.64898/2026.11.07.765042",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "PRISM",
+    "needs_review": false,
+    "one_liner": "Expectation-maximization framework assigning cell-type identity while correcting ambient RNA contamination and segmentation doublets.",
+    "platforms": [
+      "Visium HD"
+    ],
+    "stars": null,
+    "title": "PRISM: probabilistic cell-type resolution with integrated spatial modelling for simultaneous ambient RNA decontamination and doublet correction in spatial transcriptomics",
+    "url": "https://doi.org/10.64898/2026.11.07.765042",
+    "venue": "PPR"
+  },
+  "10.64898/2026.11.07.765075": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.88,
+    "curated": false,
+    "date": "2026-11-10",
+    "id": "10.64898/2026.11.07.765075",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "SigDoTS",
+    "needs_review": false,
+    "one_liner": "Hierarchical hypothesis-testing framework to decide merging/retention of candidate spatial domains.",
+    "platforms": [],
+    "stars": null,
+    "title": "Statistical significance testing for spatial domain detection in spatial transcriptomics",
+    "url": "https://doi.org/10.64898/2026.11.07.765075",
+    "venue": "PPR"
+  },
+  "10.64898/2026.11.08.765157": {
+    "added": "2026-11-16",
+    "approach": [
+      "foundation model"
+    ],
+    "code_url": null,
+    "confidence": 0.7,
+    "curated": false,
+    "date": "2026-11-10",
+    "id": "10.64898/2026.11.08.765157",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "LingoCell",
+    "needs_review": false,
+    "one_liner": "Foundation model aligning single-cell and spatial transcriptomic representations with language for annotation and perturbation analysis.",
+    "platforms": [],
+    "stars": null,
+    "title": "LingoCell interprets gene perturbations through natural language and tissue niches",
+    "url": "https://doi.org/10.64898/2026.11.08.765157",
+    "venue": "PPR"
+  },
+  "10.64898/2026.11.09.765244": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-11-10",
+    "id": "10.64898/2026.11.09.765244",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "spSheaf",
+    "needs_review": false,
+    "one_liner": "Sheaf-theoretic method infers spatial domains directly from raw molecules without cell segmentation.",
+    "platforms": [
+      "MERFISH"
+    ],
+    "stars": null,
+    "title": "spSheaf: sheaf-theoretic spatial domain inference from raw molecules without cell segmentation",
+    "url": "https://doi.org/10.64898/2026.11.09.765244",
+    "venue": "PPR"
+  },
+  "10.64898/2026.11.11.765722": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": null,
+    "confidence": 0.85,
+    "curated": false,
+    "date": "2026-11-13",
+    "id": "10.64898/2026.11.11.765722",
+    "is_preprint": true,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "metabolomics"
+    ],
+    "name": "msiFlow 2.0",
+    "needs_review": false,
+    "one_liner": "Extended open-source workflow adding mass recalibration, lipid annotation, batch correction and QC to MSI data processing.",
+    "platforms": [
+      "MALDI-MSI"
+    ],
+    "stars": null,
+    "title": "msiFlow 2.0: Extending Mass Spectrometry Imaging Workflows with Mass Recalibration, Annotation, Batch Correction, and Visual Quality Control",
+    "url": "https://doi.org/10.64898/2026.11.11.765722",
+    "venue": "PPR"
+  },
+  "10.64898/2026.11.12.766149": {
+    "added": "2026-11-16",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": null,
+    "confidence": 0.88,
+    "curated": false,
+    "date": "2026-11-13",
+    "id": "10.64898/2026.11.12.766149",
+    "is_preprint": true,
+    "kind": [
+      "assay",
+      "method"
+    ],
+    "modality": [
+      "multi-omics"
+    ],
+    "name": "Perturb-Tags",
+    "needs_review": false,
+    "one_liner": "Spatially barcoded pooled CRISPR screening measuring expression, guides, chromatin accessibility, and position jointly.",
+    "platforms": [],
+    "stars": null,
+    "title": "Spatial multi-omic profiling of non-autonomous transcriptomic and epigenomic responses to genetic perturbation",
+    "url": "https://doi.org/10.64898/2026.11.12.766149",
     "venue": "PPR"
   },
   "10.7150/thno.134316": {
@@ -90305,6 +91013,35 @@
     "stars": 114,
     "title": "STalign",
     "url": "https://github.com/JEFworks-Lab/STalign",
+    "venue": "GitHub"
+  },
+  "JianYang-Lab/gsMap": {
+    "added": "2026-11-16",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": "https://github.com/JianYang-Lab/gsMap",
+    "confidence": 0.7,
+    "curated": false,
+    "date": "2023-12-13",
+    "id": "JianYang-Lab/gsMap",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics",
+      "genomics"
+    ],
+    "name": "gsMap",
+    "needs_review": false,
+    "one_liner": "Integrates GWAS summary statistics with spatial transcriptomics via GNN embeddings to map trait-associated cells.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": 230,
+    "title": "gsMap",
+    "url": "https://github.com/JianYang-Lab/gsMap",
     "venue": "GitHub"
   },
   "JinmiaoChenLab/SpatialGlue": {
@@ -91077,6 +91814,62 @@
     "stars": 27,
     "title": "STQ",
     "url": "https://github.com/TheJacksonLaboratory/STQ",
+    "venue": "GitHub"
+  },
+  "YeoLab/bento-tools": {
+    "added": "2026-11-16",
+    "approach": [
+      "classical / statistical"
+    ],
+    "code_url": "https://github.com/YeoLab/bento-tools",
+    "confidence": 0.6,
+    "curated": false,
+    "date": "2020-03-30",
+    "id": "YeoLab/bento-tools",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "bento-tools",
+    "needs_review": true,
+    "one_liner": "Python toolkit for subcellular spatial analysis of spatial transcriptomics data.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": 89,
+    "title": "bento-tools",
+    "url": "https://github.com/YeoLab/bento-tools",
+    "venue": "GitHub"
+  },
+  "YosefLab/scviva-tools": {
+    "added": "2026-11-16",
+    "approach": [
+      "deep learning"
+    ],
+    "code_url": "https://github.com/YosefLab/scviva-tools",
+    "confidence": 0.3,
+    "curated": false,
+    "date": "2026-01-18",
+    "id": "YosefLab/scviva-tools",
+    "is_preprint": false,
+    "kind": [
+      "method"
+    ],
+    "modality": [
+      "transcriptomics"
+    ],
+    "name": "scVIVA-Tools",
+    "needs_review": true,
+    "one_liner": "Unified software toolkit for analyzing spatial transcriptomics data.",
+    "platforms": [
+      "platform-agnostic"
+    ],
+    "stars": 16,
+    "title": "scviva-tools",
+    "url": "https://github.com/YosefLab/scviva-tools",
     "venue": "GitHub"
   },
   "YuLab-SMU/ggsc": {

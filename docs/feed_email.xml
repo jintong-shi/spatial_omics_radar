@@ -3,62 +3,69 @@
 <title>Spatial Omics Radar — email digest</title>
 <link>https://jintong-shi.github.io/spatial_omics_radar/</link>
 <description>New technologies, tools, AI models and benchmarks across spatial omics</description>
-<lastBuildDate>Mon, 09 Nov 2026 14:53:35 +0000</lastBuildDate>
+<lastBuildDate>Mon, 16 Nov 2026 14:28:48 +0000</lastBuildDate>
 <item>
-<title>Weekly update · 50 new entries</title>
-<link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-11-02</link>
-<guid isPermaLink="false">weekly-email-2026-W46</guid>
-<pubDate>Mon, 09 Nov 2026 14:53:35 +0000</pubDate>
-<description><![CDATA[<p>50 new entries this week, spanning transcriptomics, histology / imaging-only, proteomics, metabolomics, and 3 more.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.11.04.764438">CytoBridge</a></strong><br>Reconstructs continuous cell trajectories and interactions from discrete spatial transcriptomics via Schrödinger bridge modeling.</p>
-<p><strong><a href="https://doi.org/10.1371/journal.pgen.1012345">SWIMR</a></strong><br>Statistical framework integrating multiple scRNA-seq references with spatial correlations for cell-type deconvolution.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.11.05.764509">SSAF-T</a></strong><br>Agentic, segmentation-free framework using LLM agents to infer cell types directly from spatial expression.</p>
-<p><strong><a href="https://doi.org/10.21203/rs.3.rs-10951651/v1">spAlignDE</a></strong><br>Diffeomorphic registration framework aligning spatial data across samples and modalities with mismatch-aware differential expression.</p>
-<p><strong><a href="https://doi.org/10.1093/bib/bbag606">spOT-NMF</a></strong><br>Optimal-transport-based NMF deconvolves mixed spatial transcriptomic signals and maps spatial niches without matched references.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.28.762703">ARCADE</a></strong><br>Framework building robust references and decoupling cell-type abundance from continuous transcriptional state in spatial data.</p>
-<p><strong><a href="https://doi.org/10.1093/bioinformatics/btag805">TRACER</a></strong><br>Twin-contrastive graph autoencoder identifies fine-grained and rare spatial domains in transcriptomics data.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.11.01.763496">OncoSpot</a></strong><br>Cancer-aware simulator generating ground-truth spot-based ST data to benchmark copy-number and subclone inference methods.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.11.05.764753">scCircaSim</a></strong><br>Simulates circadian single-cell and spatial transcriptomic data with known phase ground truth for method evaluation.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.30.763100">SpaceBlocks</a></strong><br>Snakemake workflow homogenizing multi-platform spatial transcriptomics data for expert-supervised cohort analysis.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.11.03.764126">Tracel</a></strong><br>Two-stage optimal transport framework reassigning transcripts/bins to cells using a scRNA-seq reference.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.11.04.764463">DisCell</a></strong><br>Generative latent-variable model separating intrinsic state, niche response, and spillover in single-cell spatial data.</p>
-<p><strong><a href="https://doi.org/10.1371/journal.pcbi.1014923">SpatioCAD</a></strong><br>Graph diffusion model that detects spatially variable genes while correcting for cell-density confounding.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.29.762981">InSpace</a></strong><br>Framework mapping transcripts to radial coordinates and measuring distance-dependent molecular co-occurrence within cells.</p>
-<p><strong><a href="https://doi.org/10.1093/bib/bbag621">IsoPrism</a></strong><br>Structure-guided iterative allocation framework predicting isoform usage from short-read single-cell/spatial transcriptomes.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.11.06.764689">SPACE-Tag</a></strong><br>Converts chromatin-bound DNA marks into RNA for spatial CUT&amp;Tag profiling via standard transcriptomic workflows.</p>
-<p><strong><a href="https://doi.org/10.3389/fgene.2026.1977260">SubPoE</a></strong><br>Subgraph-induced Product-of-Experts graph model fusing spatial multi-omics modalities via uncertainty-aware encoders.</p>
-<p><strong><a href="https://doi.org/10.1093/bib/bbag520">SpaMEDM</a></strong><br>Masked autoencoder with diffusion-based latent regularization for spatial multi-omics domain identification.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.11.02.763811">QUEST</a></strong><br>Predicts multiplex immunofluorescence protein expression images from routine H&amp;E histology using query-based model.</p>
-<p><strong><a href="https://europepmc.org/article/PMC/PMC13742563">STARgrid</a></strong><br>Open-source pipeline processing Visium HD sequencing reads into spatial gene expression count matrices.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.29.762851">TileScope</a></strong><br>Framework combining regional enrichment, correlation and boundary statistics to analyze spatial gene expression organization.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.11.03.763929">PixAQ</a></strong><br>Probabilistic marker-specific pixel attribution improving single-cell protein quantification from imaging mass cytometry.</p>
-<p><strong><a href="https://doi.org/10.21203/rs.3.rs-10911194/v1">Atera</a></strong><br>Independent evaluation comparing Atera whole-transcriptome spatial platform against Xenium in DCIS tissue.</p>
+<title>Weekly update · 57 new entries</title>
+<link>https://jintong-shi.github.io/spatial_omics_radar/?since=2026-11-09</link>
+<guid isPermaLink="false">weekly-email-2026-W47</guid>
+<pubDate>Mon, 16 Nov 2026 14:28:48 +0000</pubDate>
+<description><![CDATA[<p>57 new entries this week, spanning transcriptomics, proteomics, histology / imaging-only, multi-omics, and 3 more.</p>
+<p><strong><a href="https://doi.org/10.1371/journal.pcbi.1014954">Sphinx</a></strong><br>R package for adaptive spatial neighborhood modeling, cell annotation, and functional analysis in spatial proteomics.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.07.765075">SigDoTS</a></strong><br>Hierarchical hypothesis-testing framework to decide merging/retention of candidate spatial domains.</p>
+<p><strong><a href="https://doi.org/10.1038/s41598-026-70919-2">Benchmarking cell segmentation in two Spatialomics platforms with open-source software</a></strong><br>Benchmarks fourteen cell segmentation algorithms against pathologist ground truth on spatial proteomics images.</p>
+<p><strong><a href="https://doi.org/10.1093/bib/bbag623">spaDWGCN</a></strong><br>Distance-weighted graph convolutional network jointly modeling expression and neighborhood composition for spatial domains.</p>
+<p><strong><a href="https://doi.org/10.1016/j.xgen.2026.101420">SPIN</a></strong><br>Integrates subject-specific spatial co-expression networks with Bayesian scalar-on-network regression for clinical prediction.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.05.764699">MorphoANOVA</a></strong><br>Gene-wise spatially varying coefficient model and ANOVA to dissect morphology-expression associations in spatial transcriptomics.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.29.762926">THiRST</a></strong><br>Registers and integrates serial 2D spatial transcriptomics sections into multi-resolution 3D tissue representations.</p>
+<p><strong><a href="https://doi.org/10.1038/s41467-026-78316-z">GESSO</a></strong><br>Estimates spatial gene set activity scores with gene-level contributions and location-specific statistical tests.</p>
+<p><strong><a href="https://doi.org/10.1093/bib/bbag615">ASAOT</a></strong><br>Asymmetric optimal transport framework with sharpening regularization for spatial deconvolution and single-cell mapping.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.07.765042">PRISM</a></strong><br>Expectation-maximization framework assigning cell-type identity while correcting ambient RNA contamination and segmentation doublets.</p>
+<p><strong><a href="https://doi.org/10.1038/s41592-026-03308-2">GeneSPOT</a></strong><br>Optimal transport framework characterizing and comparing spatial relationships among genes across conditions and time.</p>
+<p><strong><a href="https://doi.org/10.1093/bioinformatics/btag829">CroSP</a></strong><br>Multi-view graph autoencoder integrating expression, location and morphology for spatial domain identification.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.08.765157">LingoCell</a></strong><br>Foundation model aligning single-cell and spatial transcriptomic representations with language for annotation and perturbation analysis.</p>
+<p><strong><a href="https://doi.org/10.1016/j.crmeth.2026.101661">PIANO</a></strong><br>Generative autoencoder framework integrating single-cell and spatial transcriptomics across species and scales to 100M cells.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.09.765244">spSheaf</a></strong><br>Sheaf-theoretic method infers spatial domains directly from raw molecules without cell segmentation.</p>
+<p><strong><a href="https://doi.org/10.21203/rs.3.rs-11482224/v1">SpaCoDA</a></strong><br>Fast compositional deconvolution method identifies and integrates recurrent cellular niches across hundreds of spatial sections.</p>
+<p><strong><a href="https://doi.org/10.1038/s41467-026-78447-3">MacSGP</a></strong><br>Graph neural network and probabilistic framework identifies cell-type-specific spatial gene expression programs defining tissue niches.</p>
+<p><strong><a href="https://doi.org/10.1038/s43018-026-01270-8">Hist2Prot</a></strong><br>Deep learning model that predicts single-cell spatial proteomic profiles from routine H&amp;E histology images.</p>
+<p><strong><a href="https://doi.org/10.1016/j.crmeth.2026.101663">CONCLAVE</a></strong><br>Consensus-clustering workflow combining multiple algorithms to produce robust cell annotations from cyclic multiplexed immunofluorescence data.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.11.765722">msiFlow 2.0</a></strong><br>Extended open-source workflow adding mass recalibration, lipid annotation, batch correction and QC to MSI data processing.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.06.757132">REZCUE</a></strong><br>Antigen retrieval chemistry enabling 3D multiplexed imaging and multi-omic profiling of archived FFPE tissue.</p>
+<p><strong><a href="https://doi.org/10.1038/s41592-026-03296-3">BCR-MERFISH</a></strong><br>Measures plasma cell clonality and V gene usage alongside transcriptome profiling in situ.</p>
+<p><strong><a href="https://doi.org/10.1016/j.xpro.2026.104946">Protocol for integrated multimodal spatial RNA and protein profiling using Xenium and MACSima</a></strong><br>Protocol and scripts for combined spatial RNA (Xenium) and cyclic protein (MACSima) imaging on same section.</p>
+<p><strong><a href="https://doi.org/10.21203/rs.3.rs-11339003/v1">MuSpec</a></strong><br>Multi-scale attention-fusion encoder that learns spatial niche embeddings from spatial transcriptomics data.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.12.766149">Perturb-Tags</a></strong><br>Spatially barcoded pooled CRISPR screening measuring expression, guides, chromatin accessibility, and position jointly.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.05.764757">scPolyA</a></strong><br>AI framework quantifying alternative polyadenylation in single-cell/spatial transcriptomes via deep learning and NL agent.</p>
+<p><strong><a href="https://github.com/JianYang-Lab/gsMap">gsMap</a></strong><br>Integrates GWAS summary statistics with spatial transcriptomics via GNN embeddings to map trait-associated cells.</p>
+<p><strong><a href="https://github.com/YosefLab/scviva-tools">scVIVA-Tools</a></strong><br>Unified software toolkit for analyzing spatial transcriptomics data.</p>
+<p><strong><a href="https://github.com/YeoLab/bento-tools">bento-tools</a></strong><br>Python toolkit for subcellular spatial analysis of spatial transcriptomics data.</p>
 <p><strong><a href="https://doi.org/10.1021/acs.analchem.6c04393">A Cooperative Matrix for Enhanced MALDI MSI of Metabolic Alterations Associated with Oxidative Stress in Spinal Cord Injury</a></strong><br>Dual-component co-matrix for MALDI MSI enabling broad-spectrum imaging of oxidative-stress-related metabolites.</p>
 <p><strong><a href="https://doi.org/10.1021/jasms.6c00180">A Streamlined Approach for Spatial Matrisomics with High-Confidence Annotation of Extracellular Protein Alterations in Functional Tissue Units</a></strong><br>Parallel FFPE MALDI-MSI/LC-MS workflow with an open-source mass-matching pipeline for spatial ECM peptide annotation.</p>
+<p><strong><a href="https://doi.org/10.1093/bib/bbag520">SpaMEDM</a></strong><br>Masked autoencoder with diffusion-based latent regularization for spatial multi-omics domain identification.</p>
+<p><strong><a href="https://doi.org/10.1093/bib/bbag606">spOT-NMF</a></strong><br>Optimal-transport-based NMF deconvolves mixed spatial transcriptomic signals and maps spatial niches without matched references.</p>
+<p><strong><a href="https://doi.org/10.1093/bib/bbag621">IsoPrism</a></strong><br>Structure-guided iterative allocation framework predicting isoform usage from short-read single-cell/spatial transcriptomes.</p>
+<p><strong><a href="https://doi.org/10.1093/bioinformatics/btag805">TRACER</a></strong><br>Twin-contrastive graph autoencoder identifies fine-grained and rare spatial domains in transcriptomics data.</p>
+<p><strong><a href="https://doi.org/10.1371/journal.pcbi.1014923">SpatioCAD</a></strong><br>Graph diffusion model that detects spatially variable genes while correcting for cell-density confounding.</p>
+<p><strong><a href="https://doi.org/10.1371/journal.pgen.1012345">SWIMR</a></strong><br>Statistical framework integrating multiple scRNA-seq references with spatial correlations for cell-type deconvolution.</p>
+<p><strong><a href="https://doi.org/10.21203/rs.3.rs-10911194/v1">Atera</a></strong><br>Independent evaluation comparing Atera whole-transcriptome spatial platform against Xenium in DCIS tissue.</p>
+<p><strong><a href="https://doi.org/10.21203/rs.3.rs-10951651/v1">spAlignDE</a></strong><br>Diffeomorphic registration framework aligning spatial data across samples and modalities with mismatch-aware differential expression.</p>
+<p><strong><a href="https://doi.org/10.3389/fgene.2026.1977260">SubPoE</a></strong><br>Subgraph-induced Product-of-Experts graph model fusing spatial multi-omics modalities via uncertainty-aware encoders.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.28.762703">ARCADE</a></strong><br>Framework building robust references and decoupling cell-type abundance from continuous transcriptional state in spatial data.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.29.762851">TileScope</a></strong><br>Framework combining regional enrichment, correlation and boundary statistics to analyze spatial gene expression organization.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.29.762981">InSpace</a></strong><br>Framework mapping transcripts to radial coordinates and measuring distance-dependent molecular co-occurrence within cells.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.10.30.763100">SpaceBlocks</a></strong><br>Snakemake workflow homogenizing multi-platform spatial transcriptomics data for expert-supervised cohort analysis.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.01.763496">OncoSpot</a></strong><br>Cancer-aware simulator generating ground-truth spot-based ST data to benchmark copy-number and subclone inference methods.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.02.763811">QUEST</a></strong><br>Predicts multiplex immunofluorescence protein expression images from routine H&amp;E histology using query-based model.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.03.763929">PixAQ</a></strong><br>Probabilistic marker-specific pixel attribution improving single-cell protein quantification from imaging mass cytometry.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.03.764126">Tracel</a></strong><br>Two-stage optimal transport framework reassigning transcripts/bins to cells using a scRNA-seq reference.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.04.764438">CytoBridge</a></strong><br>Reconstructs continuous cell trajectories and interactions from discrete spatial transcriptomics via Schrödinger bridge modeling.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.04.764463">DisCell</a></strong><br>Generative latent-variable model separating intrinsic state, niche response, and spillover in single-cell spatial data.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.05.764509">SSAF-T</a></strong><br>Agentic, segmentation-free framework using LLM agents to infer cell types directly from spatial expression.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.05.764753">scCircaSim</a></strong><br>Simulates circadian single-cell and spatial transcriptomic data with known phase ground truth for method evaluation.</p>
+<p><strong><a href="https://doi.org/10.64898/2026.11.06.764689">SPACE-Tag</a></strong><br>Converts chromatin-bound DNA marks into RNA for spatial CUT&amp;Tag profiling via standard transcriptomic workflows.</p>
+<p><strong><a href="https://europepmc.org/article/PMC/PMC13742563">STARgrid</a></strong><br>Open-source pipeline processing Visium HD sequencing reads into spatial gene expression count matrices.</p>
 <p><strong><a href="https://github.com/kaishumason/NicheDE">NicheDE</a></strong><br>Detects context-dependent (niche-associated) gene expression changes in spatial transcriptomics data.</p>
 <p><strong><a href="https://github.com/secrierlab/EnrichMap">EnrichMap</a></strong><br>Performs spatially-informed gene set enrichment analysis for functional interpretation of spatial transcriptomics data.</p>
-<p><strong><a href="https://github.com/y-itao/STAIG">STAIG</a></strong><br>Image-aided graph contrastive learning for clustering and alignment-free integration of spatial transcriptomics datasets.</p>
-<p><strong><a href="https://doi.org/10.1002/advs.78423">SpaCut</a></strong><br>Deep learning framework fusing transcript and morphology features for accurate subcellular spatial transcriptomics cell segmentation.</p>
-<p><strong><a href="https://doi.org/10.1002/rcm.70168">Automated Tissue Classification and Candidate Biomarker Feature Extraction in Mass Spectrometry Imaging Based on Interpretable Deep Learning Algorithm</a></strong><br>CNN-based pipeline with Grad-CAM/SHAP classifies MSI tissue layers and extracts discriminative spectral features.</p>
-<p><strong><a href="https://doi.org/10.1016/j.aca.2026.346280">TAPT-DFTA matrix</a></strong><br>Fluorinated triazine COF matrix integrates PFOS adsorption and ionization for ultrasensitive MALDI tissue imaging.</p>
-<p><strong><a href="https://doi.org/10.1016/j.compbiolchem.2026.109506">GeneCMamba</a></strong><br>Autoregressive state-space model predicting spatial gene expression tokens from H&amp;E histology images.</p>
-<p><strong><a href="https://doi.org/10.1016/j.crmeth.2026.101646">RIF</a></strong><br>Graph neural network framework identifying fine-grained, interpretable spatial domains across spatial transcriptomics platforms.</p>
-<p><strong><a href="https://doi.org/10.1016/j.jare.2026.10.039">soDGVAE</a></strong><br>Conditional graph attention variational autoencoder that harmonizes and aligns multi-source spatial transcriptomics data.</p>
-<p><strong><a href="https://doi.org/10.1021/acs.analchem.6c05938">PDA/COF LACFI-MSI platform</a></strong><br>Novel polydopamine/COF composite substrate boosts sensitivity of laser ablation carbon fiber ionization mass spectrometry imaging.</p>
-<p><strong><a href="https://doi.org/10.1038/s41467-026-77908-z">DR-GEM</a></strong><br>Self-supervised meta-algorithm improving single-cell/spatial embeddings by recovering rare cell types and noise filtering.</p>
-<p><strong><a href="https://doi.org/10.1038/s41592-026-03289-2">ATLAS</a></strong><br>Encodes learned transcriptional signatures in situ via oligo probes to map cell types at atlas scale.</p>
-<p><strong><a href="https://doi.org/10.1126/sciadv.ady5085">Decoder-FFPE-seq</a></strong><br>Dendrimeric DNA barcoding assay for sensitive, genome-wide, single-cell spatial transcriptomics on FFPE tissue.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.20.760439">ALHENA</a></strong><br>H&amp;E encoder distilled from transcriptomic models that predicts gene expression and cell types from histology alone.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.22.760550">DeepMAST</a></strong><br>Evidence-governed multi-agent AI system that runs spatial transcriptomics workflows and prioritizes candidate targets.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.23.761433">Inferring somatic copy number aberrations from spatial transcriptomics data to study early cancer development</a></strong><br>Pipeline that infers and spatially maps somatic copy number aberration-defined cell populations from Xenium data.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.23.761453">NicheCorr</a></strong><br>Statistical procedure detecting niche-specific gene co-expression changes and ligand-receptor signaling in spatial transcriptomics.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.26.759336">PatHoST</a></strong><br>Weakly supervised model that reconstructs pathogen spatial distributions from host-only spatial transcriptomes.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.26.761813">Kontext</a></strong><br>Kernel-based framework identifying spatial domains grounded in ligand-receptor cell-cell communication patterns.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.26.761912">smoothclust</a></strong><br>Spatial-smoothing clustering workflow plus boundary-density metric summarizing spatial domain organization.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.27.762082">Spatialsnake</a></strong><br>Snakemake-based workflow for analysing processed spatial transcriptomics data across multiple platforms.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.28.758685">SpaceDX</a></strong><br>Attention-based spatial weighting framework that jointly tests and localizes differential expression across subjects.</p>
-<p><strong><a href="https://doi.org/10.64898/2026.10.28.761959">Live-ST</a></strong><br>Electroporation-based spatial barcoding technology enabling repeated, non-destructive spatial transcriptomics in living tissue.</p>
-<p><strong><a href="https://github.com/TerminatorJ/Spatialformer">Spatialformer</a></strong><br>Transformer-based spatial representation learning model for single-cell spatial transcriptomics data.</p>
-<p><strong><a href="https://github.com/kresnajenie/merfisheyes">merfisheyes</a></strong><br>Next.js website for visualizing MERFISH spatial transcriptomics data.</p>]]></description>
+<p><strong><a href="https://github.com/y-itao/STAIG">STAIG</a></strong><br>Image-aided graph contrastive learning for clustering and alignment-free integration of spatial transcriptomics datasets.</p>]]></description>
 </item>
 </channel></rss>
