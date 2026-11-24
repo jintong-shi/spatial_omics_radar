@@ -16,6 +16,11 @@ EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 GH = "https://api.github.com/search/repositories"
 UA = {"User-Agent": "spatial-omics-radar (+https://github.com/)"}
 
+# EPMC goes down for maintenance / overload and answers 5xx. Retry those a few
+# times before giving up; waits are 15s, 30s, 60s (105s total worst case).
+EPMC_ATTEMPTS = 4
+EPMC_BACKOFF = 15
+
 
 def fetch_europepmc(query, since, page_size=100, max_pages=200):
     """Europe PMC covers PubMed *and* bioRxiv/medRxiv preprints in one index.
@@ -31,18 +36,27 @@ def fetch_europepmc(query, since, page_size=100, max_pages=200):
     out, cursor, pages = [], "*", 0
 
     while pages < max_pages:
-        r = requests.get(
-            EPMC,
-            params={
-                "query": scoped,
-                "format": "json",
-                "pageSize": page_size,
-                "cursorMark": cursor,
-                "resultType": "core",  # includes abstractText
-            },
-            headers=UA,
-            timeout=60,
-        )
+        for attempt in range(EPMC_ATTEMPTS):
+            r = requests.get(
+                EPMC,
+                params={
+                    "query": scoped,
+                    "format": "json",
+                    "pageSize": page_size,
+                    "cursorMark": cursor,
+                    "resultType": "core",  # includes abstractText
+                },
+                headers=UA,
+                timeout=60,
+            )
+            # Only 5xx is worth retrying: a 4xx means the query itself is bad
+            # and will fail identically however long we wait.
+            if r.status_code < 500 or attempt == EPMC_ATTEMPTS - 1:
+                break
+            wait = EPMC_BACKOFF * 2 ** attempt
+            print(f"EPMC returned {r.status_code}; retrying in {wait}s "
+                  f"(attempt {attempt + 1}/{EPMC_ATTEMPTS})", flush=True)
+            time.sleep(wait)
         r.raise_for_status()
         payload = r.json()
         results = payload.get("resultList", {}).get("result", [])
